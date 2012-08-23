@@ -3,6 +3,8 @@ var companion : GameObject;
 var playerScript : Character;
 var messenger : Messenger;
 var musicManager : MusicManager;
+var playerSpawnSeconds: int;
+var companionSpawnSeconds : int;
 
 function Start () {
     playerScript = player.GetComponent(Character);
@@ -54,10 +56,10 @@ function Test() {
 }
 
 function StartGame() {
-	yield WaitForSeconds(0);
+	yield WaitForSeconds(3);
 	playerScript.Enter();
-    yield WaitForSeconds(1);
+    yield WaitForSeconds(playerSpawnSeconds);
 	musicManager.SetTrack('Introduction');
-	yield WaitForSeconds(1);
+	yield WaitForSeconds(companionSpawnSeconds);
 	companion.GetComponent(Character).Enter();
 }

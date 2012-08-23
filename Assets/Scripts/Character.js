@@ -27,6 +27,7 @@ var alive : boolean = false;
 var state : String = 'normal';
 var targetX : float;
 var targetY : float;
+var speedMod : float = .3;
 function Awake() {
 	targetX = transform.position.x;
 	targetY = transform.position.y;
@@ -70,7 +71,7 @@ function UpdateAccel() {
 	
 }
 function UpdateSpeed () {
-	maxSpeed = 7 - radius;
+	maxSpeed = (8 - radius)*speedMod;
     if(force == true && speed < maxSpeed)
         speed += acceleration/50;
     else

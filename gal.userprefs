@@ -1,17 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/States/Dancing.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Spotlight.js">
     <Files>
-      <File FileName="Assets/Scripts/States/Dancing.js" Line="11" Column="41" />
-      <File FileName="Assets/Scripts/State.js" Line="15" Column="19" />
-      <File FileName="Assets/Scripts/PatternManager.js" Line="22" Column="31" />
-      <File FileName="Assets/Scripts/States/Waiting.js" Line="19" Column="22" />
-      <File FileName="Assets/Scripts/States/Listening.js" Line="71" Column="24" />
-      <File FileName="Assets/Scripts/Main.js" Line="57" Column="24" />
-      <File FileName="Assets/Scripts/Character.js" Line="32" Column="3" />
+      <File FileName="Assets/Scripts/States/Dancing.js" Line="9" Column="13" />
+      <File FileName="Assets/Scripts/PatternManager.js" Line="12" Column="3" />
+      <File FileName="Assets/Scripts/States/Listening.js" Line="64" Column="57" />
+      <File FileName="Assets/Scripts/Main.js" Line="63" Column="44" />
+      <File FileName="Assets/Scripts/Character.js" Line="22" Column="20" />
       <File FileName="Assets/Scripts/PlayerStates/PlayerWaiting.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.js" Line="12" Column="1" />
-      <File FileName="Assets/Scripts/States/Singing.js" Line="23" Column="18" />
+      <File FileName="Assets/Scripts/Player.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/States/Singing.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Companion.js" Line="33" Column="15" />
+      <File FileName="Assets/Scripts/StateManager.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/State.js" Line="11" Column="43" />
+      <File FileName="Assets/Scripts/Spotlight.js" Line="26" Column="35" />
+      <File FileName="Assets/Scripts/Aura.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

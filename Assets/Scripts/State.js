@@ -3,10 +3,12 @@
 var owner : Character;
 var startTime : float;
 var pattern: Array;
+var spotlight : GameObject;
 function Awake() {
 	enabled = false;
 }
 function OnEnable () {
+	spotlight = GameObject.Find('SPOTLIGHT');
 	owner = gameObject.GetComponent(Character);
 	startTime = Time.realtimeSinceStartup;
 }
@@ -56,8 +58,8 @@ function Fail() {
 function UpdatePosition() {
 
 		owner.radius += owner.accelY;
-		if (owner.radius < 1) {
-			owner.radius = 1;
+		if (owner.radius < 2) {
+			owner.radius = 2;
 			}
 		else if(owner.radius > 7) {
 			owner.radius = 7;

@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Player.js" />
      <Compile Include="Assets\Scripts\PlayerStates\PlayerWaiting.js" />
      <Compile Include="Assets\Scripts\SoundManager.js" />
+     <Compile Include="Assets\Scripts\Spotlight.js" />
      <Compile Include="Assets\Scripts\State.js" />
      <Compile Include="Assets\Scripts\StateManager.js" />
      <Compile Include="Assets\Scripts\States\Dancing.js" />
