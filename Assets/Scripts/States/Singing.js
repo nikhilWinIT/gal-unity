@@ -17,7 +17,11 @@ class Singing extends State {
 	function OnEnable() {
 		super.OnEnable();
 		Reset();
+		//spotlight.GetComponent(Spotlight).SetTarget('Companion');
+		globallight.Dim();
 		pattern = owner.pattern;
+		spotlightPlayer.Dim();
+		spotlightCompanion.Undim();
 	}
 	function Update () {
 		super.Update();

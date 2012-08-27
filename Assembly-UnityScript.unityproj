@@ -47,7 +47,9 @@
      <Compile Include="Assets\Scripts\Aura.js" />
      <Compile Include="Assets\Scripts\Character.js" />
      <Compile Include="Assets\Scripts\Companion.js" />
-     <Compile Include="Assets\Scripts\Main.js" />
+     <Compile Include="Assets\Scripts\DirLight.js" />
+     <Compile Include="Assets\Scripts\GameManager.js" />
+     <Compile Include="Assets\Scripts\LightScript.js" />
      <Compile Include="Assets\Scripts\Messenger.js" />
      <Compile Include="Assets\Scripts\MusicManager.js" />
      <Compile Include="Assets\Scripts\Pattern.js" />

@@ -18,6 +18,9 @@ class Dancing extends State {
 	}
 	function OnEnable() {
 		super.OnEnable();
+		spotlightPlayer.Undim();
+		spotlightCompanion.Undim();
+		globallight.Undim();
 		Reset();
 		
 	}

@@ -11,6 +11,7 @@ class MusicManager extends MonoBehaviour {
 	var index : int = 0;
 	var tracks: Array = new Array('Introduction', 'Harmony', 'Disharmony');
 	var playing : boolean = false;
+	var fadeRate : float = .005;
 	
 	function Start() {
 		
@@ -18,10 +19,10 @@ class MusicManager extends MonoBehaviour {
 	
 	function SetTrack(name) {
 		if(track){
-			track.Stop();
+			track.FadeOut(fadeRate);
 			}
 		track = GameObject.Find(name).GetComponent(Track);
-		track.Play();
+		track.FadeIn(fadeRate);
 		if(!playing) playing = true;
 		ResetData();
 		companion.GetComponent(Character).measureLength = beat*track.signature;

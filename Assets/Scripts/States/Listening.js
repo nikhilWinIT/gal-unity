@@ -16,7 +16,9 @@ class Listening extends State {
 		var rPattern = ConvertPatternRelative(pattern);
 		normalizedPattern = NormalizePattern(rPattern);
 		Debug.Log(normalizedPattern);
-		spotlight.GetComponent(Spotlight).SetTarget('Player');
+		spotlightPlayer.Undim();
+		spotlightCompanion.Dim();
+		//spotlight.GetComponent(Spotlight).SetTarget('Player');
 
 	}
 	
@@ -62,7 +64,6 @@ class Listening extends State {
 	function Fail(){
 		owner.Tilt();
 		WaitForState('Singing', 0);
-		spotlight.GetComponent(Spotlight).SetTarget('Companion');
 	}
 
 	
@@ -75,7 +76,6 @@ class Listening extends State {
 		}
 		else {
 			ChangeState('Singing');
-			spotlight.GetComponent(Spotlight).SetTarget('Companion');
 
 		}
 	}

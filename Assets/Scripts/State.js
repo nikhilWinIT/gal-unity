@@ -3,12 +3,19 @@
 var owner : Character;
 var startTime : float;
 var pattern: Array;
-var spotlight : GameObject;
+var spotlightPlayer : LightScript;
+var spotlightCompanion : LightScript;
+var globallight : LightScript;
+var game : GameManager;
+
 function Awake() {
 	enabled = false;
 }
 function OnEnable () {
-	spotlight = GameObject.Find('SPOTLIGHT');
+	spotlightPlayer = GameObject.Find('Spotlight_Player').GetComponent(LightScript);
+	spotlightCompanion = GameObject.Find('Spotlight_Companion').GetComponent(LightScript);
+	globallight = GameObject.Find('GlobalLight').GetComponent(LightScript);
+	game = GameObject.Find('Game').GetComponent(GameManager);
 	owner = gameObject.GetComponent(Character);
 	startTime = Time.realtimeSinceStartup;
 }
@@ -58,12 +65,7 @@ function Fail() {
 function UpdatePosition() {
 
 		owner.radius += owner.accelY;
-		if (owner.radius < 2) {
-			owner.radius = 2;
-			}
-		else if(owner.radius > 7) {
-			owner.radius = 7;
-		}	
+		owner.radius = Mathf.Clamp(owner.radius, game.minRadius, game.maxRadius);
 	    owner.radian -= (owner.speed/100)*owner.direction;
 	    owner.targetX = owner.radius*Mathf.Cos(owner.radian);
 	    owner.targetY = owner.radius*Mathf.Sin(owner.radian);

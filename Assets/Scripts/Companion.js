@@ -19,7 +19,10 @@
 	function Start() {
 		owner = gameObject.GetComponent(Character);
 	}
-	
+	function Enter() {
+		super.Enter();
+		gameObject.GetComponent(Waiting).ExitAfterSeconds(10);
+	}
 	function Update() {
 		super.Update();
 		

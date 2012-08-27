@@ -5,6 +5,12 @@ var messenger : Messenger;
 var musicManager : MusicManager;
 var playerSpawnSeconds: int;
 var companionSpawnSeconds : int;
+var tutorialStartSeconds : int;
+var minRadius : float;
+var maxRadius : float;
+var minSpeed : float;
+var gravity : float;
+var speedModifier : float;
 
 function Start () {
     playerScript = player.GetComponent(Character);
@@ -56,10 +62,12 @@ function Test() {
 }
 
 function StartGame() {
-	yield WaitForSeconds(3);
-	playerScript.Enter();
+	GameObject.Find('GlobalLight').GetComponent(LightScript).Kill();
     yield WaitForSeconds(playerSpawnSeconds);
+	playerScript.Enter();
 	musicManager.SetTrack('Introduction');
 	yield WaitForSeconds(companionSpawnSeconds);
+	musicManager.NextTrack();
 	companion.GetComponent(Character).Enter();
+
 }

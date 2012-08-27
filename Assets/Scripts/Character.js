@@ -27,13 +27,21 @@ var alive : boolean = false;
 var state : String = 'normal';
 var targetX : float;
 var targetY : float;
-var speedMod : float = .3;
+var speedMod : float = .3; 
+var game : GameManager;
+private var smoothVel : float;	
+private var speedSmoothVel :float;
+var speedSmoothTime : float;
+var smoothTime : float;
+
+
 function Awake() {
 	targetX = transform.position.x;
 	targetY = transform.position.y;
 	body = transform.Find('Body');
 	soundManager = gameObject.GetComponent(SoundManager);
 	stateManager = gameObject.GetComponent(StateManager);
+	game = GameObject.Find('Game').GetComponent(GameManager);
 	UpdateMaterial();
 	force = true;
 }
@@ -67,13 +75,13 @@ function UpdateMaterial() {
 	body.renderer.material.color.a = alpha;
 }
 function UpdateAccel() {
-	accelY = accelY - gravity;
+	accelY = accelY - game.gravity;
 	
 }
 function UpdateSpeed () {
-	maxSpeed = (8 - radius)*speedMod;
-    if(force == true && speed < maxSpeed)
-        speed += acceleration/50;
+	maxSpeed = (game.minSpeed +(Mathf.Clamp((radius-game.minRadius), 0, 100))*game.speedModifier) * speedMod;
+    if(speed < maxSpeed)
+        speed += acceleration/30;
     else
         speed -= speed/friction;
     if( speed > maxSpeed) {
@@ -82,11 +90,16 @@ function UpdateSpeed () {
     else if (speed < .001) {
     	speed = 0;
     }
+    speedMod = Mathf.SmoothDamp(speedMod, 0, speedSmoothVel, speedSmoothTime);
 }
 
 function UpdatePosition () {
-	transform.position.x += (targetX - transform.position.x)/40;
-	transform.position.y += (targetY - transform.position.y)/40;
+	//transform.position.x -= Mathf.SmoothDamp(transform.position.x, targetX, smoothVel, smoothTime);
+	//transform.position.y -= Mathf.SmoothDamp(transform.position.y, targetY, smoothVel, smoothTime);
+	transform.position.x += (targetX - transform.position.x)/30;
+	transform.position.y +=  (targetY - transform.position.y)/30;
+	
+
 }
 function Enter() {
 	alpha = 0;
@@ -96,7 +109,7 @@ function Enter() {
 function Sing() {
 	if(alive){
 		Expand();
-		SetForce(true);
+		speedMod = .6;
 		Accelerate();
 		PlaySound();
 	}

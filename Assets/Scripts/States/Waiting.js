@@ -14,19 +14,13 @@ class Waiting extends State {
 	}
 	
 	function Update () {
+	super.Update();
 		if(Time.realtimeSinceStartup - lastAction > waitDuration )	{
 			ResetLastAction();
 			waitDuration += 1;
-			owner.Sing();
+		//	owner.Sing();
 			actions += 1;		
-		}	
-		
-		
-		
-		if( Time.realtimeSinceStartup - startTime > 2) {
-			Exit();
 		}
-	
 	}
 	
 	function LastActionTime() {
