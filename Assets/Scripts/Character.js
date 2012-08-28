@@ -31,6 +31,10 @@ var speedMod : float = .3;
 var game : GameManager;
 private var smoothVel : float;	
 private var speedSmoothVel :float;
+private var redVel: float;
+private var greenVel: float;
+private var blueVel : float;
+var colorSmoothTime : float;
 var speedSmoothTime : float;
 var smoothTime : float;
 
@@ -72,6 +76,7 @@ function UpdateMaterial() {
 			alpha += .003;
 		}
 	}
+	
 	body.renderer.material.color.a = alpha;
 }
 function UpdateAccel() {

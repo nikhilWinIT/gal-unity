@@ -21,7 +21,7 @@ function Start () {
 }
 function Update () {
     if (Input.GetButtonDown('Jump')){
-        playerScript.Sing();
+        playerScript.PlaySoundAt(Random.Range(1,8));
         messenger.Send("OnBeat");
        
     }
@@ -55,10 +55,23 @@ function Update () {
     if(Input.GetKeyDown('4')){
     	playerScript.PlaySoundAt(4);
     }
+    if(Input.GetKeyDown('5')){
+    	playerScript.PlaySoundAt(5);
+    }
+    if(Input.GetKeyDown('6')){
+    	playerScript.PlaySoundAt(6);
+    }
+    if(Input.GetKeyDown('7')){
+    	playerScript.PlaySoundAt(7);
+    }
+    if(Input.GetKeyDown('8')){
+    	playerScript.PlaySoundAt(8);
+    }
+    
 }
 
 function Test() {
-	companion.GetComponent(Character).Sing();
+	companion.GetComponent(Character).PlaySoundAt(Random.Range(1,8));
 }
 
 function StartGame() {

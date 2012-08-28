@@ -71,7 +71,7 @@ class Singing extends State {
 		}
 		
 		else if( elapsed > parseFloat(pattern[nextBeat]) - offset){
-			owner.Sing();
+			owner.PlaySoundAt(Random.Range(1,8));
 			nextBeat += 1;
 		}
 		

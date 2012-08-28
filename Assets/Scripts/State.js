@@ -7,6 +7,7 @@ var spotlightPlayer : LightScript;
 var spotlightCompanion : LightScript;
 var globallight : LightScript;
 var game : GameManager;
+var musicManager :MusicManager;
 
 function Awake() {
 	enabled = false;
@@ -16,6 +17,7 @@ function OnEnable () {
 	spotlightCompanion = GameObject.Find('Spotlight_Companion').GetComponent(LightScript);
 	globallight = GameObject.Find('GlobalLight').GetComponent(LightScript);
 	game = GameObject.Find('Game').GetComponent(GameManager);
+	musicManager = GameObject.Find('Game').GetComponent(MusicManager);
 	owner = gameObject.GetComponent(Character);
 	startTime = Time.realtimeSinceStartup;
 }

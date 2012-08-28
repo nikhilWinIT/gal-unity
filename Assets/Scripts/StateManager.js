@@ -1,5 +1,5 @@
 #pragma downcast
-enum States { Singing, Waiting, PlayerWaiting, Listening, Recording, Mimicking, Dancing};
+enum States { Singing, Waiting, PlayerWaiting, Listening, Recording, Mimicking, Dancing, Dying};
 var state : States;
 var harmonyAt : int;
 private var lastState: States;
@@ -42,6 +42,9 @@ function ChangeState(stateName : States, mode : boolean) {
 			break;
 		case States.Dancing:
 			gameObject.GetComponent(Dancing).enabled = mode;
+			break;
+		case States.Dying:
+			gameObject.GetComponent(Dying).enabled = mode;
 			break;
 	}
 }

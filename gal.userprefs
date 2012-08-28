@@ -1,24 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Companion.js">
-    <Files>
-      <File FileName="Assets/Scripts/GameManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Dancing.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PatternManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Listening.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerStates/PlayerWaiting.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Singing.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Companion.js" Line="24" Column="57" />
-      <File FileName="Assets/Scripts/StateManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/State.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Aura.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Waiting.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Track.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/LightScript.js" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

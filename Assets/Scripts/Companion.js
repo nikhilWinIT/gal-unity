@@ -37,6 +37,10 @@
 		}
 	}
 	
+	function SetPatternByID(id){
+		patternManager.SetPatternByID(id);
+	}
+	
 	function Nod() {
 		if(HOTween.IsTweening(body) == false){
 			var seq = new Sequence(new SequenceParms());

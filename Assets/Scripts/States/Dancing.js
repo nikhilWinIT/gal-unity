@@ -8,6 +8,7 @@ class Dancing extends State {
 	var offset: float  = 0;
 	var repeat : int = 0;
 	var repeatsPerPattern : int = 1;
+	var duration : float ;
 	
 	
 	private var patternObject : GameObject;
@@ -22,6 +23,8 @@ class Dancing extends State {
 		spotlightCompanion.Undim();
 		globallight.Undim();
 		Reset();
+		ChangeStateAfter( duration, 'Dying');
+		owner.SetPatternByID(0);
 		
 	}
 	function Update () {
@@ -64,7 +67,7 @@ class Dancing extends State {
 		}
 		
 		else if( elapsed > parseFloat(pattern[nextBeat]*owner.beatLength)-offset){
-			owner.Sing();
+			owner.PlaySoundAt(Random.Range(1,8));
 			nextBeat += 1;
 		}
 		

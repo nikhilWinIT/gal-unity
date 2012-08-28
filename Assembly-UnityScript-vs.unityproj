@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\State.js" />
      <Compile Include="Assets\Scripts\StateManager.js" />
      <Compile Include="Assets\Scripts\States\Dancing.js" />
+     <Compile Include="Assets\Scripts\States\Dying.js" />
      <Compile Include="Assets\Scripts\States\EmptyState.js" />
      <Compile Include="Assets\Scripts\States\Listening.js" />
      <Compile Include="Assets\Scripts\States\Mimicking.js" />

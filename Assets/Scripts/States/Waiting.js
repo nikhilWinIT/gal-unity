@@ -38,7 +38,7 @@ class Waiting extends State {
 	
 	function SingAfterSeconds(duration) {
 		yield WaitForSeconds(duration);
-		owner.Sing();
+		owner.PlaySoundAt(Random.Range(1,8));
 	}
 	
 	function ResetLastAction(){
