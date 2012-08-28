@@ -3,6 +3,7 @@
 var owner : Character;
 var startTime : float;
 var pattern: Array;
+var notes : Array;
 var spotlightPlayer : LightScript;
 var spotlightCompanion : LightScript;
 var globallight : LightScript;
@@ -20,6 +21,8 @@ function OnEnable () {
 	musicManager = GameObject.Find('Game').GetComponent(MusicManager);
 	owner = gameObject.GetComponent(Character);
 	startTime = Time.realtimeSinceStartup;
+	pattern = owner.pattern;
+	notes = owner.notes;
 }
 
 function Update () {
@@ -41,9 +44,9 @@ function OnBeatCue() {
 function HearBeatCue() {
 }
 
-function OnBeat() {
+function OnBeat(index : int) {
 	if(enabled) {
-		HearBeat();
+		HearBeat(index);
 	}
 }
 function WaitForState(state, duration) {
@@ -51,7 +54,7 @@ function WaitForState(state, duration) {
 	yield WaitForSeconds(duration);
 	ChangeState(state);
 }
-function HearBeat() {
+function HearBeat(index : int) {
 	Debug.Log("beat heard");
 }
 

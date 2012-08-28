@@ -1,5 +1,6 @@
 	class Companion extends Character {
 	var owner : Character;
+	var player : Character;
 	var satisfaction: int;
 	var goal : int = 4;
 	var nextState : String;
@@ -18,6 +19,7 @@
 	
 	function Start() {
 		owner = gameObject.GetComponent(Character);
+		player = GameObject.Find('Player').GetComponent(Character);
 	}
 	function Enter() {
 		super.Enter();

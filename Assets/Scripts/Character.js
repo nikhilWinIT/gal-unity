@@ -22,6 +22,7 @@ var measureLength: float;
 var accelY : float;
 var maxAccelY : float = .01;
 var pattern : Array;
+var notes : Array;
 var alpha : float;
 var alive : boolean = false;
 var state : String = 'normal';
@@ -34,9 +35,11 @@ private var speedSmoothVel :float;
 private var redVel: float;
 private var greenVel: float;
 private var blueVel : float;
+var locked : boolean = false;
 var colorSmoothTime : float;
 var speedSmoothTime : float;
 var smoothTime : float;
+private var messenger : Messenger;
 
 
 function Awake() {
@@ -48,6 +51,7 @@ function Awake() {
 	game = GameObject.Find('Game').GetComponent(GameManager);
 	UpdateMaterial();
 	force = true;
+	messenger = gameObject.GetComponent(Messenger);
 }
 function Update () {
 	
@@ -155,5 +159,7 @@ function PlaySound(){
 function PlaySoundAt(index) {
 	
 	soundManager.SetTrack(index);
+	messenger.Send("OnBeat", index);
+
 	Sing();
 }

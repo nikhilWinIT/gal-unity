@@ -1,10 +1,13 @@
 #pragma downcast
 class Listening extends State {
-	var notes : Array = new Array();
+	var recordedNotes : Array = new Array();
 	var lastNote : float;
 	var durationHeard : float = 0;
 	var normalizedPattern : Array;
 	var forgivingness : float;
+	var beatIndex : int;
+	var pitchFailCount : int;
+	var pitchFailMax : int;
 	function Start () {
 	
 	}
@@ -12,7 +15,7 @@ class Listening extends State {
 	function OnEnable() {
 		super.OnEnable();
 		Reset();
-		pattern = owner.pattern;
+		game.UnlockPlayer();
 		var rPattern = ConvertPatternRelative(pattern);
 		normalizedPattern = NormalizePattern(rPattern);
 		Debug.Log(normalizedPattern);
@@ -23,32 +26,49 @@ class Listening extends State {
 	}
 	
 	function Reset() {
-		notes = new Array();
+		recordedNotes = new Array();
+		pitchMiss = 0;
+		beatIndex = 0;
 	}
 	
-	function HearBeat() {
-		RecordBeat();
+	function HearBeat(index : int) {
+		RecordBeat(index);
 	}
 	
-	function RecordBeat() {
-		var note : float;
-		if(notes.length < 1){
-			note = 0;
+	function RecordBeat(index : int) {
+		if ( CheckPitch(index)) {
+			var recordedNote : float;
+			if(recordedNotes.length < 1){
+				recordedNote = 0;
+			}
+			else {
+				recordedNote = Time.realtimeSinceStartup - lastNote;
+			}
+			durationHeard += recordedNote;
+			recordedNotes.push(recordedNote);
+			if ( recordedNotes.length >= pattern.length ) {
+				CheckPattern();
+			}
+			lastNote = Time.realtimeSinceStartup;
+			beatIndex += 1;
 		}
 		else {
-			note = Time.realtimeSinceStartup - lastNote;
+			PitchFail();
 		}
-		durationHeard += note;
-		notes.push(note);
-		if ( notes.length >= pattern.length ) {
-			CheckPattern();
+	}
+	
+	function CheckPitch(index : int ) {
+		if ( notes[beatIndex] == index ){
+			return true;
 		}
-		lastNote = Time.realtimeSinceStartup;
+		else {
+			return false;
+		}
 	}
 	
 	function CheckPattern() {
 		owner.SetNextState('Singing');
-		var nNotes = NormalizePattern(notes);
+		var nNotes = NormalizePattern(recordedNotes);
 		Debug.Log('submitted: ' + nNotes);
 		Debug.Log('model: ' + normalizedPattern);
 		for (var i = 0; i < normalizedPattern.length; i++) {
@@ -64,6 +84,19 @@ class Listening extends State {
 	function Fail(){
 		owner.Tilt();
 		WaitForState('Singing', 0);
+	}
+	
+	function PitchFail() {
+		owner.Tilt();
+		
+		pitchFailCount += 1;
+		if ( pitchFailCount > pitchFailMax ) {
+			WaitForState('Singing', 0);
+			pitchFailCount = 0;
+		}
+		else {
+			WaitForState('Listening', 0);
+		}
 	}
 
 	

@@ -20,54 +20,63 @@ function Start () {
     StartGame();
 }
 function Update () {
-    if (Input.GetButtonDown('Jump')){
-        playerScript.PlaySoundAt(Random.Range(1,8));
-        messenger.Send("OnBeat");
-       
-    }
-    if (Input.GetButtonUp('Jump')){
-        
-    }
+	if(playerScript.locked != true){
+	    if (Input.GetButtonDown('Jump')){
+	        playerScript.PlaySoundAt(Random.Range(1,8));
+	       
+	    }
+	    if (Input.GetButtonUp('Jump')){
+	        
+	    }
+	    
+	    if (Input.GetKeyDown('right')){
+	    	musicManager.NextTrack();
+	    }
+	    if (Input.GetKeyDown('left')){
+	    	musicManager.PrevTrack();
+	    }
+	    
+	    if(Input.GetKeyDown('up')){
+	    	playerScript.NextSound();
+	    }
+	    if(Input.GetKeyDown('down')){
+	    	playerScript.PrevSound();
+	    }
+	    
+	    if(Input.GetKeyDown('a')){
+	    	playerScript.PlaySoundAt(1);
+	    }
+	    if(Input.GetKeyDown('s')){
+	    	playerScript.PlaySoundAt(2);
+	    }
+	    if(Input.GetKeyDown('d')){
+	    	playerScript.PlaySoundAt(3);
+	    }
+	    if(Input.GetKeyDown('f')){
+	    	playerScript.PlaySoundAt(4);
+	    }
+	    if(Input.GetKeyDown('j')){
+	    	playerScript.PlaySoundAt(5);
+	    }
+	    if(Input.GetKeyDown('k')){
+	    	playerScript.PlaySoundAt(6);
+	    }
+	    if(Input.GetKeyDown('l')){
+	    	playerScript.PlaySoundAt(7);
+	    }
+	    if(Input.GetKeyDown(';')){
+	    	playerScript.PlaySoundAt(8);
+	    }
+ 	}
     
-    if (Input.GetKeyDown('right')){
-    	musicManager.NextTrack();
-    }
-    if (Input.GetKeyDown('left')){
-    	musicManager.PrevTrack();
-    }
-    
-    if(Input.GetKeyDown('up')){
-    	playerScript.NextSound();
-    }
-    if(Input.GetKeyDown('down')){
-    	playerScript.PrevSound();
-    }
-    
-    if(Input.GetKeyDown('1')){
-    	playerScript.PlaySoundAt(1);
-    }
-    if(Input.GetKeyDown('2')){
-    	playerScript.PlaySoundAt(2);
-    }
-    if(Input.GetKeyDown('3')){
-    	playerScript.PlaySoundAt(3);
-    }
-    if(Input.GetKeyDown('4')){
-    	playerScript.PlaySoundAt(4);
-    }
-    if(Input.GetKeyDown('5')){
-    	playerScript.PlaySoundAt(5);
-    }
-    if(Input.GetKeyDown('6')){
-    	playerScript.PlaySoundAt(6);
-    }
-    if(Input.GetKeyDown('7')){
-    	playerScript.PlaySoundAt(7);
-    }
-    if(Input.GetKeyDown('8')){
-    	playerScript.PlaySoundAt(8);
-    }
-    
+}
+
+function LockPlayer(){
+	playerScript.locked = true;
+}
+
+function UnlockPlayer() {
+	playerScript.locked = false;
 }
 
 function Test() {

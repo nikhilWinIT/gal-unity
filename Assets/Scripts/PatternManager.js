@@ -24,12 +24,23 @@ class PatternManager extends MonoBehaviour {
 	
 	function SetPattern( pattern : GameObject) {
 		owner.pattern = SerializePattern(pattern);
+		owner.notes = SerializeNotes(pattern);
 	}
 	
 	function SerializePattern(pattern : GameObject) {
 		result = new Array();
 		patternScript = pattern.GetComponent(Pattern);
 		var strArray : Array = patternScript.patternString.Split('-'[0]);
+		for(var i = 0; i < strArray.length; i++ ) {
+			result.Push(parseFloat(strArray[i]));
+		}
+		Debug.Log(result);
+		return result;
+	}
+	function SerializeNotes(pattern : GameObject) {
+		var result = new Array();
+		patternScript = pattern.GetComponent(Pattern);
+		var strArray : Array = patternScript.notesString.Split('-'[0]);
 		for(var i = 0; i < strArray.length; i++ ) {
 			result.Push(parseFloat(strArray[i]));
 		}

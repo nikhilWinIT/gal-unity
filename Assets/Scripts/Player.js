@@ -6,6 +6,11 @@ class Player extends Character {
 		super.Update();
 	}
 	
+	function PlaySoundAt(index) {
+		super.PlaySoundAt(index);
+		//companion.SendMessage(
+	}
+	
 
 
 }

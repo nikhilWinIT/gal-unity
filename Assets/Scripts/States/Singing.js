@@ -5,8 +5,7 @@ class Singing extends State {
 	var patternScript : Pattern;
 	var interruption : int = 0;
 	var offset : float = 0;
-	var started : boolean = false;
-	
+	var started : boolean = false;	
 	
 	private var patternObject : GameObject;
 	
@@ -18,8 +17,8 @@ class Singing extends State {
 		super.OnEnable();
 		Reset();
 		//spotlight.GetComponent(Spotlight).SetTarget('Companion');
+		game.LockPlayer();
 		globallight.Dim();
-		pattern = owner.pattern;
 		spotlightPlayer.Dim();
 		spotlightCompanion.Undim();
 	}
@@ -71,7 +70,7 @@ class Singing extends State {
 		}
 		
 		else if( elapsed > parseFloat(pattern[nextBeat]) - offset){
-			owner.PlaySoundAt(Random.Range(1,8));
+			owner.PlaySoundAt(notes[nextBeat]);
 			nextBeat += 1;
 		}
 		
