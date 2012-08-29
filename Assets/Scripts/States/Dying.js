@@ -1,5 +1,5 @@
 #pragma downcast
-class Dying extends State {
+class Dying extends Dancing {
 	function Start () {
 	
 	}
@@ -7,9 +7,11 @@ class Dying extends State {
 	function OnEnable() {
 		super.OnEnable();
 		musicManager.SetTrack('Disharmony');
+		owner.dying = true;
 	}
 	
 	function Update () {
 		super.Update();
+		owner.alpha -= .001;
 	}
 }

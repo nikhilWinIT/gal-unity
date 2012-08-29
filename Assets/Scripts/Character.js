@@ -25,6 +25,7 @@ var pattern : Array;
 var notes : Array;
 var alpha : float;
 var alive : boolean = false;
+var dying : boolean = false;
 var state : String = 'normal';
 var targetX : float;
 var targetY : float;
@@ -75,10 +76,8 @@ function Accelerate() {
 	accelY = maxAccelY;
 }
 function UpdateMaterial() {
-	if( alive) {
-		if(alpha != 1) {
-			alpha += .003;
-		}
+	if( alive && !dying) {
+		alpha = Mathf.Clamp(0,1, alpha + .003);
 	}
 	
 	body.renderer.material.color.a = alpha;

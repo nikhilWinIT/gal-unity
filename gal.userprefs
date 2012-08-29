@@ -1,25 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/States/Listening.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.js">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.js" Line="23" Column="32" />
-      <File FileName="Assets/Scripts/States/Dancing.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Listening.js" Line="18" Column="23" />
-      <File FileName="Assets/Scripts/Character.js" Line="38" Column="29" />
-      <File FileName="Assets/Scripts/PlayerStates/PlayerWaiting.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Singing.js" Line="20" Column="21" />
-      <File FileName="Assets/Scripts/Companion.js" Line="22" Column="62" />
+      <File FileName="Assets/Scripts/Key.js" Line="31" Column="30" />
       <File FileName="Assets/Scripts/Aura.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Waiting.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Track.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/LightScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Dying.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Pattern.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SoundManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PatternManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messenger.js" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/State.js" Line="13" Column="19" />
+      <File FileName="Assets/Scripts/GameManager.js" Line="18" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
