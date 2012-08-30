@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\GameManager.js" />
      <Compile Include="Assets\Scripts\Key.js" />
      <Compile Include="Assets\Scripts\KeyManager.js" />
+     <Compile Include="Assets\Scripts\Keymap.js" />
      <Compile Include="Assets\Scripts\LightScript.js" />
      <Compile Include="Assets\Scripts\Messenger.js" />
      <Compile Include="Assets\Scripts\MusicManager.js" />

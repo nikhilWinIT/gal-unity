@@ -17,6 +17,11 @@
 		patternManager = gameObject.GetComponent(PatternManager);	
 	}
 	
+	function Sing() {
+		super.Sing();
+		PlaySound();
+	}
+	
 	function Start() {
 		owner = gameObject.GetComponent(Character);
 		player = GameObject.Find('Player').GetComponent(Character);

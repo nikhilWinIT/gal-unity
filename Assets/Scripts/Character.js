@@ -40,7 +40,7 @@ var locked : boolean = false;
 var colorSmoothTime : float;
 var speedSmoothTime : float;
 var smoothTime : float;
-private var messenger : Messenger;
+var messenger : Messenger;
 
 
 function Awake() {
@@ -119,7 +119,7 @@ function Sing() {
 		Expand();
 		speedMod = .6;
 		Accelerate();
-		PlaySound();
+		
 	}
 }
 

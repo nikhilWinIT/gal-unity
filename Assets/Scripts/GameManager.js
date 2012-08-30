@@ -11,16 +11,37 @@ var maxRadius : float;
 var minSpeed : float;
 var gravity : float;
 var speedModifier : float;
+var keyboard : GameObject;
+var keyManager : KeyManager;
+var keymap : Keymap;
+
 
 function Start () {
     playerScript = player.GetComponent(Character);
     messenger = player.GetComponent(Messenger);
     musicManager = gameObject.GetComponent(MusicManager);
+    keyManager = keyboard.GetComponent(KeyManager);
+    keymap = gameObject.GetComponent(Keymap);
 
     StartGame();
 }
+
+function OnGUI() {
+	var e : Event = Event.current;
+	if(e.type == EventType.KeyUp){
+		keyManager.DeselectKey(keymap.GetName( e.keyCode.ToString()));
+		
+	}
+	if(Input.anyKeyDown){
+		if(e.type == EventType.KeyDown) {
+			keyManager.SelectKey(keymap.GetName( e.keyCode.ToString()));
+			e.Use();
+		}
+	}
+}
+
 function Update () {
-	if(playerScript.locked != true){
+		/*
 	    if (Input.GetButtonDown('Jump')){
 	        playerScript.PlaySoundAt(Random.Range(1,8));
 	       
@@ -55,19 +76,38 @@ function Update () {
 	    if(Input.GetKeyDown('f')){
 	    	playerScript.PlaySoundAt(4);
 	    }
-	    if(Input.GetKeyDown('j')){
-	    	playerScript.PlaySoundAt(5);
+	    // H KEY
+	    if(Input.GetKeyDown('h')){
+	    	keyManager.SelectKey('A');
 	    }
+	    if(Input.GetKeyUp('h')){
+	    	keyManager.DeselectKey('A');
+	    }
+	    // J KEY
+	    if(Input.GetKeyDown('j')){
+	    	keyManager.SelectKey('A');
+	    }
+	    if(Input.GetKeyUp('j')){
+	    	keyManager.DeselectKey('A');
+	    }
+	    // K KEY
 	    if(Input.GetKeyDown('k')){
 	    	playerScript.PlaySoundAt(6);
 	    }
+	    // L KEY
 	    if(Input.GetKeyDown('l')){
-	    	playerScript.PlaySoundAt(7);
+	    	keyManager.SelectKey('C');
+
 	    }
+	    if(Input.GetKeyUp('l')){
+	    	keyManager.DeselectKey('C');
+	    }
+	    // ; KEY
 	    if(Input.GetKeyDown(';')){
 	    	playerScript.PlaySoundAt(8);
 	    }
- 	}
+	    */
+
     
 }
 

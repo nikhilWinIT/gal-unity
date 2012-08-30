@@ -12,9 +12,12 @@ var selectSpeed : float;
 var deselectSpeed : float;
 var lerp : float;
 var alpha : float;
+var player : Character;
+var index : int;
 
 
 function Start () {
+	player = gameObject.Find('Player').GetComponent(Character);
 	mesh = transform.FindChild('Mesh').gameObject;
 	text = transform.FindChild('Text').gameObject;
 
@@ -24,6 +27,25 @@ function Start () {
 function Update () {
 	UpdateAttrs();
 	UpdateMaterial();
+}
+
+function Select() {
+	selected = true;
+	audio.PlayOneShot(audio.clip);
+	player.messenger.Send("OnBeat", index);
+	player.Sing();
+}
+
+function Show() {
+	visible = true;
+}
+
+function Hide() {
+	visible = false;
+}
+
+function Deselect() {
+	selected = false;
 }
 
 function UpdateAttrs() {
@@ -47,7 +69,7 @@ function UpdateAttrs() {
 
 function UpdateMaterial() {
 	SetAlpha( mesh, alpha);
-	SetAlpha( text, alpha);
+	//SetAlpha( text, alpha);
 }
 
 function SetAlpha( object : GameObject, alpha : float ) {

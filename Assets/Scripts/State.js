@@ -55,11 +55,11 @@ function WaitForState(state, duration) {
 	ChangeState(state);
 }
 function HearBeat(index : int) {
-	Debug.Log("beat heard");
+//	Debug.Log("beat heard");
 }
 
 function HearCue(diff : float) {
-	Debug.Log(diff);
+	//Debug.Log(diff);
 }
 
 function Fail() {
