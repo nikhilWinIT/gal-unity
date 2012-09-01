@@ -110,7 +110,11 @@ function Update () {
 function LockPlayer(){
 	entities.characters.player.locked = true;
 }
-
+function LockPlayerFor( duration : float ) {
+	LockPlayer();
+	yield WaitForSeconds(duration);
+	UnlockPlayer();
+}
 function UnlockPlayer() {
 	entities.characters.player.locked = false;
 }

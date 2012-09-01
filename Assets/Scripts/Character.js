@@ -90,6 +90,14 @@ function UpdateAccel() {
 	accelY = accelY - game.settings.global.gravity;
 	
 }
+
+function LockForSeconds( duration : float ) {
+	Debug.Log('locked for ' + duration);
+	locked = true;
+	yield WaitForSeconds(duration);
+	
+}
+
 function UpdateSpeed () {
 	maxSpeed = (game.settings.global.minSpeed +(Mathf.Clamp((radius-game.settings.global.minRadius), 0, 100))*game.settings.global.speedModifier) * speedMod;
     if(speed < maxSpeed)

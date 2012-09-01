@@ -4,18 +4,12 @@ var owner : Character;
 var startTime : float;
 var pattern: Array;
 var notes : Array;
-var spotlightPlayer : LightScript;
-var spotlightCompanion : LightScript;
-var globallight : LightScript;
 var game : GameManager;
 
 function Awake() {
 	enabled = false;
 }
 function OnEnable () {
-	spotlightPlayer = GameObject.Find('Spotlight_Player').GetComponent(LightScript);
-	spotlightCompanion = GameObject.Find('Spotlight_Companion').GetComponent(LightScript);
-	globallight = GameObject.Find('GlobalLight').GetComponent(LightScript);
 	game = GameObject.Find('Game').GetComponent(GameManager);
 	owner = gameObject.GetComponent(Character);
 	startTime = Time.realtimeSinceStartup;

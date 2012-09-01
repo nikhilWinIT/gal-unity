@@ -19,9 +19,9 @@ class Dancing extends State {
 	}
 	function OnEnable() {
 		super.OnEnable();
-		spotlightPlayer.Undim();
-		spotlightCompanion.Undim();
-		globallight.Undim();
+		game.entities.lights.player.Undim();
+		game.entities.lights.companion.Undim();
+		game.entities.lights.global.Undim();
 		Reset();
 		game.managers.keyboard.HideAll();
 		ChangeStateAfter( duration, 'Dying');

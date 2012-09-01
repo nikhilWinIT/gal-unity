@@ -15,19 +15,21 @@ class Listening extends State {
 	function OnEnable() {
 		super.OnEnable();
 		Reset();
-		game.UnlockPlayer();
-		var rPattern = ConvertPatternRelative(pattern);
-		normalizedPattern = NormalizePattern(rPattern);
-		spotlightPlayer.Undim();
-		spotlightCompanion.Dim();
-		//spotlight.GetComponent(Spotlight).SetTarget('Player');
-
+	}
+	
+	function Restart() {
+		recordedNotes = new Array();
+		beatIndex = 0;
 	}
 	
 	function Reset() {
-		recordedNotes = new Array();
-		pitchMiss = 0;
-		beatIndex = 0;
+		pitchFailCount = 0;
+		game.UnlockPlayer();	
+		var rPattern = ConvertPatternRelative(pattern);
+		normalizedPattern = NormalizePattern(rPattern);
+		game.entities.lights.player.Undim();
+		game.entities.lights.companion.Dim();
+		Restart();
 	}
 	
 	function HearBeat(name : String) {
@@ -87,13 +89,14 @@ class Listening extends State {
 	
 	function PitchFail() {
 		owner.Fail();
+		game.LockPlayerFor(2);
 		pitchFailCount += 1;
 		if ( pitchFailCount > pitchFailMax ) {
 			WaitForState('Singing', 0);
 			pitchFailCount = 0;
 		}
 		else {
-			WaitForState('Listening', 0);
+			Restart();
 		}
 	}
 

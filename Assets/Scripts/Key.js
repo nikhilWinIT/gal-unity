@@ -12,12 +12,11 @@ var selectSpeed : float;
 var deselectSpeed : float;
 var lerp : float;
 var alpha : float;
-var player : Character;
 var index : int;
 var game : GameManager;
 
 function Start () {
-	player = gameObject.Find('Player').GetComponent(Character);
+	
 	mesh = transform.FindChild('Mesh').gameObject;
 	text = transform.FindChild('Text').gameObject;
 	game = gameObject.Find('Game').GetComponent(GameManager);
@@ -31,11 +30,11 @@ function Update () {
 }
 
 function Select() {
-	if(!player.locked){
+	if(!game.entities.characters.player.locked){
 		selected = true;
 		audio.PlayOneShot(audio.clip);
 		game.objects.characters.companion.SendMessage('OnBeat', name as String);
-		player.Sing();
+		game.entities.characters.player.Sing();
 	}
 }
 
