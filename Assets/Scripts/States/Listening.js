@@ -18,7 +18,6 @@ class Listening extends State {
 		game.UnlockPlayer();
 		var rPattern = ConvertPatternRelative(pattern);
 		normalizedPattern = NormalizePattern(rPattern);
-		Debug.Log(normalizedPattern);
 		spotlightPlayer.Undim();
 		spotlightCompanion.Dim();
 		//spotlight.GetComponent(Spotlight).SetTarget('Player');
@@ -31,12 +30,12 @@ class Listening extends State {
 		beatIndex = 0;
 	}
 	
-	function HearBeat(index : int) {
-		RecordBeat(index);
+	function HearBeat(name : String) {
+		RecordBeat(name);
 	}
 	
-	function RecordBeat(index : int) {
-		if ( CheckPitch(index)) {
+	function RecordBeat(name : String) {
+		if ( CheckPitch(name)) {
 			var recordedNote : float;
 			if(recordedNotes.length < 1){
 				recordedNote = 0;
@@ -57,8 +56,8 @@ class Listening extends State {
 		}
 	}
 	
-	function CheckPitch(index : int ) {
-		if ( notes[beatIndex] == index ){
+	function CheckPitch(name : String ) {
+		if ( notes[beatIndex] == name ){
 			return true;
 		}
 		else {
@@ -82,13 +81,12 @@ class Listening extends State {
 	}
 	
 	function Fail(){
-		owner.Tilt();
+		owner.Fail();
 		WaitForState('Singing', 0);
 	}
 	
 	function PitchFail() {
-		owner.Tilt();
-		
+		owner.Fail();
 		pitchFailCount += 1;
 		if ( pitchFailCount > pitchFailMax ) {
 			WaitForState('Singing', 0);
@@ -104,7 +102,8 @@ class Listening extends State {
 		owner.Jump();
 		owner.Success();
 		
-		if (owner.phase == 3) {
+		
+		if (owner.phase == owner.dancingPhase) {
 			ChangeState('Dancing');
 		}
 		else {

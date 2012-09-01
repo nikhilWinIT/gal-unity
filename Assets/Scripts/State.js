@@ -44,9 +44,9 @@ function OnBeatCue() {
 function HearBeatCue() {
 }
 
-function OnBeat(index : int) {
+function OnBeat(name : String) {
 	if(enabled) {
-		HearBeat(index);
+		HearBeat(name);
 	}
 }
 function WaitForState(state, duration) {
@@ -54,7 +54,7 @@ function WaitForState(state, duration) {
 	yield WaitForSeconds(duration);
 	ChangeState(state);
 }
-function HearBeat(index : int) {
+function HearBeat(name : String) {
 //	Debug.Log("beat heard");
 }
 

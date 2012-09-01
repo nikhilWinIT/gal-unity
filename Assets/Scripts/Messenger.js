@@ -1,12 +1,12 @@
 class Messenger extends MonoBehaviour {
 	var other : GameObject;
 	
-	function Send (message : String, index : int) {
-		other.GetComponent(Messenger).Receive(message, index);
+	function Send (message : String, name : String) {
+		other.GetComponent(Messenger).Receive(message, name);
 	}
 	
-	function Receive (message: String, index : int) {
-		gameObject.SendMessage(message, index);
+	function Receive (message: String, name : String) {
+		gameObject.SendMessage(message, name);
 	}
 
 }

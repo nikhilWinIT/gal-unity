@@ -119,17 +119,13 @@ function UnlockPlayer() {
 	playerScript.locked = false;
 }
 
-function Test() {
-	companion.GetComponent(Character).PlaySoundAt(Random.Range(1,8));
-}
-
 function StartGame() {
 	GameObject.Find('GlobalLight').GetComponent(LightScript).Kill();
     yield WaitForSeconds(playerSpawnSeconds);
 	playerScript.Enter();
 	musicManager.SetTrack('Introduction');
 	yield WaitForSeconds(companionSpawnSeconds);
-	musicManager.NextTrack();
+	musicManager.SetTrack('Harmony_1');
 	companion.GetComponent(Character).Enter();
 
 }

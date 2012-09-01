@@ -4,27 +4,34 @@ class PatternManager extends MonoBehaviour {
 	var parent : GameObject;
 	var index : int = 0;
 	var owner : Character;
+	var patternNames : String[];
+	var startingIndex : int;
 	
 	function Start() {
 		owner = gameObject.GetComponent(Character);
 		GetPatterns();		
-		SetPattern(patterns[index]);
+		SetPattern(patternNames[index]);
 		
 	}
 	
 	function SetPatternByID(id) {
-		SetPattern(patterns[id]);
+		SetPattern(patternNames[id]);
 	}
 	
 	function Next() {
 		index += 1;
 		if (index >= patterns.Length) index = 0;
-		SetPattern(patterns[index]);
+		SetPattern(patternNames[index]);
+
 	}
 	
-	function SetPattern( pattern : GameObject) {
+	function SetPattern( patternName : String) {
+		var pattern = transform.FindChild('Patterns/'+patternName).gameObject;
+		Debug.Log(pattern);
 		owner.pattern = SerializePattern(pattern);
 		owner.notes = SerializeNotes(pattern);
+		Debug.Log(pattern.name);
+		owner.track = pattern.GetComponent(Pattern).trackName;
 	}
 	
 	function SerializePattern(pattern : GameObject) {
@@ -42,9 +49,8 @@ class PatternManager extends MonoBehaviour {
 		patternScript = pattern.GetComponent(Pattern);
 		var strArray : Array = patternScript.notesString.Split('-'[0]);
 		for(var i = 0; i < strArray.length; i++ ) {
-			result.Push(parseFloat(strArray[i]));
+			result.Push(strArray[i]);
 		}
-		Debug.Log(result);
 		return result;
 	}
 	function GetPatterns(){

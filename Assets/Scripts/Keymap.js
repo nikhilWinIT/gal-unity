@@ -1,15 +1,15 @@
 
 var C : String;
-var C_sharp : String;
+var Cs : String;
 var D : String;
-var D_sharp : String;
+var Ds : String;
 var E : String;
 var F : String;
-var F_sharp : String;
+var Fs : String;
 var G : String;
-var G_sharp : String;
+var Gs : String;
 var A : String;
-var A_sharp : String;
+var As : String;
 var B : String;
 var C_high : String;
 var keymap : Hashtable = new Hashtable();

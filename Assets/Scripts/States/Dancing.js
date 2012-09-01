@@ -23,8 +23,9 @@ class Dancing extends State {
 		spotlightCompanion.Undim();
 		globallight.Undim();
 		Reset();
+		game.keyManager.HideAll();
 		ChangeStateAfter( duration, 'Dying');
-		owner.SetPatternByID(0);
+
 		
 	}
 	function Update () {
@@ -51,10 +52,10 @@ class Dancing extends State {
 		nextBeat = 0;
 		pattern = owner.pattern;
 		startTime = Time.realtimeSinceStartup;
-		if( repeat > repeatsPerPattern) {
-			repeat = 0;
-			owner.NextPattern();
-		}
+		//if( repeat > repeatsPerPattern) {
+		//	repeat = 0;
+		//	owner.NextPattern();
+		//}
 	}
 	
 	function CheckTime () {
@@ -67,7 +68,7 @@ class Dancing extends State {
 		}
 		
 		else if( elapsed > parseFloat(pattern[nextBeat]*owner.beatLength)-offset){
-			owner.PlaySoundAt(Random.Range(1,8));
+			owner.SingAt(notes[nextBeat]);
 			nextBeat += 1;
 		}
 		

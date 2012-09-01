@@ -2,7 +2,7 @@
 var keys : Hashtable = new Hashtable();
 
 function Start () {
-	ShowKeys(['C','D','E','F','G','A','B','C_high']);
+
 }
 
 function GetChild( name : String) {
@@ -14,7 +14,12 @@ function ShowKeys( names : Array ) {
 	}
 }
 
-
+function ShowAll(){
+	var keys = gameObject.GetComponentsInChildren(Key);
+	for( var key : Key in keys) {
+		key.Show();
+	}
+}
 
 function HideKeys( names : Array ) {
 	for ( var name  in names ) {
@@ -22,8 +27,19 @@ function HideKeys( names : Array ) {
 	}
 }
 
+function HideAll(){
+
+	var keys = gameObject.GetComponentsInChildren(Key);
+	for( var key : Key in keys) {
+		key.Hide();
+	}
+}
+
 function SelectKey( name : String) {
-	GetChild(name).GetComponent(Key).Select();
+	var key = GetChild(name);
+	if(key){
+		key.GetComponent(Key).Select();
+	}
 }
 
 function SelectKeys( names : Array) {

@@ -41,6 +41,7 @@ var colorSmoothTime : float;
 var speedSmoothTime : float;
 var smoothTime : float;
 var messenger : Messenger;
+var track : String;
 
 
 function Awake() {
@@ -68,16 +69,21 @@ function Live() {
 	alive = true;
 }
 
+function Fail(){
+
+}
+
 function SetForce(f) {
     force = f;
 }
+
 
 function Accelerate() {
 	accelY = maxAccelY;
 }
 function UpdateMaterial() {
 	if( alive && !dying) {
-		alpha = Mathf.Clamp(0,1, alpha + .003);
+		alpha = Mathf.Clamp01(alpha + .003);
 	}
 	
 	body.renderer.material.color.a = alpha;
@@ -115,7 +121,7 @@ function Enter() {
 }
 
 function Sing() {
-	if(alive){
+	if(alive || dying){
 		Expand();
 		speedMod = .6;
 		Accelerate();
@@ -134,6 +140,7 @@ function PrevSound() {
 function EmitAura() {
 	var alpha : float = 0;
 	var aura = Instantiate(aura, transform.position, transform.rotation);
+	aura.GetComponent(Aura).SetOwner(gameObject);
 }
 
 function Expand() {
@@ -155,10 +162,10 @@ function PlaySound(){
 	soundManager.Play();
 }	
 
-function PlaySoundAt(index) {
+function PlaySoundAt(name : String) {
 	
-	soundManager.SetTrack(index);
-	messenger.Send("OnBeat", index);
+
+	messenger.Send("OnBeat", name);
 
 	Sing();
 }

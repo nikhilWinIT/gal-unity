@@ -21,7 +21,7 @@ class MusicManager extends MonoBehaviour {
 		if(track){
 			track.FadeOut(fadeRate);
 			}
-		track = GameObject.Find(name).GetComponent(Track);
+		track = transform.FindChild('Music/' + name).gameObject.GetComponent(Track);
 		track.FadeIn(fadeRate);
 		if(!playing) playing = true;
 		ResetData();
@@ -29,12 +29,15 @@ class MusicManager extends MonoBehaviour {
 		companion.GetComponent(Character).beatLength = beat;
 	}
 	
+	function ResetTrack(){
+		track.Reset();
+	}
+	
 	function NextTrack() {
 		index += 1;
 		if ( index > tracks.length -1 ) index = 0;
 		SetTrack(tracks[index]);
 	}
-	
 	
 	function ResetData() {
 		startTime = Time.realtimeSinceStartup;

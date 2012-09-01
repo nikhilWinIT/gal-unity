@@ -30,10 +30,12 @@ function Update () {
 }
 
 function Select() {
-	selected = true;
-	audio.PlayOneShot(audio.clip);
-	player.messenger.Send("OnBeat", index);
-	player.Sing();
+	if(!player.locked){
+		selected = true;
+		audio.PlayOneShot(audio.clip);
+		player.messenger.Send("OnBeat", name as String);
+		player.Sing();
+	}
 }
 
 function Show() {
@@ -69,7 +71,7 @@ function UpdateAttrs() {
 
 function UpdateMaterial() {
 	SetAlpha( mesh, alpha);
-	//SetAlpha( text, alpha);
+	SetAlpha( text, alpha);
 }
 
 function SetAlpha( object : GameObject, alpha : float ) {

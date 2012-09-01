@@ -11,15 +11,18 @@
 	var patternManager : PatternManager;
 	var beat : int;
 	var beatLength : float;
+	var sounds : GameObject;
+	var soundsManager : CompSoundManager;
+	var dancingPhase : int;
 	
 	function Awake() {
 		super.Awake();
 		patternManager = gameObject.GetComponent(PatternManager);	
+		soundsManager = sounds.GetComponent(CompSoundManager); 
 	}
 	
 	function Sing() {
 		super.Sing();
-		PlaySound();
 	}
 	
 	function Start() {
@@ -28,20 +31,34 @@
 	}
 	function Enter() {
 		super.Enter();
-		gameObject.GetComponent(Waiting).ExitAfterSeconds(10);
+		gameObject.GetComponent(Waiting).ExitAfterSeconds(0);
 	}
 	function Update() {
 		super.Update();
 		
 	}
 	
+	function Fail() {
+	owner.Tilt();
+	soundsManager.Play('Wrong');
+	}
+	function SingAt( key : String){
+		soundsManager.Play(key);
+		Sing();
+	}
+	
 	function Success() {
+		soundsManager.Play('Right');
 		satisfaction += 1;
 		if ( satisfaction > goal ) {
 			phase += 1;
 			satisfaction = 0;
 			NextPattern();
 		}
+	}
+	
+	function Play( name : String ){
+		soundsManager.Play(name);
 	}
 	
 	function SetPatternByID(id){
@@ -82,6 +99,10 @@
 	}
 
 	function NextPattern() {
+		var last = owner.track;
 		patternManager.Next();
+		if ( last != owner.track){
+			game.musicManager.SetTrack(owner.track);
+		}
 	}
 }

@@ -1,19 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Keymap.js">
-    <Files>
-      <File FileName="Assets/Scripts/Key.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Aura.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/KeyManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Dying.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SoundManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Companion.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/State.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Keymap.js" Line="19" Column="37" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

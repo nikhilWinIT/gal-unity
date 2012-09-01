@@ -31,3 +31,8 @@ function Update() {
 function Fade() {
 	if(audio.volume <= 1 || audio.volume >= 0) audio.volume += fadeRate;
 }
+
+function Reset() {
+	audio.Stop();
+	audio.Play();
+}
