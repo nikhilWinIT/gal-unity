@@ -8,7 +8,7 @@ class Dying extends Dancing {
 	
 	function OnEnable() {
 		super.OnEnable();
-		musicManager.SetTrack('Disharmony');
+		game.musicManager.SetTrack('Disharmony');
 		owner.dying = true;
 		spotlightCompanion.Dim();
 		SingRandom();

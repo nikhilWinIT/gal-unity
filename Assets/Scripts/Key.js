@@ -14,12 +14,13 @@ var lerp : float;
 var alpha : float;
 var player : Character;
 var index : int;
-
+var game : GameManager;
 
 function Start () {
 	player = gameObject.Find('Player').GetComponent(Character);
 	mesh = transform.FindChild('Mesh').gameObject;
 	text = transform.FindChild('Text').gameObject;
+	game = gameObject.Find('Game').GetComponent(GameManager);
 
 }
 
@@ -33,7 +34,7 @@ function Select() {
 	if(!player.locked){
 		selected = true;
 		audio.PlayOneShot(audio.clip);
-		player.messenger.Send("OnBeat", name as String);
+		game.objects.characters.companion.SendMessage('OnBeat', name as String);
 		player.Sing();
 	}
 }

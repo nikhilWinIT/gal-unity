@@ -23,7 +23,7 @@ class Dancing extends State {
 		spotlightCompanion.Undim();
 		globallight.Undim();
 		Reset();
-		game.keyManager.HideAll();
+		game.managers.keyboard.HideAll();
 		ChangeStateAfter( duration, 'Dying');
 
 		

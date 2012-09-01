@@ -14,7 +14,6 @@ var deceleration : float;
 var direction : int = 1;
 var friction: float;
 var aura : Transform;
-var soundManager : SoundManager;
 public var force : boolean;
 var acceleration : float;
 var body : Transform;
@@ -48,7 +47,6 @@ function Awake() {
 	targetX = transform.position.x;
 	targetY = transform.position.y;
 	body = transform.Find('Body');
-	soundManager = gameObject.GetComponent(SoundManager);
 	stateManager = gameObject.GetComponent(StateManager);
 	game = GameObject.Find('Game').GetComponent(GameManager);
 	UpdateMaterial();
@@ -89,11 +87,11 @@ function UpdateMaterial() {
 	body.renderer.material.color.a = alpha;
 }
 function UpdateAccel() {
-	accelY = accelY - game.gravity;
+	accelY = accelY - game.settings.global.gravity;
 	
 }
 function UpdateSpeed () {
-	maxSpeed = (game.minSpeed +(Mathf.Clamp((radius-game.minRadius), 0, 100))*game.speedModifier) * speedMod;
+	maxSpeed = (game.settings.global.minSpeed +(Mathf.Clamp((radius-game.settings.global.minRadius), 0, 100))*game.settings.global.speedModifier) * speedMod;
     if(speed < maxSpeed)
         speed += acceleration/30;
     else
@@ -129,13 +127,6 @@ function Sing() {
 	}
 }
 
-function NextSound() {
-	soundManager.NextTrack();
-}
-
-function PrevSound() {
-	soundManager.PrevTrack();
-}
 
 function EmitAura() {
 	var alpha : float = 0;
@@ -158,14 +149,9 @@ function OnMessage(message) {
 	gameObject.SendMessage(message);
 }
 
-function PlaySound(){
-	soundManager.Play();
-}	
-
 function PlaySoundAt(name : String) {
 	
 
-	messenger.Send("OnBeat", name);
 
 	Sing();
 }

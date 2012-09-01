@@ -8,7 +8,6 @@ var spotlightPlayer : LightScript;
 var spotlightCompanion : LightScript;
 var globallight : LightScript;
 var game : GameManager;
-var musicManager :MusicManager;
 
 function Awake() {
 	enabled = false;
@@ -18,7 +17,6 @@ function OnEnable () {
 	spotlightCompanion = GameObject.Find('Spotlight_Companion').GetComponent(LightScript);
 	globallight = GameObject.Find('GlobalLight').GetComponent(LightScript);
 	game = GameObject.Find('Game').GetComponent(GameManager);
-	musicManager = GameObject.Find('Game').GetComponent(MusicManager);
 	owner = gameObject.GetComponent(Character);
 	startTime = Time.realtimeSinceStartup;
 	pattern = owner.pattern;
@@ -70,7 +68,7 @@ function Fail() {
 function UpdatePosition() {
 
 		owner.radius += owner.accelY;
-		owner.radius = Mathf.Clamp(owner.radius, game.minRadius, game.maxRadius);
+		owner.radius = Mathf.Clamp(owner.radius, game.settings.global.minRadius, game.settings.global.maxRadius);
 	    owner.radian -= (owner.speed/100)*owner.direction;
 	    owner.targetX = owner.radius*Mathf.Cos(owner.radian);
 	    owner.targetY = owner.radius*Mathf.Sin(owner.radian);

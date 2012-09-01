@@ -16,7 +16,7 @@ class Singing extends State {
 	function OnEnable() {
 		super.OnEnable();
 		Reset();
-		game.keyManager.HideAll();
+		game.managers.keyboard.HideAll();
 
 		//spotlight.GetComponent(Spotlight).SetTarget('Companion');
 		game.LockPlayer();
@@ -53,10 +53,8 @@ class Singing extends State {
 		offset = diff;
 		if(!started) {
 			Reset();
-//			musicManager.SetTrack(owner.track);
-
 			started = true;
-			musicManager.ResetTrack();
+			game.managers.music.ResetTrack();
 
 		}
 	}
@@ -76,7 +74,7 @@ class Singing extends State {
 		}
 		
 		else if( elapsed > parseFloat(pattern[nextBeat]) - offset){
-			game.keyManager.ShowKeys([notes[nextBeat]]);
+			game.managers.keyboard.ShowKeys([notes[nextBeat]]);
 			owner.SingAt(notes[nextBeat]);
 			nextBeat += 1;
 		}
