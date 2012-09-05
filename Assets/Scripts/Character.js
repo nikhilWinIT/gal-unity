@@ -30,34 +30,66 @@ var targetX : float;
 var targetY : float;
 var speedMod : float = .3; 
 var game : GameManager;
+
 private var smoothVel : float;	
 private var speedSmoothVel :float;
-private var redVel: float;
-private var greenVel: float;
-private var blueVel : float;
+
 var locked : boolean = false;
 var colorSmoothTime : float;
 var speedSmoothTime : float;
+
 var smoothTime : float;
 var messenger : Messenger;
 var track : String;
 
+class SmoothTimes {
+	var color : float;
+	var speed : float;
+	var intensity : float;
+}
+
+class SmoothVels {
+	var intensity : float;
+}
+
+class Emotion {
+	var mood : String;
+	var intensity : float;
+	var targetIntensity : float;
+	var rate : float;
+}
+
+class CharacterMaterials {
+	var base : Material;
+	var target : Material;
+	var neutral : Material;
+	var angry : Material;
+	var happy : Material;
+}
+
+var materials : CharacterMaterials;
+var emotion : Emotion;
+var smoothVels : SmoothVels;
+var smoothTimes : SmoothTimes;
 
 function Awake() {
 	targetX = transform.position.x;
 	targetY = transform.position.y;
 	body = transform.Find('Body');
+	SetTargetEmotion('neutral', 1);
 	stateManager = gameObject.GetComponent(StateManager);
 	game = GameObject.Find('Game').GetComponent(GameManager);
 	UpdateMaterial();
 	force = true;
 	messenger = gameObject.GetComponent(Messenger);
+	materials.target = materials.base;
 }
 function Update () {
 	
 		UpdateAccel();
 	    UpdateSpeed();
 	    UpdatePosition();
+	    UpdateEmotion();
 	    UpdateMaterial();
    	
 
@@ -79,12 +111,24 @@ function SetForce(f) {
 function Accelerate() {
 	accelY = maxAccelY;
 }
+
+function UpdateEmotion (){
+	emotion.intensity = Mathf.SmoothDamp(emotion.intensity, emotion.targetIntensity, smoothVels.intensity, smoothTimes.intensity);
+}
 function UpdateMaterial() {
 	if( alive && !dying) {
 		alpha = Mathf.Clamp01(alpha + .003);
 	}
-	
+	body.renderer.material.Lerp(materials.base, materials.target, emotion.intensity);
 	body.renderer.material.color.a = alpha;
+}
+
+function SetTargetEmotion( mood : String, intensity : float) {
+	materials.base = body.renderer.material;
+	var value = materials.GetType().GetField( mood ).GetValue(materials);
+	emotion.intensity = 0;
+	emotion.targetIntensity = intensity; 
+	materials.target = value;
 }
 function UpdateAccel() {
 	accelY = accelY - game.settings.global.gravity;

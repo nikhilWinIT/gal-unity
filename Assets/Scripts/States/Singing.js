@@ -22,7 +22,7 @@ class Singing extends State {
 		game.LockPlayer();
 		game.entities.lights.global.Dim();
 		game.entities.lights.player.Dim();
-		game.entities.lights.companion.Undim();
+
 	}
 	function Update () {
 		super.Update();

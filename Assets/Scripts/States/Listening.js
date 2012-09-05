@@ -84,11 +84,13 @@ class Listening extends State {
 	
 	function Fail(){
 		owner.Fail();
-		WaitForState('Singing', 0);
+		
+		WaitForState('Singing', .5);
 	}
 	
 	function PitchFail() {
 		owner.Fail();
+		owner.SetTargetEmotion('angry', 1);
 		game.LockPlayerFor(2);
 		pitchFailCount += 1;
 		if ( pitchFailCount > pitchFailMax ) {
@@ -98,21 +100,27 @@ class Listening extends State {
 		else {
 			Restart();
 		}
+		yield WaitForSeconds(1);
+		owner.SetTargetEmotion('neutral', 1);
 	}
 
 	
 	function Success() {
 		owner.Jump();
 		owner.Success();
+		game.entities.lights.companion.Undim();
+		owner.SetTargetEmotion('happy', 1);
 		
 		
 		if (owner.phase == owner.dancingPhase) {
 			ChangeState('Dancing');
 		}
 		else {
-			ChangeState('Singing');
+			ChangeStateAfter(.5, 'Singing');
 
 		}
+		yield WaitForSeconds(.5);
+		owner.SetTargetEmotion('neutral', 1);
 	}
 	
 	function Update () {

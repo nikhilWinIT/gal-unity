@@ -67,11 +67,12 @@ class Data {
 }
 
 var objects : Objects;
-var materials : Materials;
-var managers : Managers;
 var settings : Settings;
+var materials : Materials;
 var entities : Entities;
 var data : Data;
+var managers : Managers;
+var clips : GameObject[];
 
 function Start () {
 	entities.lights.player 		= 	objects.lights.player.GetComponent(LightScript);

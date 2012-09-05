@@ -1,27 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Messenger.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.js">
     <Files>
-      <File FileName="Assets/Scripts/Key.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Aura.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Singing.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/KeyManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Dying.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SoundManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Companion.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/State.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Keymap.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CompSoundManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PatternManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Listening.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Messenger.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/States/Waiting.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.js" Line="75" Column="26" />
       <File FileName="Assets/Scripts/States/Dancing.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/States/Dying.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/States/EmptyState.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/States/Listening.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/States/Mimicking.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/States/Singing.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Messenger.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Key.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Companion.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Keymap.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/States/Waiting.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/MusicManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Pattern.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StateManager.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Aura.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
