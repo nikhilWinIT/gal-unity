@@ -91,6 +91,8 @@ class Listening extends State {
 	function PitchFail() {
 		owner.Fail();
 		owner.SetTargetEmotion('angry', 1);
+		owner.SetConfidence(1.5);
+		game.entities.characters.player.SetConfidence(.8);
 		game.LockPlayerFor(2);
 		pitchFailCount += 1;
 		if ( pitchFailCount > pitchFailMax ) {
@@ -100,7 +102,9 @@ class Listening extends State {
 		else {
 			Restart();
 		}
-		yield WaitForSeconds(1);
+		yield WaitForSeconds(1.7);
+		owner.SetConfidence(1);
+		game.entities.characters.player.SetConfidence(1);
 		owner.SetTargetEmotion('neutral', 1);
 	}
 

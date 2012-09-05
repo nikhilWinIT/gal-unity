@@ -20,6 +20,7 @@ class Singing extends State {
 
 		//spotlight.GetComponent(Spotlight).SetTarget('Companion');
 		game.LockPlayer();
+		game.entities.lights.companion.Undim();
 		game.entities.lights.global.Dim();
 		game.entities.lights.player.Dim();
 

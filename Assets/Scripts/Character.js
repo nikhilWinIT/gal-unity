@@ -46,16 +46,20 @@ class SmoothTimes {
 	var color : float;
 	var speed : float;
 	var intensity : float;
+	var confidence : float;
 }
 
 class SmoothVels {
 	var intensity : float;
+	var confidence : float;
 }
 
 class Emotion {
 	var mood : String;
 	var intensity : float;
 	var targetIntensity : float;
+	var confidence : float;
+	var targetConfidence : float;
 	var rate : float;
 }
 
@@ -77,22 +81,22 @@ function Awake() {
 	targetY = transform.position.y;
 	body = transform.Find('Body');
 	SetTargetEmotion('neutral', 1);
+	emotion.targetConfidence = 1;
 	stateManager = gameObject.GetComponent(StateManager);
 	game = GameObject.Find('Game').GetComponent(GameManager);
-	UpdateMaterial();
+	UpdateShape();
 	force = true;
 	messenger = gameObject.GetComponent(Messenger);
 	materials.target = materials.base;
 }
+
 function Update () {
 	
 		UpdateAccel();
 	    UpdateSpeed();
 	    UpdatePosition();
-	    UpdateEmotion();
-	    UpdateMaterial();
-   	
-
+	    UpdateAttributes();
+	    UpdateShape();
 }
 
 function Live() {
@@ -107,20 +111,22 @@ function SetForce(f) {
     force = f;
 }
 
-
 function Accelerate() {
 	accelY = maxAccelY;
 }
 
-function UpdateEmotion (){
+function UpdateAttributes (){
 	emotion.intensity = Mathf.SmoothDamp(emotion.intensity, emotion.targetIntensity, smoothVels.intensity, smoothTimes.intensity);
+	emotion.confidence = Mathf.SmoothDamp(emotion.confidence, emotion.targetConfidence, smoothVels.confidence, smoothTimes.confidence);
 }
-function UpdateMaterial() {
+
+function UpdateShape() {
 	if( alive && !dying) {
 		alpha = Mathf.Clamp01(alpha + .003);
 	}
 	body.renderer.material.Lerp(materials.base, materials.target, emotion.intensity);
 	body.renderer.material.color.a = alpha;
+	transform.localScale = Vector3(emotion.confidence, emotion.confidence, 1);
 }
 
 function SetTargetEmotion( mood : String, intensity : float) {
@@ -130,16 +136,19 @@ function SetTargetEmotion( mood : String, intensity : float) {
 	emotion.targetIntensity = intensity; 
 	materials.target = value;
 }
+
+function SetConfidence( confidence : float ) {
+	emotion.targetConfidence = confidence;
+}
+
 function UpdateAccel() {
 	accelY = accelY - game.settings.global.gravity;
-	
 }
 
 function LockForSeconds( duration : float ) {
 	Debug.Log('locked for ' + duration);
 	locked = true;
 	yield WaitForSeconds(duration);
-	
 }
 
 function UpdateSpeed () {
@@ -158,13 +167,10 @@ function UpdateSpeed () {
 }
 
 function UpdatePosition () {
-	//transform.position.x -= Mathf.SmoothDamp(transform.position.x, targetX, smoothVel, smoothTime);
-	//transform.position.y -= Mathf.SmoothDamp(transform.position.y, targetY, smoothVel, smoothTime);
 	transform.position.x += (targetX - transform.position.x)/30;
 	transform.position.y +=  (targetY - transform.position.y)/30;
-	
-
 }
+
 function Enter() {
 	alpha = 0;
 	Live();
@@ -175,10 +181,8 @@ function Sing() {
 		Expand();
 		speedMod = .6;
 		Accelerate();
-		
 	}
 }
-
 
 function EmitAura() {
 	var alpha : float = 0;
@@ -194,16 +198,10 @@ function Expand() {
 	EmitAura();
 }
 
-
-
-
 function OnMessage(message) {
 	gameObject.SendMessage(message);
 }
 
 function PlaySoundAt(name : String) {
-	
-
-
 	Sing();
 }
