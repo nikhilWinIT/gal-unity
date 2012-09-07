@@ -1,17 +1,17 @@
 class PatternManager extends MonoBehaviour {
 	var current : GameObject;
-	var patterns : GameObject[];
+	private var patterns : GameObject[];
 	var parent : GameObject;
 	var index : int = 0;
 	var owner : Character;
 	var patternNames : String[];
-	var startingIndex : int;
+	var game : GameManager;
 	
 	function Start() {
-		owner = gameObject.GetComponent(Character);
+		game = gameObject.GetComponent(GameManager); 
+		owner = game.entities.characters.companion;
 		GetPatterns();		
 		SetPattern(patternNames[index]);
-		
 	}
 	
 	function SetPatternByID(id) {
@@ -27,10 +27,8 @@ class PatternManager extends MonoBehaviour {
 	
 	function SetPattern( patternName : String) {
 		var pattern = transform.FindChild('Patterns/'+patternName).gameObject;
-		Debug.Log(pattern);
 		owner.pattern = SerializePattern(pattern);
 		owner.notes = SerializeNotes(pattern);
-		Debug.Log(pattern.name);
 		owner.track = pattern.GetComponent(Pattern).trackName;
 	}
 	

@@ -32,7 +32,7 @@ function Update () {
 function Select() {
 	if(!game.entities.characters.player.locked){
 		selected = true;
-		audio.PlayOneShot(audio.clip);
+		game.managers.sound.Play(gameObject.name);
 		game.objects.characters.companion.SendMessage('OnBeat', name as String);
 		game.entities.characters.player.Sing();
 	}

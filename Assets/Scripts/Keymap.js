@@ -11,7 +11,7 @@ var Gs : String;
 var A : String;
 var As : String;
 var B : String;
-var C_high : String;
+var Ch : String;
 var keymap : Hashtable = new Hashtable();
 var keyboard : GameObject;
 var keyManager : KeyManager;

@@ -72,16 +72,19 @@ var materials : Materials;
 var entities : Entities;
 var data : Data;
 var managers : Managers;
-var clips : GameObject[];
+var stage : GameObject;
 
-function Start () {
+function Awake () {
 	entities.lights.player 		= 	objects.lights.player.GetComponent(LightScript);
 	entities.lights.companion 	= 	objects.lights.companion.GetComponent(LightScript);
 	entities.lights.global 		= 	objects.lights.global.GetComponent(LightScript);
     entities.characters.player	= 	objects.characters.player.GetComponent(Character);
     entities.characters.companion = objects.characters.companion.GetComponent(Character);
+    Debug.Log('companion registered');
     managers.keyboard = ComponentFrom('Keyboard', KeyManager);
     managers.music = gameObject.GetComponent(MusicManager);
+    managers.pattern = gameObject.GetComponent(PatternManager);
+    managers.sound = gameObject.GetComponent(SoundManager);
     data.keymap = gameObject.GetComponent(Keymap);
     StartGame();
 }

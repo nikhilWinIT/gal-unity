@@ -17,7 +17,7 @@
 	
 	function Awake() {
 		super.Awake();
-		patternManager = gameObject.GetComponent(PatternManager);	
+		
 		soundManager = sounds.GetComponent(CompSoundManager); 
 	}
 	
@@ -26,6 +26,7 @@
 	}
 	
 	function Start() {
+		patternManager = game.managers.pattern;
 		owner = gameObject.GetComponent(Character);
 		player = GameObject.Find('Player').GetComponent(Character);
 	}

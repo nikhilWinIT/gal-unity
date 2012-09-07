@@ -64,8 +64,8 @@ function UpdatePosition() {
 		owner.radius += owner.accelY;
 		owner.radius = Mathf.Clamp(owner.radius, game.settings.global.minRadius, game.settings.global.maxRadius);
 	    owner.radian -= (owner.speed/100)*owner.direction;
-	    owner.targetX = owner.radius*Mathf.Cos(owner.radian);
-	    owner.targetY = owner.radius*Mathf.Sin(owner.radian);
+	    owner.targetX = game.stage.transform.position.x + owner.radius*Mathf.Cos(owner.radian);
+	    owner.targetY = game.stage.transform.position.y + owner.radius*Mathf.Sin(owner.radian);
 
 }
 
