@@ -46,7 +46,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Aura.js" />
      <Compile Include="Assets\Scripts\Character.js" />
-     <Compile Include="Assets\Scripts\CompSoundManager.js" />
      <Compile Include="Assets\Scripts\Companion.js" />
      <Compile Include="Assets\Scripts\DirLight.js" />
      <Compile Include="Assets\Scripts\GameManager.js" />

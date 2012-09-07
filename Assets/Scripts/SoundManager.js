@@ -47,4 +47,9 @@ class SoundManager extends MonoBehaviour {
 		yield WaitForSeconds(current.audio.clip.length);
 		Destroy(source);
 	}
+	
+	function PlayByName( name : String) {
+		var source = root.transform.FindChild(name).gameObject;
+		source.audio.PlayOneShot(source.audio.clip);
+	}
 }
