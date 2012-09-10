@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editors\ToolsWindow.js" />
      <Compile Include="Assets\Scripts\Aura.js" />
      <Compile Include="Assets\Scripts\Character.js" />
      <Compile Include="Assets\Scripts\Companion.js" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\Scripts\States\Singing.js" />
      <Compile Include="Assets\Scripts\States\Waiting.js" />
      <Compile Include="Assets\Scripts\Track.js" />
+     <Compile Include="Assets\Scripts\Trigger.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FirstPersonControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FollowTransform.js" />

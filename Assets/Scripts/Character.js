@@ -1,7 +1,8 @@
+
 import Holoville.HOTween;
 HOTween.Init(false, false, true);
 HOTween.EnableOverwriteManager();
-
+var properties : Array;
 private var vel: Vector2;
 var radius : float;
 var targetRadius: float;

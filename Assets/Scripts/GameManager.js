@@ -84,7 +84,7 @@ function Awake () {
     managers.keyboard = ComponentFrom('Keyboard', KeyManager);
     managers.music = gameObject.GetComponent(MusicManager);
     managers.pattern = gameObject.GetComponent(PatternManager);
-    managers.sound = gameObject.GetComponent(SoundManager);
+    managers.sound = gameObject.GetComponent('SoundManager');
     data.keymap = gameObject.GetComponent(Keymap);
     StartGame();
 }
