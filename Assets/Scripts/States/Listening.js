@@ -27,8 +27,6 @@ class Listening extends State {
 		game.UnlockPlayer();	
 		var rPattern = ConvertPatternRelative(pattern);
 		normalizedPattern = NormalizePattern(rPattern);
-		game.entities.lights.player.Undim();
-		game.entities.lights.companion.Dim();
 		Restart();
 	}
 	
@@ -112,7 +110,6 @@ class Listening extends State {
 	function Success() {
 		owner.Jump();
 		owner.Success();
-		game.entities.lights.companion.Undim();
 		owner.SetTargetEmotion('happy', 1);
 		
 		

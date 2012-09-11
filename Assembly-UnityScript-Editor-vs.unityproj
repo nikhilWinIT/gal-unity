@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{CD9A6CFC-B40C-572B-BB86-535DE8671392}</ProjectGuid>
+	<ProjectGuid>{60F91501-AA69-C0A8-E021-F39D63B0AED0}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-UnityScript</AssemblyName>
+	<AssemblyName>Assembly-UnityScript-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,49 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editors\ToolsWindow.js" />
-     <Compile Include="Assets\Scripts\Aura.js" />
-     <Compile Include="Assets\Scripts\Character.js" />
-     <Compile Include="Assets\Scripts\Companion.js" />
-     <Compile Include="Assets\Scripts\DirLight.js" />
-     <Compile Include="Assets\Scripts\GameManager.js" />
-     <Compile Include="Assets\Scripts\Hooks.js" />
-     <Compile Include="Assets\Scripts\Key.js" />
-     <Compile Include="Assets\Scripts\KeyManager.js" />
-     <Compile Include="Assets\Scripts\Keymap.js" />
-     <Compile Include="Assets\Scripts\LightScript.js" />
-     <Compile Include="Assets\Scripts\Messenger.js" />
-     <Compile Include="Assets\Scripts\MusicManager.js" />
-     <Compile Include="Assets\Scripts\Pattern.js" />
-     <Compile Include="Assets\Scripts\PatternManager.js" />
-     <Compile Include="Assets\Scripts\Player.js" />
-     <Compile Include="Assets\Scripts\PlayerStates\PlayerWaiting.js" />
-     <Compile Include="Assets\Scripts\SoundManager.js" />
-     <Compile Include="Assets\Scripts\Spotlight.js" />
-     <Compile Include="Assets\Scripts\State.js" />
-     <Compile Include="Assets\Scripts\StateManager.js" />
-     <Compile Include="Assets\Scripts\States\Dancing.js" />
-     <Compile Include="Assets\Scripts\States\Dying.js" />
-     <Compile Include="Assets\Scripts\States\EmptyState.js" />
-     <Compile Include="Assets\Scripts\States\Listening.js" />
-     <Compile Include="Assets\Scripts\States\Mimicking.js" />
-     <Compile Include="Assets\Scripts\States\Recording.js" />
-     <Compile Include="Assets\Scripts\States\Singing.js" />
-     <Compile Include="Assets\Scripts\States\Waiting.js" />
-     <Compile Include="Assets\Scripts\Track.js" />
-     <Compile Include="Assets\Scripts\Trigger.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FirstPersonControl.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FollowTransform.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\Joystick.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\ObliqueNear.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\PlayerRelativeControl.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\RollABall.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\RotationConstraint.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\SidescrollControl.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\SmoothFollow2D.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\ZoomCamera.js" />
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\tapcontrol.js" />
+     <Compile Include="Assets\Editor\HooksEditor.js" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
@@ -97,8 +55,14 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+ <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript">
+ <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="Assets\HOTween\Plugins\HOTween">
  <HintPath>Assets\HOTween\Plugins\HOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\HOTween\Plugins\Editor\HOTweenV1_Editor">
+ <HintPath>Assets\HOTween\Plugins\Editor\HOTweenV1_Editor.dll</HintPath>
  </Reference>
  <Reference Include="Assets\Plugins\GoKit">
  <HintPath>Assets\Plugins\GoKit.dll</HintPath>

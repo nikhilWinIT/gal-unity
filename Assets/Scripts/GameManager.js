@@ -1,18 +1,13 @@
 import System.Collections.Generic;
 
 class Entities {
-	class Lights {
-		var player : LightScript;
-		var companion : LightScript;
-		var global : LightScript;
-	}
-	
+
 	class Characters {
 		var player : Character;
 		var companion : Character;
 	}
 	var characters : Characters;
-	var lights : Lights;
+
 }
 
 class Objects {
@@ -32,6 +27,8 @@ class Objects {
 	var characters : CharacterObjects;
 	var environment : EnvironmentObjects;
 }
+
+private var hooks : Hooks;
 
 class Materials {
 	var player : Material;
@@ -66,18 +63,21 @@ class Data {
 	var	keymap : Keymap;
 }
 
+class Stats {
+	var phase : int;
+}
+
 var objects : Objects;
 var settings : Settings;
 var materials : Materials;
 var entities : Entities;
+var stats : Stats;
 var data : Data;
 var managers : Managers;
 var stage : GameObject;
 
 function Awake () {
-	entities.lights.player 		= 	objects.lights.player.GetComponent(LightScript);
-	entities.lights.companion 	= 	objects.lights.companion.GetComponent(LightScript);
-	entities.lights.global 		= 	objects.lights.global.GetComponent(LightScript);
+
     entities.characters.player	= 	objects.characters.player.GetComponent(Character);
     entities.characters.companion = objects.characters.companion.GetComponent(Character);
     Debug.Log('companion registered');
@@ -86,6 +86,7 @@ function Awake () {
     managers.pattern = gameObject.GetComponent(PatternManager);
     managers.sound = gameObject.GetComponent('SoundManager');
     data.keymap = gameObject.GetComponent(Keymap);
+    hooks = gameObject.GetComponent(Hooks);
     StartGame();
 }
 
@@ -108,7 +109,7 @@ function OnGUI() {
 }
 
 function Update () {
-    
+    hooks.UpdateData(this);
 }
 
 function LockPlayer(){
@@ -124,7 +125,7 @@ function UnlockPlayer() {
 }
 
 function StartGame() {
-	GameObject.Find('GlobalLight').GetComponent(LightScript).Kill();
+
     yield WaitForSeconds(settings.checkpoints.playerSpawn);
 	entities.characters.player.Enter();
 	managers.music.SetTrack('Introduction');

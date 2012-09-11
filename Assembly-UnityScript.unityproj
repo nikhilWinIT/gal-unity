@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Companion.js" />
      <Compile Include="Assets\Scripts\DirLight.js" />
      <Compile Include="Assets\Scripts\GameManager.js" />
+     <Compile Include="Assets\Scripts\Hooks.js" />
      <Compile Include="Assets\Scripts\Key.js" />
      <Compile Include="Assets\Scripts\KeyManager.js" />
      <Compile Include="Assets\Scripts\Keymap.js" />

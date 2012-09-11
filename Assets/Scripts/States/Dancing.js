@@ -19,9 +19,6 @@ class Dancing extends State {
 	}
 	function OnEnable() {
 		super.OnEnable();
-		game.entities.lights.player.Undim();
-		game.entities.lights.companion.Undim();
-		game.entities.lights.global.Undim();
 		Reset();
 		game.managers.keyboard.HideAll();
 		ChangeStateAfter( duration, 'Dying');
@@ -29,7 +26,6 @@ class Dancing extends State {
 		
 	}
 	function Update () {
-		UpdatePosition();
 		if(started){
 			CheckTime();
 			

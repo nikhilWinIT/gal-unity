@@ -6,10 +6,12 @@ class Aura extends MonoBehaviour {
 
 	function Start() {
 		HOTween.To(transform, duration, 'localScale', new Vector3(maxScale, maxScale,1));
+		
 	}
 	
 	function SetOwner( ownerObject : GameObject) {
 		owner = ownerObject.GetComponent(Character);
+		transform.parent = owner.auraContainer;
 		renderer.material.color.a = owner.alpha;
 
 	}

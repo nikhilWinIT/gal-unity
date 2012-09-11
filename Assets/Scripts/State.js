@@ -18,7 +18,7 @@ function OnEnable () {
 }
 
 function Update () {
-	UpdatePosition();
+
 }
 
 function OnCue(diff : float) {
@@ -57,16 +57,6 @@ function HearCue(diff : float) {
 function Fail() {
 	owner.Tilt();
 	WaitForState('Waiting', 0);
-}
-
-function UpdatePosition() {
-
-		owner.radius += owner.accelY;
-		owner.radius = Mathf.Clamp(owner.radius, game.settings.global.minRadius, game.settings.global.maxRadius);
-	    owner.radian -= (owner.speed/100)*owner.direction;
-	    owner.targetX = game.stage.transform.position.x + owner.radius*Mathf.Cos(owner.radian);
-	    owner.targetY = game.stage.transform.position.y + owner.radius*Mathf.Sin(owner.radian);
-
 }
 
 function ConvertPatternRelative(pattern) {

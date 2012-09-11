@@ -15,33 +15,21 @@ var force : boolean;
 var aura : Transform;
 var measureLength : float;
 var beatLength : float;
+var auraContainer : Transform;
 
 //Protected
 protected var game : GameManager;
 protected var body : Transform;
 protected var smoothVel : float;	
-protected var speedSmoothVel :float;
+
 
 
 //Private 
-private var vel: Vector2;
-private var targetRadius: float;
-private var startingRadian : float;
-var maxSpeed: float;
 
-var deceleration : float;
-var direction : int = 1;
-var friction: float;
-var acceleration : float;
-
-var accelY : float;
-var maxAccelY : float = .01;
 private var alive : boolean = false;
 private var dying : boolean = false;
 private var state : String = 'normal';
-var targetX : float;
-var targetY : float;
-var speedMod : float = .3; 
+
 private var colorSmoothTime : float;
 private var speedSmoothTime : float;
 private var smoothTime : float;
@@ -96,11 +84,6 @@ function Awake() {
 }
 
 function Update () {
-	
-		UpdateAccel();
-	    UpdateSpeed();
-	    UpdatePosition();
-	    UpdateAttributes();
 	    UpdateShape();
 }
 
@@ -124,18 +107,6 @@ function Unlock() {
 	locked = false;
 }
 
-function SetForce(f) {
-    force = f;
-}
-
-function Accelerate() {
-	accelY = maxAccelY;
-}
-
-function UpdateAttributes (){
-	emotion.intensity = Mathf.SmoothDamp(emotion.intensity, emotion.targetIntensity, smoothVels.intensity, smoothTimes.intensity);
-	emotion.confidence = Mathf.SmoothDamp(emotion.confidence, emotion.targetConfidence, smoothVels.confidence, smoothTimes.confidence);
-}
 
 function UpdateShape() {
 	if( alive && !dying) {
@@ -143,8 +114,7 @@ function UpdateShape() {
 	}
 	body.renderer.material.Lerp(materials.base, materials.target, emotion.intensity);
 	body.renderer.material.color.a = alpha;
-	transform.localScale = Vector3(emotion.confidence, emotion.confidence, 1);
-}
+	}
 
 function SetTargetEmotion( mood : String, intensity : float) {
 	materials.base = body.renderer.material;
@@ -158,43 +128,10 @@ function SetConfidence( confidence : float ) {
 	emotion.targetConfidence = confidence;
 }
 
-function UpdateAccel() {
-	accelY = accelY - game.settings.global.gravity;
-}
-
 function LockForSeconds( duration : float ) {
 	Debug.Log('locked for ' + duration);
 	locked = true;
 	yield WaitForSeconds(duration);
-}
-
-function SetPositionRadial(){
-		radius += accelY;
-		radius = Mathf.Clamp(radius, game.settings.global.minRadius, game.settings.global.maxRadius);
-	    radian -= (speed/100)*direction;
-	    targetX = game.stage.transform.position.x + radius*Mathf.Cos(radian);
-	    targetY = game.stage.transform.position.y + radius*Mathf.Sin(radian);
-}
-
-function UpdateSpeed () {
-	maxSpeed = (game.settings.global.minSpeed +(Mathf.Clamp((radius-game.settings.global.minRadius), 0, 100))*game.settings.global.speedModifier) * speedMod;
-    if(speed < maxSpeed)
-        speed += acceleration/30;
-    else
-        speed -= speed/friction;
-    if( speed > maxSpeed) {
-    	speed = maxSpeed;
-    }
-    else if (speed < .001) {
-    	speed = 0;
-    }
-    Debug.Log(speedMod);
-    speedMod = Mathf.SmoothDamp(speedMod, 0, smoothVels.speed, smoothTimes.speed);
-}
-
-function UpdatePosition () {
-	transform.position.x += (targetX - transform.position.x)/30;
-	transform.position.y +=  (targetY - transform.position.y)/30;
 }
 
 function Enter() {
@@ -210,7 +147,6 @@ function Sing() {
 	if(alive || dying){
 		Expand();
 		speedMod = .6;
-		Accelerate();
 	}
 }
 

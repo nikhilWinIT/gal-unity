@@ -1,36 +1,38 @@
 
-enum TriggerTypes { GreaterThan, LessThan , Equal }
+//enum TriggerTypes { GreaterThan, LessThan , Equal }
 var animClip : AnimationClip;
-var sourceObject : GameObject;
-var componentName : String;
+var hooks : Hooks;
 var propertyName : String;
-var triggerType : TriggerTypes;
-var triggerPoint : float;
-var loop : boolean;
-var currentValue : float;
-var component : MonoBehaviour;
+//var triggerType : TriggerTypes;
+var valueMin : float;
+var valueMax : float;
+var triggered : boolean;
 
-var value : System.Reflection.FieldInfo;
 function Start() {
-	component = sourceObject.GetComponent(componentName);
-	value = component.GetType().GetField(propertyName);
+	hooks = GameObject.FindObjectOfType(Hooks);
 	animation.AddClip(animClip, animClip.name);
 
 }
 function Update(){
-	currentValue = value.GetValue(component);
 	Check();
 }
 
 function Check() {
-	switch(triggerType) {
-		case TriggerTypes.GreaterThan:
-			if(currentValue > triggerPoint){
-				Debug.Log('triggered');
-				enabled = false;
-				animation.CrossFade(animClip.name);
-			}
-			break;
 
+	var _value = hooks.hooks[propertyName];
+	if(_value >= valueMin && _value < valueMax){
+		if(!triggered) Trigger();
 	}
+	else {
+		if(triggered) EnableTrigger();
+	}
+}
+
+function Trigger(){
+	animation.CrossFade(animClip.name);
+	triggered = true;
+}
+
+function EnableTrigger(){
+	triggered = false;
 }
