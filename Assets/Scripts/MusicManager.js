@@ -25,8 +25,7 @@ class MusicManager extends MonoBehaviour {
 		track.FadeIn(fadeRate);
 		if(!playing) playing = true;
 		ResetData();
-		companion.GetComponent(Character).measureLength = beat*track.signature;
-		companion.GetComponent(Character).beatLength = beat;
+		companion.GetComponent(Character).SetTrackData(beat*track.signature, beat);
 	}
 	
 	function ResetTrack(){

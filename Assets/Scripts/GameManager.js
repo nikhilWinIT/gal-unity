@@ -112,7 +112,7 @@ function Update () {
 }
 
 function LockPlayer(){
-	entities.characters.player.locked = true;
+	entities.characters.player.Lock();
 }
 function LockPlayerFor( duration : float ) {
 	LockPlayer();
@@ -120,7 +120,7 @@ function LockPlayerFor( duration : float ) {
 	UnlockPlayer();
 }
 function UnlockPlayer() {
-	entities.characters.player.locked = false;
+	entities.characters.player.Unlock();
 }
 
 function StartGame() {

@@ -16,6 +16,7 @@ class Recording extends State {
 	}
 	
 	function Update () {
+		/*
 		if(enabled){
 			if( beats.length > 0 ){
 				var waited = Time.realtimeSinceStartup - beats[beats.length - 1];
@@ -34,6 +35,7 @@ class Recording extends State {
 				}
 			}
 		}
+		*/
 	}
 	
 	function Reset() {

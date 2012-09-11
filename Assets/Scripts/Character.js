@@ -2,46 +2,50 @@
 import Holoville.HOTween;
 HOTween.Init(false, false, true);
 HOTween.EnableOverwriteManager();
-var properties : Array;
-private var vel: Vector2;
-var radius : float;
-var targetRadius: float;
-var startingRadian : float;
+//Public
+var locked : boolean = false;
+var alpha : float;
+var pattern : Array;
+var notes : Array;
+var track : String;
 var radian : float;
 var speed : float;
+var radius : float;
+var force : boolean;
+var aura : Transform;
+var measureLength : float;
+var beatLength : float;
+
+//Protected
+protected var game : GameManager;
+protected var body : Transform;
+protected var smoothVel : float;	
+protected var speedSmoothVel :float;
+
+
+//Private 
+private var vel: Vector2;
+private var targetRadius: float;
+private var startingRadian : float;
 var maxSpeed: float;
-var gravity : float;
+
 var deceleration : float;
 var direction : int = 1;
 var friction: float;
-var aura : Transform;
-public var force : boolean;
 var acceleration : float;
-var body : Transform;
-var measureLength: float;
+
 var accelY : float;
 var maxAccelY : float = .01;
-var pattern : Array;
-var notes : Array;
-var alpha : float;
-var alive : boolean = false;
-var dying : boolean = false;
-var state : String = 'normal';
+private var alive : boolean = false;
+private var dying : boolean = false;
+private var state : String = 'normal';
 var targetX : float;
 var targetY : float;
 var speedMod : float = .3; 
-var game : GameManager;
+private var colorSmoothTime : float;
+private var speedSmoothTime : float;
+private var smoothTime : float;
 
-private var smoothVel : float;	
-private var speedSmoothVel :float;
-
-var locked : boolean = false;
-var colorSmoothTime : float;
-var speedSmoothTime : float;
-
-var smoothTime : float;
-var messenger : Messenger;
-var track : String;
 
 class SmoothTimes {
 	var color : float;
@@ -51,6 +55,7 @@ class SmoothTimes {
 }
 
 class SmoothVels {
+	var speed : float;
 	var intensity : float;
 	var confidence : float;
 }
@@ -87,7 +92,6 @@ function Awake() {
 	game = GameObject.Find('Game').GetComponent(GameManager);
 	UpdateShape();
 	force = true;
-	messenger = gameObject.GetComponent(Messenger);
 	materials.target = materials.base;
 }
 
@@ -104,8 +108,20 @@ function Live() {
 	alive = true;
 }
 
+function Die(){
+	dying = true;
+}
+
 function Fail(){
 
+}
+
+function Lock() {
+	locked = true;
+}
+
+function Unlock() {
+	locked = false;
 }
 
 function SetForce(f) {
@@ -152,6 +168,14 @@ function LockForSeconds( duration : float ) {
 	yield WaitForSeconds(duration);
 }
 
+function SetPositionRadial(){
+		radius += accelY;
+		radius = Mathf.Clamp(radius, game.settings.global.minRadius, game.settings.global.maxRadius);
+	    radian -= (speed/100)*direction;
+	    targetX = game.stage.transform.position.x + radius*Mathf.Cos(radian);
+	    targetY = game.stage.transform.position.y + radius*Mathf.Sin(radian);
+}
+
 function UpdateSpeed () {
 	maxSpeed = (game.settings.global.minSpeed +(Mathf.Clamp((radius-game.settings.global.minRadius), 0, 100))*game.settings.global.speedModifier) * speedMod;
     if(speed < maxSpeed)
@@ -164,7 +188,8 @@ function UpdateSpeed () {
     else if (speed < .001) {
     	speed = 0;
     }
-    speedMod = Mathf.SmoothDamp(speedMod, 0, speedSmoothVel, speedSmoothTime);
+    Debug.Log(speedMod);
+    speedMod = Mathf.SmoothDamp(speedMod, 0, smoothVels.speed, smoothTimes.speed);
 }
 
 function UpdatePosition () {
@@ -175,6 +200,10 @@ function UpdatePosition () {
 function Enter() {
 	alpha = 0;
 	Live();
+}
+function SetTrackData( measure : float, beat : float) {
+	measureLength = measure;
+	beatLength = beat;
 }
 
 function Sing() {

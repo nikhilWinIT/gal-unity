@@ -9,7 +9,7 @@ class Dying extends Dancing {
 	function OnEnable() {
 		super.OnEnable();
 		game.managers.music.SetTrack('Disharmony');
-		owner.dying = true;
+		owner.Die();
 		game.entities.lights.companion.Dim();
 		SingRandom();
 		game.managers.keyboard.ShowAll();

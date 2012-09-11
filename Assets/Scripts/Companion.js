@@ -10,7 +10,6 @@
 	var stateManager : StateManager;
 	var patternManager : PatternManager;
 	var beat : int;
-	var beatLength : float;
 	var sounds : GameObject;
 	var dancingPhase : int;
 	

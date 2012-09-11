@@ -12,9 +12,9 @@ class Mimicking extends Singing {
 		
 	}
 	function TrimPattern() {
-		if ( pattern[pattern.length-1] > owner.measureLength) {
-			pattern.Pop();
-		}
+//		if ( pattern[pattern.length-1] > owner.measureLength) {
+		//	pattern.Pop();
+	//	}
 	}
 	
 	function EndState() {
