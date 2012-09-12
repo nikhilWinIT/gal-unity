@@ -23,9 +23,13 @@ class Objects {
 	class EnvironmentObjects {
 		var background : GameObject;
 	}
+	class UIObjects {
+		var keyboard : GameObject;
+	}
 	var lights : LightObjects;
 	var characters : CharacterObjects;
 	var environment : EnvironmentObjects;
+	var ui : UIObjects;
 }
 
 private var hooks : Hooks;
@@ -75,19 +79,22 @@ var stats : Stats;
 var data : Data;
 var managers : Managers;
 var stage : GameObject;
+var levelObject: GameObject;
+var level : Level;
 
 function Awake () {
 
     entities.characters.player	= 	objects.characters.player.GetComponent(Character);
     entities.characters.companion = objects.characters.companion.GetComponent(Character);
     Debug.Log('companion registered');
-    managers.keyboard = ComponentFrom('Keyboard', KeyManager);
+    managers.keyboard = objects.ui.keyboard.GetComponent(KeyManager);
     managers.music = gameObject.GetComponent(MusicManager);
     managers.pattern = gameObject.GetComponent(PatternManager);
     managers.sound = gameObject.GetComponent('SoundManager');
     data.keymap = gameObject.GetComponent(Keymap);
     hooks = gameObject.GetComponent(Hooks);
-    StartGame();
+     level = levelObject.GetComponent(Level);
+     level.StartLevel();
 }
 
 function ComponentFrom( name : String, type){
@@ -125,12 +132,5 @@ function UnlockPlayer() {
 }
 
 function StartGame() {
-
-    yield WaitForSeconds(settings.checkpoints.playerSpawn);
-	entities.characters.player.Enter();
-	managers.music.SetTrack('Introduction');
-	yield WaitForSeconds(settings.checkpoints.companionSpawn);
-	managers.music.SetTrack('Harmony_1');
-	entities.characters.companion.Enter();
-
+	level.StartLevel();
 }

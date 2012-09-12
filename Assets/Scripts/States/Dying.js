@@ -10,7 +10,6 @@ class Dying extends Dancing {
 		super.OnEnable();
 		game.managers.music.SetTrack('Disharmony');
 		owner.Die();
-		game.entities.lights.companion.Dim();
 		SingRandom();
 		game.managers.keyboard.ShowAll();
 		

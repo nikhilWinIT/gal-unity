@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Trigger.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.js">
     <Files>
-      <File FileName="Assets/Scripts/States/Listening.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/States/Listening.js" Line="138" Column="30" />
       <File FileName="Assets/Scripts/State.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.js" Line="97" Column="1" />
       <File FileName="Assets/Scripts/Character.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Messenger.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Key.js" Line="1" Column="1" />
@@ -19,14 +19,16 @@
       <File FileName="Assets/Scripts/LightScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SoundManager.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/KeyManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Trigger.js" Line="28" Column="3" />
+      <File FileName="Assets/Scripts/Trigger.js" Line="1" Column="1" />
       <File FileName="Assets/Editors/ToolsWindow.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/States/Mimicking.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/States/Recording.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/States/Dying.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/States/Dancing.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Hooks.js" Line="7" Column="15" />
-      <File FileName="Assets/Editor/HooksEditor.js" Line="7" Column="6" />
+      <File FileName="Assets/Scripts/Hooks.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/States/Singing.js" Line="1" Column="1" />
+      <File FileName="Assets/Editor/HooksEditor.js" Line="8" Column="6" />
+      <File FileName="Assets/Scripts/Levels/Unity.js" Line="10" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

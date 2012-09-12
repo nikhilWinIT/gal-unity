@@ -109,9 +109,6 @@ function Unlock() {
 
 
 function UpdateShape() {
-	if( alive && !dying) {
-		alpha = Mathf.Clamp01(alpha + .003);
-	}
 	body.renderer.material.Lerp(materials.base, materials.target, emotion.intensity);
 	body.renderer.material.color.a = alpha;
 	}

@@ -5,7 +5,8 @@ var hooks = new Dictionary.<String, float>();
 var hookKeys = new List.<String>([	
 	'playerPosX',
 	'playerPosY',
-	'phase'
+	'phase',
+	'time'
 	]);
 function Start () {
 	//game = GameObject.Find('Game').GetComponent(GameManager);
@@ -22,4 +23,5 @@ function UpdateData (game : GameManager) {
 	hooks['phase'] = game.stats.phase;
 	hooks['playerPosX'] = game.objects.characters.player.transform.position.x;
 	hooks['playerPosY'] = game.objects.characters.player.transform.position.y;
+	hooks['time'] = Time.realtimeSinceStartup;
 }
