@@ -29,7 +29,13 @@ function Update() {
 }
 
 function Fade() {
-	if(audio.volume <= 1 || audio.volume >= 0) audio.volume += fadeRate;
+	if(audio.volume <= 1 || audio.volume >= 0) { 
+		audio.volume += fadeRate;
+	}
+	else if(audio.volume <= 0){
+		audio.Stop();
+	}	
+	
 }
 
 function Reset() {

@@ -86,7 +86,6 @@ function Awake () {
 
     entities.characters.player	= 	objects.characters.player.GetComponent(Character);
     entities.characters.companion = objects.characters.companion.GetComponent(Character);
-    Debug.Log('companion registered');
     managers.keyboard = objects.ui.keyboard.GetComponent(KeyManager);
     managers.music = gameObject.GetComponent(MusicManager);
     managers.pattern = gameObject.GetComponent(PatternManager);

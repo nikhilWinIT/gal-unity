@@ -54,6 +54,8 @@
      <Compile Include="Assets\Scripts\Key.js" />
      <Compile Include="Assets\Scripts\KeyManager.js" />
      <Compile Include="Assets\Scripts\Keymap.js" />
+     <Compile Include="Assets\Scripts\Lesson.js" />
+     <Compile Include="Assets\Scripts\LessonManager.js" />
      <Compile Include="Assets\Scripts\Levels\Level.js" />
      <Compile Include="Assets\Scripts\Levels\Unity.js" />
      <Compile Include="Assets\Scripts\LightScript.js" />
@@ -77,6 +79,7 @@
      <Compile Include="Assets\Scripts\States\Waiting.js" />
      <Compile Include="Assets\Scripts\Track.js" />
      <Compile Include="Assets\Scripts\Trigger.js" />
+     <Compile Include="Assets\Scripts\TriggerManager.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FirstPersonControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FollowTransform.js" />
