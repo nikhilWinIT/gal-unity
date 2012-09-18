@@ -36,6 +36,7 @@ class PatternEditor extends Editor {
 	   	}
 	   	if(GUI.changed){
 	   		target.UpdateMelody();
+	   		EditorUtility.SetDirty(target);
 	   	}
     }
     

@@ -1,0 +1,4 @@
+
+class MessageTrigger extends Trigger {
+
+}

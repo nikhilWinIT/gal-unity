@@ -132,7 +132,6 @@ function LockForSeconds( duration : float ) {
 }
 
 function Enter() {
-	alpha = 0;
 	Live();
 }
 function SetTrackData( measure : float, beat : float) {

@@ -3,6 +3,7 @@ class LessonManager extends MonoBehaviour {
 	var lessons : Lesson[];
 	var index : int = 0;
 	var lesson : Lesson;
+	var triggerManager : TriggerManager;
 	
 	private var lessonIndex : int;
 	
@@ -18,7 +19,7 @@ class LessonManager extends MonoBehaviour {
 		if(lesson) lesson.Stop();
 		lessonIndex = index;
 		lesson = lessons[lessonIndex];	
-		lesson.Initialize();
+		lesson.Initialize(triggerManager);
 	}
 	function Update(){
 		UpdateLesson();

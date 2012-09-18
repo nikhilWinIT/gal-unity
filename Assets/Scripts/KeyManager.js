@@ -1,5 +1,6 @@
 #pragma downcast
 var keys : Hashtable = new Hashtable();
+var triggers: TriggerManager;
 
 function Start () {
 
@@ -39,6 +40,7 @@ function SelectKey( name : String) {
 	var key = GetChild(name);
 	if(key){
 		key.GetComponent(Key).Select();
+		triggers.EmitEvent('KeyDown', name);
 	}
 }
 
@@ -50,6 +52,7 @@ function SelectKeys( names : Array) {
 
 function DeselectKey( name : String) {
 	GetChild(name).GetComponent(Key).Deselect();
+	triggers.EmitEvent('KeyUp', name);
 }
 
 function Update () {
