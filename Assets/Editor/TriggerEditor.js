@@ -1,5 +1,5 @@
 
-
+import System.Collections.Generic;
 
 @CustomEditor (Trigger)
 class TriggerEditor extends Editor {
@@ -16,8 +16,13 @@ class TriggerEditor extends Editor {
 	var event : String;
 	var targets : GameObject[];
 	*/
+	var eventsList : List.<String>;
+	var events : EventList;
 	
 	var index : int = 0;
+	function Awake(){
+		events= GameObject.FindObjectOfType(EventList);	
+	}
     function OnInspectorGUI () {
     	var x : int = 0;
 	   	target.targetsExpand = EditorGUILayout.Foldout(target.targetsExpand, "Targets");
@@ -76,8 +81,8 @@ class TriggerEditor extends Editor {
 		        EditorGUILayout.EndHorizontal();
 		    }
 		    */
-		    target.eventIndex = EditorGUILayout.Popup('Event',target.eventIndex, target.events);
-		    target.event = target.events[target.eventIndex];
+		    target.eventIndex = EditorGUILayout.Popup('Event',target.eventIndex, events.list);
+		    target.event = events.list[target.eventIndex];
 	   	
 	   	if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
