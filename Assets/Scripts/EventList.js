@@ -1,6 +1,22 @@
 
-var list: String[];
+var list: List.<String>;
 
+function Remove( event : String){
+	for( var i = 0; i< list.Count; i++){
+		if( list[i] == event){
+			list.RemoveAt(i);	
+		}
+	}
+}
+function Add( newEvent : String) {
+	for( var event : String in list){
+		if( newEvent == event){
+			return;
+		}
+	}
+	list.Add(newEvent);
+}
+/*
 function ChangeSize( size : int ) {
 		
     var newList: String[] = new String[size];
@@ -24,3 +40,4 @@ function Add( event : String ) {
     }
     list = newList;
 }
+*/

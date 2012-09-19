@@ -81,7 +81,7 @@ class TriggerEditor extends Editor {
 		        EditorGUILayout.EndHorizontal();
 		    }
 		    */
-		    target.eventIndex = EditorGUILayout.Popup('Event',target.eventIndex, events.list);
+		    target.eventIndex = EditorGUILayout.Popup('Event',target.eventIndex, events.list.ToArray());
 		    target.event = events.list[target.eventIndex];
 	   	
 	   	if(GUI.changed){

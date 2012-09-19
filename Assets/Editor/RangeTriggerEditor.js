@@ -3,36 +3,42 @@
 
 @CustomEditor (RangeTrigger)
 class RangeTriggerEditor extends Editor {
-	//var options : String[] = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B','B#','Ch'];PatternEditor
 /*
-	
-	var animClip : AnimationClip;
 	var hooks : Hooks;
+	var triggers : TriggerManager;
 	var propertyName : String;
-	//var triggerType : TriggerTypes;
 	var valueMin : float;
 	var valueMax : float;
 	var triggered : boolean;
-	var event : String;
-	var targets : GameObject[];
 	*/
+	var eventOnExit : String;
+	var eventOnEnter : String = '';
 	var events : EventList;
+	var hooks : Hooks;
+	
 	function Awake(){
 		events= GameObject.FindObjectOfType(EventList);	
+		hooks = GameObject.FindObjectOfType(Hooks);
+		eventOnEnter = target.eventOnEnter;
 	}	
     function OnInspectorGUI () {
-   	 	
-	    target.eventOnEnter = EditorGUILayout.TextField('Event on enter: ', target.eventOnEnter);
+    	target.propertyIndex = EditorGUILayout.Popup('Property', target.propertyIndex, hooks.hookKeys.ToArray());
+    	target.propertyName = hooks.hookKeys[target.propertyIndex];
+    	target.valueMin = EditorGUILayout.FloatField('Min', target.valueMin);
+    	target.valueMax = EditorGUILayout.FloatField('Max', target.valueMax);
+    	GUILayout.BeginHorizontal();
+    		GUILayout.Label('Event on Enter');
+		    eventOnEnter = EditorGUILayout.TextField(eventOnEnter);
+		    if(GUILayout.Button('Save')) UpdateEventList();
+	    GUILayout.EndHorizontal();
 	    if(GUI.changed){
-	   		UpdateEventList();
 	   		EditorUtility.SetDirty(target);
 	   	}
    	}
    	function UpdateEventList(){
-   		for( var i=0; i<events.list.length; i++){
-   			if (events.list[i] == target.eventOnEnter) return ;
-   		}
-   		events.Add(target.eventOnEnter);
+   		events.Remove(target.eventOnEnter);
+   		events.Add(eventOnEnter);
+   		target.eventOnEnter = eventOnEnter;
  
    	}
 }

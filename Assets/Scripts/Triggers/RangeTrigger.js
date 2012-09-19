@@ -4,6 +4,7 @@ class RangeTrigger extends MonoBehaviour{
 
 	var hooks : Hooks;
 	var triggers : TriggerManager;
+	var propertyIndex : int = 0;
 	var propertyName : String;
 	var valueMin : float;
 	var valueMax : float;
@@ -31,10 +32,13 @@ class RangeTrigger extends MonoBehaviour{
 	
 	function Enter(){
 		triggers.EmitEvent(eventOnEnter);
+		triggered = true;
+		Debug.Log('enter');
 	}
 	
 	function Exit(){
 		triggers.EmitEvent(eventOnExit);
+		Debug.Log('exit');
 		EnableTrigger();	
 	}
 	
