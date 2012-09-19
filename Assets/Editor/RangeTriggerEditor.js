@@ -11,7 +11,7 @@ class RangeTriggerEditor extends Editor {
 	var valueMax : float;
 	var triggered : boolean;
 	*/
-	var eventOnExit : String;
+	var eventOnExit : String = '';
 	var eventOnEnter : String = '';
 	var events : EventList;
 	var hooks : Hooks;
@@ -20,6 +20,7 @@ class RangeTriggerEditor extends Editor {
 		events= GameObject.FindObjectOfType(EventList);	
 		hooks = GameObject.FindObjectOfType(Hooks);
 		eventOnEnter = target.eventOnEnter;
+		eventOnExit = target.eventOnExit;
 	}	
     function OnInspectorGUI () {
     	target.propertyIndex = EditorGUILayout.Popup('Property', target.propertyIndex, hooks.hookKeys.ToArray());
@@ -27,17 +28,27 @@ class RangeTriggerEditor extends Editor {
     	target.valueMin = EditorGUILayout.FloatField('Min', target.valueMin);
     	target.valueMax = EditorGUILayout.FloatField('Max', target.valueMax);
     	GUILayout.BeginHorizontal();
-    		GUILayout.Label('Event on Enter');
+    		GUILayout.Label('Event on Enter', GUILayout.Width(80));
 		    eventOnEnter = EditorGUILayout.TextField(eventOnEnter);
 		    if(GUILayout.Button('Save')) UpdateEventList();
 	    GUILayout.EndHorizontal();
+	    
+    	GUILayout.BeginHorizontal();
+    		GUILayout.Label('Event on Exit', GUILayout.Width(80));
+		    eventOnExit= EditorGUILayout.TextField(eventOnExit);
+		    if(GUILayout.Button('Save')) UpdateEventList();
+	    GUILayout.EndHorizontal();
+	    
 	    if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
 	   	}
    	}
    	function UpdateEventList(){
    		events.Remove(target.eventOnEnter);
+   		events.Remove(target.eventOnExit);
    		events.Add(eventOnEnter);
+   		events.Add(eventOnExit);
+   		target.eventOnExit = eventOnExit;
    		target.eventOnEnter = eventOnEnter;
  
    	}

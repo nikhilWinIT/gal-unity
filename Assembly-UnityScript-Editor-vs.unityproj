@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\AnimationTriggerEditor.js" />
+     <Compile Include="Assets\Editor\EnableTriggerEditor.js" />
      <Compile Include="Assets\Editor\HooksEditor.js" />
      <Compile Include="Assets\Editor\PatternEditor.js" />
      <Compile Include="Assets\Editor\RangeTriggerEditor.js" />

@@ -33,12 +33,10 @@ class RangeTrigger extends MonoBehaviour{
 	function Enter(){
 		triggers.EmitEvent(eventOnEnter);
 		triggered = true;
-		Debug.Log('enter');
 	}
 	
 	function Exit(){
 		triggers.EmitEvent(eventOnExit);
-		Debug.Log('exit');
 		EnableTrigger();	
 	}
 	
