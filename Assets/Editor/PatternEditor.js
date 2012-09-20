@@ -5,7 +5,9 @@ class PatternEditor extends Editor {
 	var index : int = 0;
     function OnInspectorGUI () {
     	var x : int = 0;
-    	
+    	if(GUILayout.Button('Add note')){
+    		target.length += 1;
+    	}	
 	    target.length = EditorGUILayout.IntSlider('Number of Notes', target.length, 1, 10);
 	   	target.rhythmExpand = EditorGUILayout.Foldout(target.rhythmExpand, "Notes");
 	   	if(target.rhythmExpand){

@@ -21,6 +21,9 @@ class LessonManager extends MonoBehaviour {
 		lesson = lessons[lessonIndex];	
 		lesson.Initialize(triggerManager);
 	}
+	function SendInput( name : String ){
+		lesson.SendInput(name);
+	}
 	function Update(){
 		UpdateLesson();
 		lesson.CheckForNote();

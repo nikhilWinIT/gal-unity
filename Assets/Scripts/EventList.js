@@ -1,6 +1,9 @@
 
-var list: List.<String>;
-
+var list = new List.<String>([
+	'PlayLessonEvent',
+	'CorrectTone',
+	'WrongTone'
+	]);
 function Remove( event : String){
 	for( var i = 0; i< list.Count; i++){
 		if( list[i] == event){

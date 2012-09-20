@@ -1,19 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EventList.js">
-    <Files>
-      <File FileName="Assets/Editor/PatternEditor.js" Line="1" Column="1" />
-      <File FileName="Assets/Editor/HooksEditor.js" Line="1" Column="1" />
-      <File FileName="Assets/Editor/TriggerEditor.js" Line="83" Column="7" />
-      <File FileName="Assets/Scripts/KeyManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Triggers/Trigger.js" Line="8" Column="19" />
-      <File FileName="Assets/Scripts/Pattern.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Triggers/AnimationTrigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Editor/RangeTriggerEditor.js" Line="38" Column="2" />
-      <File FileName="Assets/Scripts/Triggers/RangeTrigger.js" Line="15" Column="21" />
-      <File FileName="Assets/Scripts/EventList.js" Line="3" Column="25" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/seijitanaka/Documents/workspace/gal/Assets/Editor/PatternEditor.js" line="30" />

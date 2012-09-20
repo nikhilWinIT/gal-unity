@@ -43,13 +43,25 @@ class RangeTriggerEditor extends Editor {
 	   		EditorUtility.SetDirty(target);
 	   	}
    	}
+   	function OnDestroy(){
+   		if(!target){
+   			RemoveEvents();
+   		}
+   	}
    	function UpdateEventList(){
-   		events.Remove(target.eventOnEnter);
-   		events.Remove(target.eventOnExit);
-   		events.Add(eventOnEnter);
-   		events.Add(eventOnExit);
+   		RemoveEvents();
+   		AddEvents();
    		target.eventOnExit = eventOnExit;
    		target.eventOnEnter = eventOnEnter;
  
+   	}
+   	function RemoveEvents(){
+   		events.Remove(target.eventOnEnter);
+   		events.Remove(target.eventOnExit);
+   	}
+   	function AddEvents(){
+   		events.Add(eventOnEnter);
+   		events.Add(eventOnExit);
+   	
    	}
 }

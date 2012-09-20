@@ -83,6 +83,7 @@
      <Compile Include="Assets\Scripts\TriggerManager.js" />
      <Compile Include="Assets\Scripts\Triggers\AnimationTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\EnableTrigger.js" />
+     <Compile Include="Assets\Scripts\Triggers\IncrementTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\MessageTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\RangeTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\Trigger.js" />

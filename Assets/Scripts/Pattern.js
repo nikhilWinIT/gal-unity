@@ -6,7 +6,7 @@ var rhythmExpand : boolean = false;
 var melody : String[];
 var melodyIndices : int[] = [0];
 var melodyExpand : boolean = false;
-var options : String[] = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B','B#','Ch'];
+var options : String[] = ['C','Cs','D','Ds','E','F','Fs','G','Gs','A','As','B','Bs','Ch'];
 
 
 function Awake () {

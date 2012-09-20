@@ -1,4 +1,5 @@
 
+@script ExecuteInEditMode()
 
 class RangeTrigger extends MonoBehaviour{
 
@@ -17,7 +18,12 @@ class RangeTrigger extends MonoBehaviour{
 		triggers = GameObject.FindObjectOfType(TriggerManager);
 	}
 	function Update(){
-		Check();
+		if(Application.isPlaying){
+			Check();
+			}
+	}
+	
+	function OnDestroy(){
 	}
 	
 	function Check() {
