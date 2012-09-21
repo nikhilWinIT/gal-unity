@@ -48,7 +48,7 @@ class TriggerEditor extends Editor {
 		    for(x = 0; x < target.targets.length; x++) {
 		    	EditorGUILayout.BeginHorizontal ();
 		        EditorGUILayout.LabelField((x+1).ToString(), GUILayout.Width(10));
-		        target.targets[x] = EditorGUILayout.ObjectField(target.targets[x], GameObject);
+		        target.targets[x] = EditorGUILayout.ObjectField(target.targets[x], GameObject, true);
 		        EditorGUILayout.EndHorizontal();
 		    }
 		}

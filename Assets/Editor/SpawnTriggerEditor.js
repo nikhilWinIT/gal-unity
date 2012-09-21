@@ -1,7 +1,7 @@
 
 
-@CustomEditor (AnimationTrigger)
-class AnimationTriggerEditor extends TriggerEditor {
+@CustomEditor (SpawnTrigger)
+class SpawnTriggerEditor extends TriggerEditor {
 	//var options : String[] = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B','B#','Ch'];PatternEditor
 /*
 	
@@ -18,7 +18,8 @@ class AnimationTriggerEditor extends TriggerEditor {
 	
     function OnInspectorGUI () {
    	 	super.OnInspectorGUI();
-    	target.animClip = EditorGUILayout.ObjectField('Clip', target.animClip, AnimationClip, true);
+   	 	target.spawnParent = EditorGUILayout.ObjectField('parent', target.spawnParent, Transform, true);
+   	 	target.container = EditorGUILayout.ObjectField('container', target.container, Transform,true);
 	   	if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
 	   	}

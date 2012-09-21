@@ -5,7 +5,6 @@ var rhythm : float[] = [0.0];
 var rhythmExpand : boolean = false;
 var melody : String[];
 var melodyIndices : int[] = [0];
-var melodyExpand : boolean = false;
 var options : String[] = ['C','Cs','D','Ds','E','F','Fs','G','Gs','A','As','B','Bs','Ch'];
 
 
@@ -13,9 +12,7 @@ function Awake () {
 	UpdateMelody();
 }
 
-function Update () {
 
-}
 
 function UpdateMelody(){
 	Debug.Log("changed");

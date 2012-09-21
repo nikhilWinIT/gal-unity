@@ -5,7 +5,6 @@ class Aura extends MonoBehaviour {
 	var owner : Character;
 
 	function Start() {
-		HOTween.To(transform, duration, 'localScale', new Vector3(maxScale, maxScale,1));
 		
 	}
 	

@@ -14,12 +14,12 @@ var lerp : float;
 var alpha : float;
 var index : int;
 var game : GameManager;
+var sounds : SoundManager;
 
 function Start () {
-	
+	sounds = GameObject.FindObjectOfType(SoundManager);
 	mesh = transform.FindChild('Mesh').gameObject;
 	text = transform.FindChild('Text').gameObject;
-	game = gameObject.Find('Game').GetComponent(GameManager);
 
 }
 
@@ -30,12 +30,8 @@ function Update () {
 }
 
 function Select() {
-	if(!game.entities.characters.player.locked){
 		selected = true;
-		game.managers.sound.Play(gameObject.name);
-		game.objects.characters.companion.SendMessage('OnBeat', name as String);
-		game.entities.characters.player.Sing();
-	}
+		sounds.Play(gameObject.name);
 }
 
 function Show() {

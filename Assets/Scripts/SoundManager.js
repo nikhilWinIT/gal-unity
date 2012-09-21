@@ -20,6 +20,7 @@ class SoundManager extends MonoBehaviour {
 	
 	
 	function Start(){
+		SetSound('Default');
 		
 	 } 
 	 
@@ -28,7 +29,7 @@ class SoundManager extends MonoBehaviour {
 	}	
 	 
 	function SetSound( name : String) {
-		current = transform.FindChild(name).gameObject;
+		current = root.transform.FindChild(name).gameObject;
 	}
 	
 	function SetTone( source : GameObject, name : String) {

@@ -39,11 +39,13 @@ class IncrementTriggerEditor extends TriggerEditor {
  		}
  		if(fieldsStr.Count != 0){
 	   	 	target.fieldIndex = EditorGUILayout.Popup('Field', target.fieldIndex, fieldsStr.ToArray());	
+	   	 	target.fieldName = fieldsStr[target.fieldIndex];
 	   	 	target.targetField = newFields[target.fieldIndex];
    	 	}
    	 	else {
    	 		GUILayout.Label('No fields available');
    	 	}
+   	 	target.increment = EditorGUILayout.IntField('Increment', target.increment);
 	   	if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
 	   	}

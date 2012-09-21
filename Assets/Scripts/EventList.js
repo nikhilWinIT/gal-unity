@@ -1,6 +1,7 @@
 
 var list = new List.<String>([
-	'PlayLessonEvent',
+	'PlayLessonBeat',
+	'CorrectPattern',
 	'CorrectTone',
 	'WrongTone'
 	]);

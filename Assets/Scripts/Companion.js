@@ -22,7 +22,7 @@
 	}
 	
 	function Start() {
-		patternManager = game.managers.pattern;
+		patternManager = GameObject.FindObjectOfType(PatternManager);
 		owner = gameObject.GetComponent(Character);
 		player = GameObject.Find('Player').GetComponent(Character);
 	}

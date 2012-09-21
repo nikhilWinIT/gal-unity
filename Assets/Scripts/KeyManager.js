@@ -40,6 +40,7 @@ function HideAll(){
 function SelectKey( name : String) {
 	var key = GetChild(name);
 	if(key){
+		Debug.Log('key');
 		key.GetComponent(Key).Select();
 		lessons.SendInput(name);
 		triggers.EmitEvent('KeyDown', name);

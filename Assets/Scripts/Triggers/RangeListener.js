@@ -1,33 +1,34 @@
 
-@script ExecuteInEditMode()
 
-class RangeTrigger extends MonoBehaviour{
-
-	var hooks : Hooks;
-	var triggers : TriggerManager;
-	var propertyIndex : int = 0;
-	var propertyName : String;
+import System.Collections.Generic;
+class RangeListener extends MonoBehaviour{
+	
+	
+	var source : GameObject;
+	var componentName : String;
+	var targetComponent : Component;
+	var componentIndex : int;
+	var fieldName : String;
+	var targetField;
+	var fieldIndex : int;
+	var triggers : TriggerManager;	
 	var valueMin : float;
 	var valueMax : float;
 	var triggered : boolean;
 	var eventOnEnter : String;
 	var eventOnExit : String;
-	
 	function Start() {
-		hooks = GameObject.FindObjectOfType(Hooks);
+		targetField = targetComponent.GetType().GetField(fieldName);
 		triggers = GameObject.FindObjectOfType(TriggerManager);
 	}
-	function Update(){
-		if(Application.isPlaying){
-			Check();
-			}
-	}
 	
-	function OnDestroy(){
-	}
+	function Update(){
+		Check();	
+	}	
+	
 	
 	function Check() {
-		var _value = hooks.hooks[propertyName];
+		var _value = targetField.GetValue(targetComponent);
 		if(_value >= valueMin && _value < valueMax){
 			if(!triggered) Enter();
 		}

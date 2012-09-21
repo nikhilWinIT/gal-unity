@@ -77,6 +77,8 @@ function Awake() {
 	SetTargetEmotion('neutral', 1);
 	emotion.targetConfidence = 1;
 	stateManager = gameObject.GetComponent(StateManager);
+	game = GameObject.Find('Game').GetComponent(GameManager);
+	UpdateShape();
 	force = true;
 	materials.target = materials.base;
 }
@@ -105,6 +107,10 @@ function Unlock() {
 }
 
 
+function UpdateShape() {
+	body.renderer.material.Lerp(materials.base, materials.target, emotion.intensity);
+	body.renderer.material.color.a = alpha;
+	}
 
 function SetTargetEmotion( mood : String, intensity : float) {
 	materials.base = body.renderer.material;

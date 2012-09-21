@@ -1,5 +1,6 @@
 
 
+import System.Collections.Generic;
 class IncrementTrigger extends Trigger {
 	
 	
@@ -12,10 +13,17 @@ class IncrementTrigger extends Trigger {
 	var fieldIndex : int;
 	var increment : int;
 	function Start() {
+		Debug.Log(fieldName);
+		targetField = targetComponent.GetType().GetField(fieldName);
+		Debug.Log(targetField.GetValue(targetComponent));
 	}
 	
+	
 	function Trigger(){
-		var value = targetField.GetValue() + increment;
-		targetField.SetValue(value);
+		//var component = targets[0].GetComponent(targetComponent);
+		var value = targetField.GetValue(targetComponent) + increment;
+		Debug.Log('increment ' + value);
+		targetField.SetValue(targetComponent, value);
 	}
+	
 }

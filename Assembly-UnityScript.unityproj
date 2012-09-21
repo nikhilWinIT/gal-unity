@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\Aura.js" />
      <Compile Include="Assets\Scripts\Character.js" />
      <Compile Include="Assets\Scripts\Companion.js" />
+     <Compile Include="Assets\Scripts\Controls.js" />
      <Compile Include="Assets\Scripts\DirLight.js" />
      <Compile Include="Assets\Scripts\EventList.js" />
      <Compile Include="Assets\Scripts\GameManager.js" />
@@ -85,7 +86,10 @@
      <Compile Include="Assets\Scripts\Triggers\EnableTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\IncrementTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\MessageTrigger.js" />
-     <Compile Include="Assets\Scripts\Triggers\RangeTrigger.js" />
+     <Compile Include="Assets\Scripts\Triggers\RangeListener.js" />
+     <Compile Include="Assets\Scripts\Triggers\RangeTriggerOld.js" />
+     <Compile Include="Assets\Scripts\Triggers\SoundTrigger.js" />
+     <Compile Include="Assets\Scripts\Triggers\SpawnTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\Trigger.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FirstPersonControl.js" />

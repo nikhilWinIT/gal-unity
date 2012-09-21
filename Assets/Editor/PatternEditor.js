@@ -8,9 +8,6 @@ class PatternEditor extends Editor {
     	if(GUILayout.Button('Add note')){
     		target.length += 1;
     	}	
-	    target.length = EditorGUILayout.IntSlider('Number of Notes', target.length, 1, 10);
-	   	target.rhythmExpand = EditorGUILayout.Foldout(target.rhythmExpand, "Notes");
-	   	if(target.rhythmExpand){
 			EditorGUILayout.BeginHorizontal ();
 			GUILayout.Label("#", GUILayout.Width(10));
 	        GUILayout.Label("Beat", GUILayout.Width(60));
@@ -35,7 +32,7 @@ class PatternEditor extends Editor {
 		        target.melodyIndices[x] = EditorGUILayout.Popup(target.melodyIndices[x], target.options, GUILayout.Width(50));
 		        EditorGUILayout.EndHorizontal();
 		    }
-	   	}
+		    if(GUILayout.Button('Remove note')) target.length -= 1;
 	   	if(GUI.changed){
 	   		target.UpdateMelody();
 	   		EditorUtility.SetDirty(target);
