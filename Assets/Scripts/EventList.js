@@ -1,10 +1,39 @@
-
-var list = new List.<String>([
+var list = new List.<String>();
+	
+var defaults : List.<String>;
+var custom : List.<String>;
+function Reload(){
+	events = new List.<String>([
 	'PlayLessonBeat',
 	'CorrectPattern',
 	'CorrectTone',
-	'WrongTone'
+	'WrongTone',
+	'KeyDownC',
+	'KeyDownCs'
 	]);
+	var remove  = new List.<String>();
+	for(var i = 0; i<list.Count; i++){
+		for(var x = 0; x<events.Count; x++){
+			if( list[i] == events[x]){
+				remove.Add(list[i]);
+			}
+		}
+	}
+	for(var item in remove){
+		Remove(item);
+	}
+	var trim : List.<String> = new List.<String>();
+	for ( var item in list){
+		trim.Add(item);
+	}
+	list = new List.<String>();
+	for ( var item in events){
+	//	Add(item);
+	}
+	for ( var item in trim){
+		Add(item);
+	}
+}
 function Remove( event : String){
 	for( var i = 0; i< list.Count; i++){
 		if( list[i] == event){

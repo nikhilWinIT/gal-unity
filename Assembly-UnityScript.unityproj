@@ -86,11 +86,12 @@
      <Compile Include="Assets\Scripts\Triggers\EnableTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\IncrementTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\MessageTrigger.js" />
-     <Compile Include="Assets\Scripts\Triggers\RangeListener.js" />
      <Compile Include="Assets\Scripts\Triggers\RangeTriggerOld.js" />
      <Compile Include="Assets\Scripts\Triggers\SoundTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\SpawnTrigger.js" />
      <Compile Include="Assets\Scripts\Triggers\Trigger.js" />
+     <Compile Include="Assets\Scripts\Utility\Counter.js" />
+     <Compile Include="Assets\Scripts\Utility\RangeListener.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FirstPersonControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FollowTransform.js" />

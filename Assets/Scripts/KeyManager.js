@@ -4,7 +4,8 @@ var triggers: TriggerManager;
 var lessons : LessonManager;
 
 function Start () {
-
+	triggers = GameObject.FindObjectOfType(TriggerManager);
+	lessons = GameObject.FindObjectOfType(LessonManager);
 }
 
 function GetChild( name : String) {

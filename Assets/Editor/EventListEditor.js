@@ -6,5 +6,8 @@ class EventListEditor extends Editor {
        		GUILayout.Label(event);
      
        	}
+       	if(GUILayout.Button('Reload')){
+       		target.Reload();
+       	}
     }
 }

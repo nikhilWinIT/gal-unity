@@ -6,6 +6,6 @@ class Trigger extends MonoBehaviour {
 	var targets : GameObject[] = [];
 	var targetsExpand : boolean = true;
 	function Awake(){
-		events = GameObject.FindObjectOfType(EventList).events;
+//		events = GameObject.FindObjectOfType(EventList).events;
 	}
 }

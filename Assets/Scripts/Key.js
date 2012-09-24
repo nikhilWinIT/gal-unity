@@ -25,8 +25,8 @@ function Start () {
 
 
 function Update () {
-	UpdateAttrs();
-	UpdateMaterial();
+	//UpdateAttrs();
+	//UpdateMaterial();
 }
 
 function Select() {

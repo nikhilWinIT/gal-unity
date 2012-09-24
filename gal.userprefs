@@ -1,23 +1,27 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controls.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EventList.js">
     <Files>
-      <File FileName="Assets/Scripts/Player.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Keymap.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Lesson.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Triggers/SpawnTrigger.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Triggers/SoundTrigger.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Pattern.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Triggers/RangeListener.js" Line="30" Column="19" />
+      <File FileName="Assets/Scripts/Character.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Key.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Companion.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/KeyManager.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Controls.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SoundManager.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LessonManager.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Triggers/AnimationTrigger.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Utility/Counter.js" Line="1" Column="1" />
       <File FileName="Assets/Editor/SoundTriggerEditor.js" Line="1" Column="1" />
       <File FileName="Assets/Editor/TriggerEditor.js" Line="1" Column="1" />
-      <File FileName="Assets/Editor/RangeListenerEditor.js" Line="25" Column="16" />
-      <File FileName="Assets/Scripts/Character.js" Line="80" Column="2" />
-      <File FileName="Assets/Scripts/Key.js" Line="32" Column="19" />
-      <File FileName="Assets/Scripts/Companion.js" Line="25" Column="64" />
-      <File FileName="Assets/Scripts/KeyManager.js" Line="43" Column="20" />
-      <File FileName="Assets/Scripts/GameManager.js" Line="104" Column="1" />
-      <File FileName="Assets/Scripts/Controls.js" Line="5" Column="39" />
+      <File FileName="Assets/Editor/RangeListenerEditor.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EventList.js" Line="3" Column="12" />
+      <File FileName="Assets/Editor/EventListEditor.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Triggers/Trigger.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
