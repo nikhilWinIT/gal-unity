@@ -3,14 +3,23 @@ var list = new List.<String>();
 var defaults : List.<String>;
 var custom : List.<String>;
 function Reload(){
+	list = new List.<String>();
 	events = new List.<String>([
 	'PlayLessonBeat',
 	'CorrectPattern',
 	'CorrectTone',
 	'WrongTone',
 	'KeyDownC',
-	'KeyDownCs'
+	'KeyDownCs',
+	'KeyDownD'
 	]);
+	for ( var item in events){
+		Add(item);
+	}
+	for ( var item in custom){
+		Add(item);
+	}
+	/*
 	var remove  = new List.<String>();
 	for(var i = 0; i<list.Count; i++){
 		for(var x = 0; x<events.Count; x++){
@@ -26,13 +35,13 @@ function Reload(){
 	for ( var item in list){
 		trim.Add(item);
 	}
-	list = new List.<String>();
 	for ( var item in events){
 	//	Add(item);
 	}
 	for ( var item in trim){
 		Add(item);
 	}
+	*/
 }
 function Remove( event : String){
 	for( var i = 0; i< list.Count; i++){
@@ -41,6 +50,13 @@ function Remove( event : String){
 		}
 	}
 }
+function RemoveCustom( event : String){
+	for(var i =0; i< custom.Count; i++){
+		if(custom[i] == event){
+			custom.RemoveAt(i);
+		}
+	}
+}	
 function Add( newEvent : String) {
 	for( var event : String in list){
 		if( newEvent == event){
@@ -48,6 +64,14 @@ function Add( newEvent : String) {
 		}
 	}
 	list.Add(newEvent);
+}
+function AddCustom( newEvent : String){
+	for( var event : String in custom){
+		if(newEvent == event){
+			return;
+		}
+	}
+	custom.Add(newEvent);
 }
 /*
 function ChangeSize( size : int ) {

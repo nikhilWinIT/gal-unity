@@ -91,12 +91,12 @@ class RangeListenerEditor extends Editor {
  
    	}
    	function RemoveEvents(){
-   		events.Remove(target.eventOnEnter);
-   		events.Remove(target.eventOnExit);
+   		events.RemoveCustom(target.eventOnEnter);
+   		events.RemoveCustom(target.eventOnExit);
    	}
    	function AddEvents(){
-   		events.Add(eventOnEnter);
-   		events.Add(eventOnExit);
+   		events.AddCustom(eventOnEnter);
+   		events.AddCustom(eventOnExit);
    	
    	}
 }

@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{60F91501-AA69-C0A8-E021-F39D63B0AED0}</ProjectGuid>
+	<ProjectGuid>{CF46903E-287A-A8C3-07B5-FE09E8136059}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -37,10 +37,10 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,16 +64,16 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
- <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript">
+ <Reference Include="Assembly-UnityScript">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
  </Reference>
- <Reference Include="Assets\HOTween\Plugins\HOTween">
+ <Reference Include="HOTween">
  <HintPath>Assets\HOTween\Plugins\HOTween.dll</HintPath>
  </Reference>
- <Reference Include="Assets\HOTween\Plugins\Editor\HOTweenV1_Editor">
+ <Reference Include="HOTweenV1_Editor">
  <HintPath>Assets\HOTween\Plugins\Editor\HOTweenV1_Editor.dll</HintPath>
  </Reference>
- <Reference Include="Assets\Plugins\GoKit">
+ <Reference Include="GoKit">
  <HintPath>Assets\Plugins\GoKit.dll</HintPath>
  </Reference>
   </ItemGroup>
