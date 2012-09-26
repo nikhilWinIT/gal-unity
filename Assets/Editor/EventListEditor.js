@@ -8,6 +8,10 @@ class EventListEditor extends Editor {
        	}
        	if(GUILayout.Button('Reload')){
        		target.Reload();
+	   		EditorUtility.SetDirty(target);
        	}
+	   	if(GUI.changed){
+	   		EditorUtility.SetDirty(target);
+	   	}
     }
 }

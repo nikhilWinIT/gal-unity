@@ -19,6 +19,7 @@ class AnimationTriggerEditor extends TriggerEditor {
     function OnInspectorGUI () {
    	 	super.OnInspectorGUI();
     	target.animClip = EditorGUILayout.ObjectField('Clip', target.animClip, AnimationClip, true);
+    	target.fadeValue = EditorGUILayout.FloatField('Crossfade', target.fadeValue);
 	   	if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
 	   	}

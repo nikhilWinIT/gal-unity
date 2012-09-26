@@ -61,17 +61,9 @@ class RangeListenerEditor extends Editor {
    	 	
     	target.valueMin = EditorGUILayout.FloatField('Min', target.valueMin);
     	target.valueMax = EditorGUILayout.FloatField('Max', target.valueMax);
-    	GUILayout.BeginHorizontal();
-    		GUILayout.Label('Event on Enter', GUILayout.Width(80));
-		    eventOnEnter = EditorGUILayout.TextField(eventOnEnter);
-		    if(GUILayout.Button('Save')) UpdateEventList();
-	    GUILayout.EndHorizontal();
-	    
-    	GUILayout.BeginHorizontal();
-    		GUILayout.Label('Event on Exit', GUILayout.Width(80));
-		    eventOnExit= EditorGUILayout.TextField(eventOnExit);
-		    if(GUILayout.Button('Save')) UpdateEventList();
-	    GUILayout.EndHorizontal();
+    	
+	    target.entryTriggers = EditorGUILayout.ObjectField('Entry triggers', target.entryTriggers, TriggerGroup, true); 
+	    target.exitTriggers = EditorGUILayout.ObjectField('Exit triggers', target.exitTriggers, TriggerGroup,true); 
 	    
 	    if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
