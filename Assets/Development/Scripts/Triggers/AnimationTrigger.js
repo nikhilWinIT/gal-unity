@@ -10,10 +10,14 @@ class AnimationTrigger extends Trigger {
 	var valueMax : float;
 	var triggered : boolean;
 	var fadeValue : float;
+	var reverse : boolean;
 	
 	function Start() {
 		hooks = GameObject.FindObjectOfType(Hooks);
 		for( var target : GameObject in targets){
+			if(!target.animation){
+				target.AddComponent(Animation);
+			}	
 			target.animation.AddClip(animClip, animClip.name);
 		}
 	
@@ -36,8 +40,13 @@ class AnimationTrigger extends Trigger {
 	function Pull(){
 		for( var target : GameObject in targets){
 			target.animation.Stop();
-			target.animation.CrossFade(animClip.name);
+			if(reverse){
+				Debug.Log('reversed');
+				target.animation[animClip.name].speed = -1.0;	
+			}
+			target.animation.CrossFade(animClip.name, fadeValue);
 			triggered = true;
+			Debug.Log('triggered');
 		}
 	}
 	

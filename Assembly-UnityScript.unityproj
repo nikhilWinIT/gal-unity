@@ -62,6 +62,7 @@
      <Compile Include="Assets\Development\Scripts\LightScript.js" />
      <Compile Include="Assets\Development\Scripts\Messenger.js" />
      <Compile Include="Assets\Development\Scripts\MusicManager.js" />
+     <Compile Include="Assets\Development\Scripts\NoteList.js" />
      <Compile Include="Assets\Development\Scripts\Pattern.js" />
      <Compile Include="Assets\Development\Scripts\PatternManager.js" />
      <Compile Include="Assets\Development\Scripts\PlayerStates\PlayerWaiting.js" />
@@ -84,6 +85,7 @@
      <Compile Include="Assets\Development\Scripts\Triggers\DelayTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\EnableTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\IncrementTrigger.js" />
+     <Compile Include="Assets\Development\Scripts\Triggers\LessonInputTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\LessonTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\LevelLoader.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\MessageTrigger.js" />

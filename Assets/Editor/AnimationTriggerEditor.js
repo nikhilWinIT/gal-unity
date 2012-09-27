@@ -20,6 +20,7 @@ class AnimationTriggerEditor extends TriggerEditor {
    	 	super.OnInspectorGUI();
     	target.animClip = EditorGUILayout.ObjectField('Clip', target.animClip, AnimationClip, true);
     	target.fadeValue = EditorGUILayout.FloatField('Crossfade', target.fadeValue);
+    	target.reverse = EditorGUILayout.Toggle('Reverse animation', target.reverse);
 	   	if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
 	   	}

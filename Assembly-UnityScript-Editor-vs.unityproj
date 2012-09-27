@@ -51,9 +51,11 @@
      <Compile Include="Assets\Editor\HooksEditor.js" />
      <Compile Include="Assets\Editor\IncrementTriggerEditor.js" />
      <Compile Include="Assets\Editor\InputTriggerEditor.js" />
+     <Compile Include="Assets\Editor\LessonInputTriggerEditor.js" />
      <Compile Include="Assets\Editor\LessonManagerEditor.js" />
      <Compile Include="Assets\Editor\LessonTriggerEditor.js" />
      <Compile Include="Assets\Editor\LevelLoaderEditor.js" />
+     <Compile Include="Assets\Editor\NoteListEditor.js" />
      <Compile Include="Assets\Editor\PatternEditor.js" />
      <Compile Include="Assets\Editor\RangeListenerEditor.js" />
      <Compile Include="Assets\Editor\SoundTriggerEditor.js" />
