@@ -13,7 +13,6 @@ var deselectSpeed : float;
 var lerp : float;
 var alpha : float;
 var index : int;
-var game : GameManager;
 var sounds : SoundManager;
 
 function Start () {

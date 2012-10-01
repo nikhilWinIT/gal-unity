@@ -13,16 +13,13 @@ class IncrementTrigger extends Trigger {
 	var fieldIndex : int;
 	var increment : int;
 	function Start() {
-		Debug.Log(fieldName);
 		targetField = targetComponent.GetType().GetField(fieldName);
-		Debug.Log(targetField.GetValue(targetComponent));
 	}
 	
 	
-	function Pull(){
+	function Pull(param : String){
 		//var component = targets[0].GetComponent(targetComponent);
 		var value = targetField.GetValue(targetComponent) + increment;
-		Debug.Log('increment ' + value);
 		targetField.SetValue(targetComponent, value);
 	}
 	

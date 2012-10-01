@@ -12,9 +12,10 @@ class InputTrigger extends MonoBehaviour{
 		keyCode = keyCodes[keyIndex];
 		inputType = inputTypes[inputIndex];
 	}
-	
 	function Pull(){
+		Pull('');	
+		}	
+	function Pull(param : String){
 		triggers.Pull();
-		Debug.Log('pull');
 	}
 }

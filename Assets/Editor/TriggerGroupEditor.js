@@ -9,6 +9,7 @@ class TriggerGroupEditor extends Editor {
 		events= GameObject.FindObjectOfType(EventList);	
 	}
     function OnInspectorGUI () {
+    	if(GUILayout.Button('Pull')) target.Pull();
     	target.on = EditorGUILayout.Toggle('On', target.on);
 	    target.eventIndex = EditorGUILayout.Popup('Event',target.eventIndex, events.list.ToArray());
 	    target.event = events.list[target.eventIndex];

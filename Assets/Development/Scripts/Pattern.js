@@ -15,7 +15,6 @@ function Awake () {
 
 
 function UpdateMelody(){
-	Debug.Log("changed");
 	UpdateMelodyString();
 	
 }

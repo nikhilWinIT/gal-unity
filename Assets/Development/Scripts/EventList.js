@@ -9,12 +9,11 @@ function Reload(){
 	'GameStarted',
 	'PlayLessonBeat',
 	'CorrectPattern',
-	'CorrectTone',
-	'WrongTone',
-	'KeyDownC',
-	'KeyDownCs',
-	'KeyDownD',
-	'KeyDownDs'
+	'CorrectPitch',
+	'WrongPitch',
+	'VoidInput',
+	'AnyKey',
+	'NextLesson'
 	]);
 	for ( var item in events){
 		Add(item);

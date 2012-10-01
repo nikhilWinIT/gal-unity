@@ -1,3 +1,0 @@
-class Spotlight extends LightScript {
-
-}

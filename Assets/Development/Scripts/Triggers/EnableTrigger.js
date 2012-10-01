@@ -6,10 +6,8 @@ class EnableTrigger extends Trigger {
 	function Start() {
 	}
 	
-	function Pull(){
-		Debug.Log('triggered');
+	function Pull(param : String){
 		for( var target : GameObject in targets){
-			Debug.Log('toggled: ' + enable);
 			target.active = enable;
 		}
 	}

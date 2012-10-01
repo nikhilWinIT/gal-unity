@@ -13,7 +13,7 @@ class LessonInputTrigger extends Trigger {
 		sounds = GameObject.FindObjectOfType(SoundManager);
 	}
 	
-	function Pull(){
+	function Pull(param : String){
 		lessons.SendInput(notes.list[pitchIndex]);
 		sounds.Play(notes.list[pitchIndex]);
 	}
