@@ -5,19 +5,19 @@ function Reload(){
 	list = new List.<String>();
 	defaults = new List.<String>([
 		'C',
-		'Cs',
+		'C#',
 		'D',
-		'Ds',
+		'D#',
 		'E',
 		'F',
-		'Fs',
+		'F#',
 		'G',
-		'Gs',
+		'G#',
 		'A',
-		'As',
+		'A#',
 		'B',
 		'Ch',
-		'Chs',
+		'Ch#',
 		'Dh'
 	]);
 	for ( var item in defaults){

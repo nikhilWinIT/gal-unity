@@ -2,19 +2,24 @@
 
 class LessonInputTrigger extends Trigger {
 	
-	var pitch :  String;
-	var pitchIndex : int;
-	var notes : NoteList;
-	var sounds : SoundManager;
+	private var inputTypes : String[] = ['good', 'bad', 'lastNote'];
+	private var inputIndex : int;
+	private var inputType : String;
 	private var lessons: LessonManager;	
+	private var triggers;
 	function Start() {
+		triggers = GameObject.FindObjectOfType(TriggerManager);
 		lessons = GameObject.FindObjectOfType(LessonManager);
-		notes = GameObject.FindObjectOfType(NoteList);
-		sounds = GameObject.FindObjectOfType(SoundManager);
 	}
 	
 	function Pull(param : String){
-		lessons.SendInput(notes.list[pitchIndex]);
-		sounds.Play(notes.list[pitchIndex]);
+		switch(inputType){
+			case 'good':
+				lessons.CorrectPitch(param);
+				break;
+			case 'bad':
+				lessons.WrongPitch(param);
+				break;
+		}
 	}
 }

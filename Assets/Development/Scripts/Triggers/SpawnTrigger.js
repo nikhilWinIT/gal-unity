@@ -7,7 +7,6 @@ class SpawnTrigger extends Trigger {
 	
 	function Pull(param : String){
 		for( var target : GameObject in targets){
-			Debug.Log('spawn');
 			var instance = Instantiate(target, spawnParent.position, spawnParent.rotation);
 			instance.transform.parent = container;
 		}

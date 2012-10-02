@@ -4,8 +4,8 @@ import System.Enum;
 class LessonInputTriggerEditor extends TriggerEditor {
 	
     function OnInspectorGUI () {
-    	var notes = GameObject.FindObjectOfType(NoteList);
-    	target.pitchIndex = EditorGUILayout.Popup('pitch', target.pitchIndex, notes.list.ToArray());
+    	target.inputIndex = EditorGUILayout.Popup('type', target.inputIndex, target.inputTypes);
+    	target.inputType = target.inputTypes[target.inputIndex];
 	   	if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
 	   	}

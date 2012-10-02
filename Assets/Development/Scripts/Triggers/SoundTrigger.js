@@ -5,16 +5,16 @@ class SoundTrigger extends Trigger {
 	private var shiftFactor : float = 1.05946;
 	private var frequencyTable = {
 		"C": 1,
-		"Cs" : GetFrequency(1),
+		"C#" : GetFrequency(1),
 		"D" : GetFrequency(2),
-		"Ds": GetFrequency(3),
+		"D#": GetFrequency(3),
 		"E" : GetFrequency(4),
 		"F" : GetFrequency(5),
-		"Fs" : GetFrequency(6),
+		"F#" : GetFrequency(6),
 		"G" : GetFrequency(7),
-		"Gs" : GetFrequency(8),
+		"G#" : GetFrequency(8),
 		"A" : GetFrequency(9),
-		"As"  : GetFrequency(10),
+		"A#"  : GetFrequency(10),
 		"B" : GetFrequency(11),
 		"Ch" : GetFrequency(12)
 	};
@@ -23,7 +23,6 @@ class SoundTrigger extends Trigger {
 	}
 	function Pull(param : String){
 		if(param.length == 0) param = 'C';
-		Debug.Log('sound'+ param);
 		var source = new GameObject();
 		source.AddComponent(AudioSource);
 		source.audio.pitch = frequencyTable[param];

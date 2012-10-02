@@ -50,11 +50,13 @@
      <Compile Include="Assets\Editor\EventListEditor.js" />
      <Compile Include="Assets\Editor\IncrementTriggerEditor.js" />
      <Compile Include="Assets\Editor\InputTriggerEditor.js" />
+     <Compile Include="Assets\Editor\KeyToNoteTriggerEditor.js" />
      <Compile Include="Assets\Editor\KeyboardAnimTriggerEditor.js" />
      <Compile Include="Assets\Editor\LessonInputTriggerEditor.js" />
      <Compile Include="Assets\Editor\LessonManagerEditor.js" />
      <Compile Include="Assets\Editor\LessonTriggerEditor.js" />
      <Compile Include="Assets\Editor\LevelLoaderEditor.js" />
+     <Compile Include="Assets\Editor\MethodTriggerEditor.js" />
      <Compile Include="Assets\Editor\NoteListEditor.js" />
      <Compile Include="Assets\Editor\PatternEditor.js" />
      <Compile Include="Assets\Editor\PitchPositionTriggerEditor.js" />
@@ -62,6 +64,7 @@
      <Compile Include="Assets\Editor\ResetTriggerEditor.js" />
      <Compile Include="Assets\Editor\ScrollerEmitterEditor.js" />
      <Compile Include="Assets\Editor\SoundTriggerEditor.js" />
+     <Compile Include="Assets\Editor\SpawnNoteTriggerEditor.js" />
      <Compile Include="Assets\Editor\SpawnTriggerEditor.js" />
      <Compile Include="Assets\Editor\TriggerEditor.js" />
      <Compile Include="Assets\Editor\TriggerGroupEditor.js" />

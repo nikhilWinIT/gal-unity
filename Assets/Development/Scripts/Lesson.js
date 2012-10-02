@@ -63,9 +63,6 @@ class Lesson extends MonoBehaviour {
 		if(!paused){
 			var elapsed = Time.realtimeSinceStartup - baseTime;
 			if( elapsed > beatLength * track.signature){
-				if(!passed){
-					waiting = true;
-				}
 				Restart();
 			}
 			else {
@@ -103,7 +100,6 @@ class Lesson extends MonoBehaviour {
 		}
 	}
 	function CorrectPitch(name:String){
-		triggers.EmitEvent('CorrectPitch', name);
 		inputIndex += 1;
 	}
 	function CorrectPattern() {
