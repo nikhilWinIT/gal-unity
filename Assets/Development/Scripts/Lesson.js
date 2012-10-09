@@ -6,6 +6,8 @@ class Lesson extends MonoBehaviour {
 	var checkTone : boolean = true;
 	var checkRhythm : boolean = true;
 	var repeats : int;
+	var maxMistakes : int = 3;
+	var mistakes : int = 0;
 	private var repeatIndex : int;
 	private var waiting : boolean = false;
 	private var beatLength : float;
@@ -13,12 +15,16 @@ class Lesson extends MonoBehaviour {
 	private var triggers : TriggerManager;
 	private var offset : float = 0;
 	private var inputIndex : int = 0;
+	private var tries : int = 0;
 	private var paused = true;
 	private var pauseTime : float = 0;
 	private var lessonManager : LessonManager;
-	private var passed : boolean;
+	private var correct : int;
+	private var missed : int;
+	private var started : boolean = false;
 	function Start(){
 		lessonManager = GameObject.FindObjectOfType(LessonManager);	
+		Pause();
 	}
 	
 	function Initialize( _triggerManager : TriggerManager){
@@ -26,14 +32,19 @@ class Lesson extends MonoBehaviour {
 		beatLength = 60/track.bpm;
 	}
 	function Restart(){
+		if(!started) started = true;
+		inputIndex = 0;
+		mistakes = 0;
+		tries = 0;
 		index = 0;
+		missed = 0;
 		if(track){
 		track.Stop();
-		passed = false;
 		track.Play();
 		}
 		paused = false;
 		baseTime = Time.realtimeSinceStartup;
+			
 		
 	}
 	function Stop(){
@@ -61,46 +72,73 @@ class Lesson extends MonoBehaviour {
 	}
 	function CheckForNote() {
 		if(!paused){
+			Debug.Log('registered');
 			var elapsed = Time.realtimeSinceStartup - baseTime;
 			if( elapsed > beatLength * track.signature){
-				Restart();
+				Pause();
+				//Restart();
 			}
 			else {
 				if (index > pattern.rhythm.length-1){
 			
 				}
 				else if( elapsed > beatLength * pattern.rhythm[index]){
-					if(!waiting && !passed){
+					if(!waiting){
 						
 						triggers.EmitEvent('PlayLessonBeat', pattern.melody[index]);
+						if (index == 0){
+							triggers.EmitEvent('LessonFirstBeat');
+						}
+						else if(index == 1){
+							triggers.EmitEvent('LessonSecondBeat');	
+						}
 					}
 					index += 1;
 				}
 			}
 		}
 	}
-	function SendInput(name : String){
-		if(!paused){
-		triggers.EmitEvent('AnyKey', name);
-			if(checkTone){
-				if(name == pattern.melody[inputIndex]){
-					CorrectPitch(name);
-				}	
-				else {
-					WrongPitch(name);			
-					return;
-				}
+	function Register( pitch : String){
+		if(started ){
+			if(tries == 0){
+				triggers.EmitEvent('FirstNote');
 			}
-			if(inputIndex == pattern.length){
-				CheckPattern();
+			else if(tries == 1){
+				triggers.EmitEvent('SecondNote');	
 			}
-		}
-		else{
-			triggers.EmitEvent('VoidInput', name);	
+			tries += 1;
+			var correctPitch = pattern.melody[inputIndex];
+			if(pitch == correctPitch){
+				CorrectNote(pitch);
+			}
+			else {
+				MissedNote(pitch);
+			}
+			if(pattern.length <= inputIndex){
+				CheckScore();	
+			}
 		}
 	}
-	function CorrectPitch(name:String){
+	function CorrectNote(pitch : String){
+		triggers.EmitEvent('CorrectNote', pitch);	
+		mistakes = 0;
 		inputIndex += 1;
+	}
+	function MissedNote(pitch : String){
+		mistakes += 1;
+		triggers.EmitEvent('MissedNote', pitch);	
+		missed += 1;
+		if ( mistakes >= maxMistakes){
+			Restart();	
+		}
+	}
+	function CheckScore(){
+		if(missed > 0){
+			triggers.EmitEvent('FailedLesson');	
+			}	
+		else{
+			triggers.EmitEvent('PassedLesson');	
+		}
 	}
 	function CorrectPattern() {
 		triggers.EmitEvent('CorrectPattern', name);
@@ -113,27 +151,6 @@ class Lesson extends MonoBehaviour {
 		}
 		else{
 			inputIndex = 0;	
-			passed = true;
 		}
-	}
-	function WrongPitch(name:String){
-		waiting = false;
-		inputIndex = 0;
-		triggers.EmitEvent('WrongPitch', name);
-		inputIndex = 0;
-		WaitFor(lessonManager.breakDuration);
-	}
-	function CheckPattern(){
-	waiting = false;
-		if(checkRhythm){
-		}
-		CorrectPattern();		
-	}
-	function WaitFor( seconds : float){
-		Stop();
-		paused = true;
-		yield WaitForSeconds(seconds);
-		Restart();
-		
 	}
 }

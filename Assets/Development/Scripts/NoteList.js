@@ -17,8 +17,11 @@ function Reload(){
 		'A#',
 		'B',
 		'Ch',
-		'Ch#',
-		'Dh'
+		'C#h',
+		'Dh',
+		'D#h',
+		'Eh',
+		'Fh'
 	]);
 	for ( var item in defaults){
 		Add(item);

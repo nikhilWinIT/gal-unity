@@ -20,6 +20,7 @@ class SpawnTriggerEditor extends TriggerEditor {
    	 	super.OnInspectorGUI();
    	 	target.spawnParent = EditorGUILayout.ObjectField('parent', target.spawnParent, Transform, true);
    	 	target.container = EditorGUILayout.ObjectField('container', target.container, Transform,true);
+   	 	target.lifetime = EditorGUILayout.FloatField('lifetime', target.lifetime);
 	   	if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
 	   	}

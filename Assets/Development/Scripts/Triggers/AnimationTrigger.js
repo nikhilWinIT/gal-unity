@@ -27,7 +27,7 @@ class AnimationTrigger extends Trigger {
 			if(reverse){
 				target.animation[animClip.name].speed = -1.0;	
 			}
-			target.animation.CrossFade(animClip.name, fadeValue);
+			target.animation.Play(animClip.name);
 			triggered = true;
 		}
 	}

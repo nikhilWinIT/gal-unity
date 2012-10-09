@@ -8,14 +8,20 @@ function Reload(){
 	'None',
 	'GameStarted',
 	'PlayLessonBeat',
-	'CorrectPattern',
+	'LastNote',
 	'CorrectNote',
-	'WrongPitch',
+	'MissedNote',
 	'VoidInput',
 	'AnyKey',
 	'NextLesson',
 	'PitchPosition',
-	'CompanionBeat'
+	'CompanionBeat',
+	'FailedLesson',
+	'PassedLesson',
+	'FirstNote',
+	'SecondNote',
+	'LessonFirstBeat',
+	'LessonSecondBeat'
 	]);
 	for ( var item in events){
 		Add(item);

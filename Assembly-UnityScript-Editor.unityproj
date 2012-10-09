@@ -49,6 +49,7 @@
      <Compile Include="Assets\Editor\EnableTriggerEditor.js" />
      <Compile Include="Assets\Editor\EventListEditor.js" />
      <Compile Include="Assets\Editor\IncrementTriggerEditor.js" />
+     <Compile Include="Assets\Editor\InputConditionalTriggerEditor.js" />
      <Compile Include="Assets\Editor\InputTriggerEditor.js" />
      <Compile Include="Assets\Editor\KeyToNoteTriggerEditor.js" />
      <Compile Include="Assets\Editor\KeyboardAnimTriggerEditor.js" />
@@ -64,7 +65,9 @@
      <Compile Include="Assets\Editor\ResetTriggerEditor.js" />
      <Compile Include="Assets\Editor\ScrollerEmitterEditor.js" />
      <Compile Include="Assets\Editor\SoundTriggerEditor.js" />
+     <Compile Include="Assets\Editor\SpawnNoteSignTriggerEditor.js" />
      <Compile Include="Assets\Editor\SpawnNoteTriggerEditor.js" />
+     <Compile Include="Assets\Editor\SpawnTrailTriggerEditor.js" />
      <Compile Include="Assets\Editor\SpawnTriggerEditor.js" />
      <Compile Include="Assets\Editor\TriggerEditor.js" />
      <Compile Include="Assets\Editor\TriggerGroupEditor.js" />
@@ -77,6 +80,7 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+     <None Include="Assets\Cutout.shader" />
  <Reference Include="Assets\Plugins\GoKit">
  <HintPath>Assets\Plugins\GoKit.dll</HintPath>
  </Reference>

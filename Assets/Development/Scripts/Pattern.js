@@ -6,6 +6,7 @@ var rhythmExpand : boolean = false;
 var melody : String[];
 var melodyIndices : int[] = [0];
 var options : String[] = ['C','Cs','D','Ds','E','F','Fs','G','Gs','A','As','B','Bs','Ch'];
+var notes : NoteList;
 
 
 function Awake () {
@@ -20,9 +21,10 @@ function UpdateMelody(){
 }
 
 function UpdateMelodyString(){
+	notes = GameObject.FindObjectOfType(NoteList);
 	melody = new String[melodyIndices.length];
 	for( var i = 0; i<melodyIndices.length; i++){
-		melody[i] = options[melodyIndices[i]];
+		melody[i] = notes.list[melodyIndices[i]];
 	}
 	
 }

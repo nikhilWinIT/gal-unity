@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Development\Scripts\Companion.js" />
      <Compile Include="Assets\Development\Scripts\Controls.js" />
      <Compile Include="Assets\Development\Scripts\EventList.js" />
      <Compile Include="Assets\Development\Scripts\Global.js" />
@@ -63,27 +64,34 @@
      <Compile Include="Assets\Development\Scripts\ScrollerEmitter.js" />
      <Compile Include="Assets\Development\Scripts\Sound.js" />
      <Compile Include="Assets\Development\Scripts\Track.js" />
+     <Compile Include="Assets\Development\Scripts\Trail.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\AnimationTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\DelayTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\EnableTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\IncrementTrigger.js" />
+     <Compile Include="Assets\Development\Scripts\Triggers\InputConditionalTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\KeyboardAnimTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\LessonInputTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\LessonTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\LevelLoader.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\MessageTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\MethodTrigger.js" />
+     <Compile Include="Assets\Development\Scripts\Triggers\MoveTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\Note.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\NoteHitTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\PitchPositionTrigger.js" />
+     <Compile Include="Assets\Development\Scripts\Triggers\RemoveTrailTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\ResetTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\SoundTrigger.js" />
+     <Compile Include="Assets\Development\Scripts\Triggers\SpawnNoteSignTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\SpawnNoteTrigger.js" />
+     <Compile Include="Assets\Development\Scripts\Triggers\SpawnTrailTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\SpawnTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\Trigger.js" />
      <Compile Include="Assets\Development\Scripts\Triggers\TriggerGroup.js" />
      <Compile Include="Assets\Development\Scripts\Utility\Constraint.js" />
      <Compile Include="Assets\Development\Scripts\Utility\Counter.js" />
+     <Compile Include="Assets\Development\Scripts\Utility\Follow.js" />
      <Compile Include="Assets\Development\Scripts\Utility\InputTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Utility\KeyToNoteTrigger.js" />
      <Compile Include="Assets\Development\Scripts\Utility\RangeListener.js" />
@@ -108,6 +116,7 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+     <None Include="Assets\Cutout.shader" />
  <Reference Include="Assets\Plugins\GoKit">
  <HintPath>Assets\Plugins\GoKit.dll</HintPath>
  </Reference>

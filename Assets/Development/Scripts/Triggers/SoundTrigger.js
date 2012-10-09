@@ -16,7 +16,12 @@ class SoundTrigger extends Trigger {
 		"A" : GetFrequency(9),
 		"A#"  : GetFrequency(10),
 		"B" : GetFrequency(11),
-		"Ch" : GetFrequency(12)
+		"Ch" : GetFrequency(12),
+		"C#h" : GetFrequency(13),
+		"Dh" : GetFrequency(14),
+		"D#h" : GetFrequency(15),
+		"Eh" : GetFrequency(16),
+		"Fh" : GetFrequency(17)
 	};
 	function Pull(){
 		Pull('C');	

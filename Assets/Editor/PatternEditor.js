@@ -3,7 +3,9 @@
 class PatternEditor extends Editor {
 	//var options : String[] = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B','B#','Ch'];
 	var index : int = 0;
+	var notes : NoteList;
     function OnInspectorGUI () {
+    	notes = GameObject.FindObjectOfType(NoteList);
     	var x : int = 0;
     	if(GUILayout.Button('Add note')){
     		target.length += 1;
@@ -29,7 +31,7 @@ class PatternEditor extends Editor {
 		    	EditorGUILayout.BeginHorizontal ();
 		        EditorGUILayout.LabelField((x+1).ToString(), GUILayout.Width(10));
 		        target.rhythm[x] = EditorGUILayout.FloatField(target.rhythm[x], GUILayout.Width(60));
-		        target.melodyIndices[x] = EditorGUILayout.Popup(target.melodyIndices[x], target.options, GUILayout.Width(50));
+		        target.melodyIndices[x] = EditorGUILayout.Popup(target.melodyIndices[x], notes.list.ToArray(), GUILayout.Width(50));
 		        EditorGUILayout.EndHorizontal();
 		    }
 		    if(GUILayout.Button('Remove note')) target.length -= 1;

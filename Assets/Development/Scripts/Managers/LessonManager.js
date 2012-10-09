@@ -49,6 +49,12 @@ class LessonManager extends MonoBehaviour {
 	function SendInput( name : String ){
 		lesson.SendInput(name);
 	}
+	function RegisterNote( param : boolean){
+		lesson.RegisterNote(param);	
+	}
+	function Register( pitch : String){
+		lesson.Register(pitch);	
+	}
 	function Update(){
 		if(!paused){
 			//UpdateLesson();

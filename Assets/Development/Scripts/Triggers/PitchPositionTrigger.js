@@ -12,7 +12,7 @@ class PitchPositionTrigger extends Trigger {
 		Pull('C');	
 	}
 	function Pull(param : String){
-		Debug.Log(param);
+//		Debug.Log(param);
 		if(param.length == 0) param = 'C';
 		for(var i = 0; i<notes.list.Count; i++){
 			if( notes.list[i] == param){
