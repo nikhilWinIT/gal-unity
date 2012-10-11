@@ -4,6 +4,7 @@ class SoundTriggerEditor extends TriggerEditor{
 	//var options : String[] = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B','B#','Ch'];
     function OnInspectorGUI () {
 	    target.clip = EditorGUILayout.ObjectField('Clip', target.clip, AudioClip, true);
+	    target.volume = EditorGUILayout.FloatField('Volume', target.volume);
 	   	if(GUI.changed){
 	   		EditorUtility.SetDirty(target);
 	   	}

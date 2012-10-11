@@ -10,6 +10,7 @@ class PatternEditor extends Editor {
     	if(GUILayout.Button('Add note')){
     		target.length += 1;
     	}	
+	    if(GUILayout.Button('Remove note')) target.length -= 1;
 			EditorGUILayout.BeginHorizontal ();
 			GUILayout.Label("#", GUILayout.Width(10));
 	        GUILayout.Label("Beat", GUILayout.Width(60));
@@ -26,18 +27,18 @@ class PatternEditor extends Editor {
 		        }
 		        target.rhythm = newRhythm;
 	         	target.melodyIndices = newMelody;
+	         	Debug.Log('arrays updated');
 		    }
-		    for(x = 0; x < target.rhythm.length; x++) {
+		    for(x = 0; x < target.length; x++) {
 		    	EditorGUILayout.BeginHorizontal ();
 		        EditorGUILayout.LabelField((x+1).ToString(), GUILayout.Width(10));
 		        target.rhythm[x] = EditorGUILayout.FloatField(target.rhythm[x], GUILayout.Width(60));
 		        target.melodyIndices[x] = EditorGUILayout.Popup(target.melodyIndices[x], notes.list.ToArray(), GUILayout.Width(50));
 		        EditorGUILayout.EndHorizontal();
 		    }
-		    if(GUILayout.Button('Remove note')) target.length -= 1;
 	   	if(GUI.changed){
-	   		target.UpdateMelody();
 	   		EditorUtility.SetDirty(target);
+	   		target.UpdateMelody();
 	   	}
     }
     

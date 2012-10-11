@@ -1,16 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Development/Scripts/Companion.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Development/Scripts/Triggers/KeyboardAnimTrigger.js">
     <Files>
+      <File FileName="Assets/Development/Scripts/Triggers/Wave.js" Line="1" Column="1" />
+      <File FileName="Assets/Development/Scripts/Lesson.js" Line="142" Column="17" />
       <File FileName="Assets/Development/Scripts/EventList.js" Line="1" Column="1" />
-      <File FileName="Assets/Development/Scripts/Lesson.js" Line="35" Column="29" />
-      <File FileName="Assets/Development/Scripts/Triggers/RemoveTrailTrigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Development/Scripts/Trail.js" Line="11" Column="1" />
-      <File FileName="Assets/Development/Scripts/Companion.js" Line="21" Column="43" />
-      <File FileName="Assets/Development/Scripts/Triggers/KeyboardAnimTrigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Development/Scripts/Triggers/InputConditionalTrigger.js" Line="1" Column="1" />
-      <File FileName="Assets/Editor/InputConditionalTriggerEditor.js" Line="1" Column="1" />
-      <File FileName="Assets/Development/Scripts/Triggers/AnimationTrigger.js" Line="30" Column="24" />
+      <File FileName="Assets/Development/Scripts/Managers/LessonManager.js" Line="43" Column="17" />
+      <File FileName="Assets/Development/Scripts/Triggers/LessonInputTrigger.js" Line="1" Column="1" />
+      <File FileName="Assets/Development/Scripts/Pattern.js" Line="1" Column="1" />
+      <File FileName="Assets/Development/Scripts/Triggers/KeyboardAnimTrigger.js" Line="13" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
