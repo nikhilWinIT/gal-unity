@@ -15,9 +15,9 @@ class Lesson extends MonoBehaviour {
 	private var baseTime : float;
 	private var triggers : TriggerManager;
 	private var offset : float = 0;
-	private var inputIndex : int = 0;
+	var inputIndex : int = 0;
 	private var tries : int = 0;
-	private var paused = true;
+	var paused = true;
 	private var pauseTime : float = 0;
 	private var lessonManager : LessonManager;
 	private var correct : int;
@@ -45,6 +45,13 @@ class Lesson extends MonoBehaviour {
 			
 		
 	}
+	function ResetPlayer(){
+		inputIndex = 0;
+		mistakes = 0;
+		tries = 0;
+		missed = 0;
+		baseTime = Time.realtimeSinceStartup;
+	}
 	function Repeat(){
 		mistakes = 0;
 		tries = 0;
@@ -53,6 +60,10 @@ class Lesson extends MonoBehaviour {
 		baseTime = Time.realtimeSinceStartup - pattern.rhythm[index];
 	}
 	function Stop(){
+		Pause();
+	}
+	function Play(){
+		paused = false;	
 	}
 	function Pause(){
 		if(!paused){
@@ -103,7 +114,7 @@ class Lesson extends MonoBehaviour {
 		}
 	}
 	function Register( pitch : String){
-		if(started ){
+		if(started){
 			if(tries == 0){
 				triggers.EmitEvent('FirstNote');
 			}
@@ -122,9 +133,6 @@ class Lesson extends MonoBehaviour {
 				CheckScore();	
 			}
 		}
-		if(paused){
-			triggers.EmitEvent('VoidInput');	
-		}
 	}
 	function CorrectNote(pitch : String){
 		triggers.EmitEvent('CorrectNote', pitch);	
@@ -137,31 +145,46 @@ class Lesson extends MonoBehaviour {
 		missed += 1;
 		if ( mistakes >= maxMistakes){
 			//triggers.EmitEvent('TooManyMistakes', pitch);	
-			triggers.EmitEvent('FailedLesson');
-			paused = true;
-			index = inputIndex;
+			End('fail');
 		}
 	}
 	function CheckScore(){
 		move = true;
 		if(missed > 0){
-			triggers.EmitEvent('PartialPassLesson');	
-			}	
+			End('partial');
+		}	
 		else{
-			triggers.EmitEvent('PassedLesson');	
+			End('pass');
 		}
 	}
+	// End all input and output processing and place Lesson instance in a safe state.
+	function End( result : String){
+		Stop();
+		switch(result){
+			case 'pass':
+				Pass();
+				break;
+			case 'partial':
+				Partial();
+				break;
+			case 'fail':
+				Fail();
+				break;	
+		}
+	}
+	function Pass(){
+			triggers.EmitEvent('PassedLesson');	
+	}
+	function Partial(){
+			triggers.EmitEvent('PartialPassLesson');	
+	}
+	function Fail(){
+			triggers.EmitEvent('FailedLesson');
+			index = inputIndex;
+	}	
 	function CorrectPattern() {
 		triggers.EmitEvent('CorrectPattern', name);
 		repeatIndex += 1;
 		inputIndex = 0;
-		if(repeatIndex > repeats) {
-			Stop();
-			yield WaitForSeconds(lessonManager.breakDuration);
-			lessonManager.Next();
-		}
-		else{
-			inputIndex = 0;	
-		}
 	}
 }

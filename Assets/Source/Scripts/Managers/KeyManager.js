@@ -44,7 +44,6 @@ function SelectKey( name : String) {
 	var key = GetChild(name);
 	if(key){
 		sounds.Play(name);
-		lessons.SendInput(name);
 		triggers.EmitEvent('KeyDown', name);
 	}
 }

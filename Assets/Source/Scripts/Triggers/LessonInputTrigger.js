@@ -2,7 +2,7 @@
 
 class LessonInputTrigger extends Trigger {
 	
-	var inputTypes : String[] = ['register','restart', 'next','previous', 'repeat'];
+	var inputTypes : String[] = ['register','restart', 'next','previous', 'repeat','pause'];
 	var inputIndex : int;
 	var inputType : String;
 	private var lessons: LessonManager;	
@@ -26,7 +26,10 @@ class LessonInputTrigger extends Trigger {
 				lessons.Previous();
 				break;
 			case 'repeat':
-				lessons.RepeatNote();
+				lessons.Repeat();
+				break;
+			case 'pause':
+				lessons.Pause();
 				break;
 		}
 	}

@@ -1,5 +1,5 @@
 var list = new List.<String>();
-	
+var events : List.<String>;	
 var defaults : List.<String>;
 var custom : List.<String>;
 function Reload(){

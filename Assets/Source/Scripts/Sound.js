@@ -1,7 +1,7 @@
 
 class Sound extends MonoBehaviour {
 	private var shiftFactor : float = 1.05946;
-	var frequencyTable;
+	var frequencyTable : Hashtable;
 	
 	
 	function Start(){

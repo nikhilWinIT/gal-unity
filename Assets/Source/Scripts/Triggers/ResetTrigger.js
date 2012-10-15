@@ -9,7 +9,7 @@ class ResetTrigger extends Trigger {
 	var targetComponent : Component;
 	var componentIndex : int;
 	var fieldName : String;
-	var targetField;
+	var targetField : System.Reflection.FieldInfo;
 	var fieldIndex : int;
 	var resetValue : int;
 	function Start() {

@@ -9,7 +9,7 @@ class RangeListener extends MonoBehaviour{
 	var targetComponent : Component;
 	var componentIndex : int;
 	var fieldName : String;
-	var targetField;
+	var targetField : System.Reflection.FieldInfo;
 	var fieldIndex : int;
 	var triggers : TriggerManager;	
 	var valueMin : float;
@@ -30,7 +30,7 @@ class RangeListener extends MonoBehaviour{
 	
 	
 	function Check() {
-		var _value = targetField.GetValue(targetComponent);
+		var _value : float = targetField.GetValue(targetComponent);
 		if(_value >= valueMin && _value < valueMax){
 			if(!triggered) Enter();
 		}

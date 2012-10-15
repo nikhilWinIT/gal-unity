@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_OSX;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_IOS;UNITY_IPHONE;ENABLE_GENERICS;ENABLE_TERRAIN;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -45,11 +45,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Source\Scripts\Companion.js" />
-     <Compile Include="Assets\Source\Scripts\Controls.js" />
      <Compile Include="Assets\Source\Scripts\EventList.js" />
      <Compile Include="Assets\Source\Scripts\Global.js" />
      <Compile Include="Assets\Source\Scripts\Key.js" />
-     <Compile Include="Assets\Source\Scripts\Keymap.js" />
      <Compile Include="Assets\Source\Scripts\Lesson.js" />
      <Compile Include="Assets\Source\Scripts\Managers\InputManager.js" />
      <Compile Include="Assets\Source\Scripts\Managers\KeyManager.js" />
@@ -59,7 +57,6 @@
      <Compile Include="Assets\Source\Scripts\Messenger.js" />
      <Compile Include="Assets\Source\Scripts\MusicCylinder.js" />
      <Compile Include="Assets\Source\Scripts\NoteList.js" />
-     <Compile Include="Assets\Source\Scripts\Objects\Obstacle.js" />
      <Compile Include="Assets\Source\Scripts\Pattern.js" />
      <Compile Include="Assets\Source\Scripts\Scroller.js" />
      <Compile Include="Assets\Source\Scripts\ScrollerEmitter.js" />
@@ -77,10 +74,7 @@
      <Compile Include="Assets\Source\Scripts\Triggers\LessonTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\LevelLoader.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\MessageTrigger.js" />
-     <Compile Include="Assets\Source\Scripts\Triggers\MethodTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\MoveTrigger.js" />
-     <Compile Include="Assets\Source\Scripts\Triggers\Note.js" />
-     <Compile Include="Assets\Source\Scripts\Triggers\NoteHitTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\PitchPositionTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\PositionMarker.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\PositionSetter.js" />
@@ -88,12 +82,11 @@
      <Compile Include="Assets\Source\Scripts\Triggers\ResetTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\SoundTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\SpawnNoteSignTrigger.js" />
-     <Compile Include="Assets\Source\Scripts\Triggers\SpawnNoteTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\SpawnTrailTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\SpawnTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\Trigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\TriggerGroup.js" />
-     <Compile Include="Assets\Source\Scripts\Triggers\Wave.js" />
+     <Compile Include="Assets\Source\Scripts\Utility\Button.js" />
      <Compile Include="Assets\Source\Scripts\Utility\Constraint.js" />
      <Compile Include="Assets\Source\Scripts\Utility\Counter.js" />
      <Compile Include="Assets\Source\Scripts\Utility\Follow.js" />

@@ -5,7 +5,6 @@ class LessonManager extends MonoBehaviour {
 	var lesson : Lesson;
 	var breakDuration : float;
 	var on : boolean;
-	var paused : boolean = false;
 	var triggerManager : TriggerManager;
 	
 	private var lessonIndex : int = 0;
@@ -19,13 +18,11 @@ class LessonManager extends MonoBehaviour {
 	}
 	function Pause(){
 		lesson.Pause();
-		paused = true;
 	}
 	function Play(){
 		lesson.Resume();
-		paused = false;
 	}
-	function RepeatNote(){
+	function Repeat(){
 		lesson.Repeat();	
 	}
 	
@@ -33,7 +30,7 @@ class LessonManager extends MonoBehaviour {
 		lessonIndex += 1;
 		if(lessonIndex >= lessons.length) lessonIndex = 0;
 		SetLesson(lessonIndex);
-		if(!paused) lesson.Restart();
+		lesson.Restart();
 		triggerManager.EmitEvent('NextLesson');
 	}
 	
@@ -44,7 +41,7 @@ class LessonManager extends MonoBehaviour {
 		}
 		//if(lessonIndex < 0) lessonIndex = lessons.length - 1;
 		SetLesson(lessonIndex);
-		if(!paused) lesson.Restart();
+		lesson.Restart();
 	}
 	
 	function SetLesson( index : int){
@@ -52,19 +49,10 @@ class LessonManager extends MonoBehaviour {
 		lesson = lessons[index];	
 		lesson.Initialize(triggerManager);
 	}
-	function SendInput( name : String ){
-		lesson.SendInput(name);
-	}
-	function RegisterNote( param : boolean){
-		lesson.RegisterNote(param);	
-	}
 	function Register( pitch : String){
 		lesson.Register(pitch);	
 	}
 	function Update(){
-		if(!paused){
-			//UpdateLesson();
-			lesson.UpdateLesson();
-		}
+		lesson.UpdateLesson();
 	}
 }

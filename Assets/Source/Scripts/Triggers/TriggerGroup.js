@@ -14,7 +14,7 @@ class TriggerGroup extends MonoBehaviour {
 	function Pull(param : String){
 		if(on){
 			var triggers = GetComponentsInChildren(Trigger);
-			for(var trigger in triggers){
+			for(var trigger : Trigger in triggers){
 				trigger.Pull(param);	
 			}
 			if(oneShot) {

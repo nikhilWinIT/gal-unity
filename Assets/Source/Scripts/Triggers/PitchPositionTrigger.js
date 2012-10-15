@@ -3,7 +3,7 @@ class PitchPositionTrigger extends Trigger {
 	private var shiftFactor : float = 1.05946;
 	var target : GameObject;
 	var notes : NoteList; 
-	private var triggers;
+	private var triggers : TriggerManager;
 	function Start(){
 		triggers = GameObject.FindObjectOfType(TriggerManager);
 		notes = GameObject.FindObjectOfType(NoteList);
