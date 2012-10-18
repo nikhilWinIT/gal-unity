@@ -7,6 +7,8 @@ class Lesson extends MonoBehaviour {
 	var checkTone : boolean = true;
 	var checkRhythm : boolean = true;
 	var repeats : int;
+	var doNotRepeat : boolean;
+	var doNotRevert : boolean;
 	var maxMistakes : int = 3;
 	var mistakes : int = 0;
 	private var repeatIndex : int;
@@ -176,7 +178,12 @@ class Lesson extends MonoBehaviour {
 			triggers.EmitEvent('PassedLesson');	
 	}
 	function Partial(){
-			triggers.EmitEvent('PartialPassLesson');	
+			if(doNotRevert){
+				triggers.EmitEvent('PartialPassLesson');	
+			}
+			else{
+				triggers.EmitEvent('RevertLesson');		
+			}
 	}
 	function Fail(){
 			triggers.EmitEvent('FailedLesson');

@@ -8,17 +8,19 @@ var height : float;
 var left : float;
 var leftOffset : float;
 var top : float;
+var offsetTop : float;
 var show : boolean;
 var pressed : boolean;
 var offset : int;
 var triggers : TriggerGroup[];
 function OnGUI(){
-	left = leftOffset + width*offset;
 	var screenPos = Camera.main.WorldToScreenPoint(transform.position);	
 	if(percent){
 		width = Screen.width*widthPercent;
 		height = Screen.height*heightPercent;		
 	}
+	left = leftOffset + width*offset;
+	top = height*offsetTop;
 	/*
 	if(GUI.Button( new Rect(left, top, width, height), '', GUIStyle.none)) {
 		Debug.Log('pushed');
@@ -64,8 +66,11 @@ function Update(){
 }
 
 function IsInBound( position : Vector2){
+	var py = Screen.height - position.y;
 	if(position.x > left && position.x < left + width){
-		return true	;
+		if(py > top && py < top + height){
+			return true	;
+		}
 	}
 	return false;
 }

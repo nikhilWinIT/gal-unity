@@ -25,7 +25,8 @@ function Reload(){
 	'CompanionMove',
 	'TooManyMistakes',
 	'HitObstacle',
-	'PartialPassLesson'
+	'PartialPassLesson',
+	'RevertLesson'
 	]);
 	for ( var item in events){
 		Add(item);
