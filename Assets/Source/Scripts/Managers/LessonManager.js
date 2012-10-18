@@ -6,6 +6,7 @@ class LessonManager extends MonoBehaviour {
 	var breakDuration : float;
 	var on : boolean;
 	var triggerManager : TriggerManager;
+	var idleTime : float;
 	
 	private var lessonIndex : int = 0;
 	
@@ -15,6 +16,8 @@ class LessonManager extends MonoBehaviour {
 	}
 	function Restart(){
 		lesson.Restart();
+		idleTime = Time.time;
+		
 	}
 	function Pause(){
 		lesson.Pause();
@@ -50,6 +53,7 @@ class LessonManager extends MonoBehaviour {
 		lesson.Initialize(triggerManager);
 	}
 	function Register( pitch : String){
+		idleTime = Time.time;
 		lesson.Register(pitch);	
 	}
 	function Update(){

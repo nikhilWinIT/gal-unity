@@ -20,6 +20,7 @@ class Lesson extends MonoBehaviour {
 	var inputIndex : int = 0;
 	private var tries : int = 0;
 	var paused = true;
+	private var idleTime : float;
 	private var pauseTime : float = 0;
 	private var lessonManager : LessonManager;
 	private var correct : int;
@@ -84,6 +85,7 @@ class Lesson extends MonoBehaviour {
 	
 	function UpdateLesson(){
 			CheckForNote();
+			CheckIdle();
 	}
 	function CheckForNote() {
 		if(!paused){
@@ -100,6 +102,7 @@ class Lesson extends MonoBehaviour {
 					if(!waiting){
 						
 						triggers.EmitEvent('PlayLessonBeat', pattern.melody[index]);
+						idleTime = Time.time;
 						if(move){
 							triggers.EmitEvent('CompanionMove', pattern.melody[index]);
 						}
@@ -116,6 +119,7 @@ class Lesson extends MonoBehaviour {
 		}
 	}
 	function Register( pitch : String){
+		idleTime = Time.time;
 		if(started){
 			if(tries == 0){
 				triggers.EmitEvent('FirstNote');
@@ -186,6 +190,7 @@ class Lesson extends MonoBehaviour {
 			}
 	}
 	function Fail(){
+		Debug.Log('fail');
 			triggers.EmitEvent('FailedLesson');
 			index = inputIndex;
 	}	
@@ -193,5 +198,12 @@ class Lesson extends MonoBehaviour {
 		triggers.EmitEvent('CorrectPattern', name);
 		repeatIndex += 1;
 		inputIndex = 0;
+	}
+	
+	function CheckIdle(){
+		if ( Time.time - idleTime > 6 ) {
+			End('fail');	
+			idleTime = Time.time+3;
+		}	
 	}
 }
