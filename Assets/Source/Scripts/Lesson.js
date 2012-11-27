@@ -11,6 +11,7 @@ class Lesson extends MonoBehaviour {
 	var doNotRevert : boolean;
 	var maxMistakes : int = 3;
 	var mistakes : int = 0;
+	private var ended : boolean;
 	private var repeatIndex : int;
 	private var waiting : boolean = false;
 	private var beatLength : float;
@@ -43,7 +44,7 @@ class Lesson extends MonoBehaviour {
 		tries = 0;
 		index = 0;
 		missed = 0;
-		paused = false;
+		Play();
 		baseTime = Time.realtimeSinceStartup;
 			
 		
@@ -59,7 +60,7 @@ class Lesson extends MonoBehaviour {
 		mistakes = 0;
 		tries = 0;
 		index = inputIndex;
-		paused = false;
+		Play();
 		baseTime = Time.realtimeSinceStartup - pattern.rhythm[index];
 	}
 	function Stop(){
@@ -67,6 +68,7 @@ class Lesson extends MonoBehaviour {
 	}
 	function Play(){
 		paused = false;	
+		ended = false;
 	}
 	function Pause(){
 		if(!paused){
@@ -91,8 +93,12 @@ class Lesson extends MonoBehaviour {
 		if(!paused){
 			var elapsed = Time.realtimeSinceStartup - baseTime;
 			if( elapsed > beatLength * signature){
-				Pause();
 				//Restart();
+				if(!ended){
+					Debug.Log('end of turn');
+					ended = true;
+					triggers.EmitEvent('LessonEndOfTurn');
+				}
 			}
 			else {
 				if (index > pattern.rhythm.length-1){
@@ -112,6 +118,10 @@ class Lesson extends MonoBehaviour {
 						else if(index == 1){
 							triggers.EmitEvent('LessonSecondBeat');	
 						}
+						if(index + 1 >= pattern.length){
+							triggers.EmitEvent('LessonLastBeat');	
+							Debug.Log('LessonLastBeat');
+						}
 					}
 					index += 1;
 				}
@@ -120,7 +130,7 @@ class Lesson extends MonoBehaviour {
 	}
 	function Register( pitch : String){
 		idleTime = Time.time;
-		if(started){
+		if(started && paused == false){
 			if(tries == 0){
 				triggers.EmitEvent('FirstNote');
 			}
@@ -194,14 +204,14 @@ class Lesson extends MonoBehaviour {
 			triggers.EmitEvent('FailedLesson');
 			index = inputIndex;
 	}	
-	function CorrectPattern() {
+	function CorrectPattern(){
 		triggers.EmitEvent('CorrectPattern', name);
 		repeatIndex += 1;
 		inputIndex = 0;
 	}
 	
 	function CheckIdle(){
-		if ( Time.time - idleTime > 6 ) {
+		if ( Time.time - idleTime > 3 ) {
 			End('fail');	
 			idleTime = Time.time+3;
 		}	

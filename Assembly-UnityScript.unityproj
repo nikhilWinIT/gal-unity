@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_IOS;UNITY_IPHONE;ENABLE_GENERICS;ENABLE_TERRAIN;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_GENERICS;UNITY_ANDROID_API;ENABLE_CLOTH;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;UNITY_4_0_0;UNITY_4_0;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -69,12 +69,12 @@
      <Compile Include="Assets\Source\Scripts\Triggers\EnableTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\IncrementTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\InputConditionalTrigger.js" />
-     <Compile Include="Assets\Source\Scripts\Triggers\KeyboardAnimTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\LessonInputTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\LessonTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\LevelLoader.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\MessageTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\MoveTrigger.js" />
+     <Compile Include="Assets\Source\Scripts\Triggers\NoteSwitchTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\PitchPositionTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\PositionMarker.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\PositionSetter.js" />

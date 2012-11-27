@@ -23,11 +23,13 @@ class AnimationTrigger extends Trigger {
 	
 	function Pull(param : String){
 		for( var target : GameObject in targets){
-			target.animation.Stop();
+			if(fadeValue == 0){
+				target.animation.Stop();
+			}
 			if(reverse){
 				target.animation[animClip.name].speed = -1.0;	
 			}
-			target.animation.Play(animClip.name);
+			target.animation.CrossFade(animClip.name, fadeValue);
 			triggered = true;
 		}
 	}

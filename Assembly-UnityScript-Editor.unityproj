@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_IOS;UNITY_IPHONE;ENABLE_GENERICS;ENABLE_TERRAIN;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_DUCK_TYPING</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_GENERICS;UNITY_ANDROID_API;ENABLE_CLOTH;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;UNITY_4_0_0;UNITY_4_0;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;ENABLE_DUCK_TYPING</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -52,12 +52,12 @@
      <Compile Include="Assets\Editor\InputConditionalTriggerEditor.js" />
      <Compile Include="Assets\Editor\InputTriggerEditor.js" />
      <Compile Include="Assets\Editor\KeyToNoteTriggerEditor.js" />
-     <Compile Include="Assets\Editor\KeyboardAnimTriggerEditor.js" />
      <Compile Include="Assets\Editor\LessonInputTriggerEditor.js" />
      <Compile Include="Assets\Editor\LessonManagerEditor.js" />
      <Compile Include="Assets\Editor\LessonTriggerEditor.js" />
      <Compile Include="Assets\Editor\LevelLoaderEditor.js" />
      <Compile Include="Assets\Editor\NoteListEditor.js" />
+     <Compile Include="Assets\Editor\NoteSwitchTriggerEditor.js" />
      <Compile Include="Assets\Editor\PatternEditor.js" />
      <Compile Include="Assets\Editor\PitchPositionTriggerEditor.js" />
      <Compile Include="Assets\Editor\RangeListenerEditor.js" />
@@ -79,6 +79,9 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
  <Reference Include="Assets\Plugins\GoKit">
  <HintPath>Assets\Plugins\GoKit.dll</HintPath>
+ </Reference>
+ <Reference Include="\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs">
+ <HintPath>\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

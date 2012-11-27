@@ -1,6 +1,7 @@
 
 @script ExecuteInEditMode()
 var percent : boolean;
+var note : String;
 var widthPercent : float;
 var heightPercent : float;
 var width : float;
@@ -13,29 +14,45 @@ var show : boolean;
 var pressed : boolean;
 var offset : int;
 var triggers : TriggerGroup[];
+var texture : Texture;
+var color : Color;
+var style : GUIStyle;
+
+function Start(){
+}
 function OnGUI(){
-	var screenPos = Camera.main.WorldToScreenPoint(transform.position);	
-	if(percent){
-		width = Screen.width*widthPercent;
-		height = Screen.height*heightPercent;		
-	}
-	left = leftOffset + width*offset;
-	top = height*offsetTop;
-	/*
-	if(GUI.Button( new Rect(left, top, width, height), '', GUIStyle.none)) {
-		Debug.Log('pushed');
-		if(!pressed){
-			
-			Press();	
+/*
+	style = new GUIStyle(GUI.skin.button);
+	style.normal.background = texture;
+	if(Event.current.type.Equals(EventType.Repaint)){
+		//GUI.color = color;
+		var screenPos = Camera.main.WorldToScreenPoint(transform.position);	
+		if(percent){
+			width = Screen.width*widthPercent;
+			height = Screen.height*heightPercent;		
 		}
+		left = leftOffset + width*offset;
+		top = height*offsetTop;
+		if(GUI.Button( new Rect(left, top, width, height), '')) {
+			Debug.Log('pushed');
+			if(!pressed){
+				
+				Press();	
+			}
+		}
+
+	//	GUI.Box(Rect(left, top, width, height), name);	
+//		GUI.DrawTexture(Rect(left,top,width,height), texture, ScaleMode.ScaleToFit, true, width/height);
+
 	}
 	*/
-	if(show){
-		GUI.Box(Rect(left, top, width, height), name);
-	}
+	GUI.Button(new Rect(0, 0, 200, 200), 'TEST');
+	
 }
 
 function Update(){
+
+/*
 	if(Input.GetMouseButton(0)){
 		if(IsInBound(Input.mousePosition)){
 			Press();
@@ -47,6 +64,7 @@ function Update(){
 	else{
 		Release();	
 	}
+	
 	for (var touch : Touch in Input.touches) {
 			if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved) {
 				// Construct a ray from the current touch coordinates
@@ -62,7 +80,10 @@ function Update(){
 					Release();
 				}
 			}
-		}
+			
+			*/
+		//}
+		
 }
 
 function IsInBound( position : Vector2){
@@ -76,14 +97,16 @@ function IsInBound( position : Vector2){
 }
 
 function Press(){
+	color.a = 1;	
 	if(!pressed){
 		for(trigger in triggers){
-			trigger.Pull(name);
+			trigger.Pull(note);
 		}
 	}
 	pressed = true;
 }
 
 function Release(){
+	//color.a = .2;
 	pressed = false;
 }

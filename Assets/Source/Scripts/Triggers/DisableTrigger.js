@@ -5,7 +5,7 @@ class DisableTrigger extends Trigger {
 	
 	function Pull(param : String){
 		for( var target : GameObject in targets){
-			target.active = false;
+			target.SetActive(false);
 		}
 		Disable();	
 		
@@ -13,7 +13,7 @@ class DisableTrigger extends Trigger {
 	function Disable(){
 		yield WaitForSeconds(duration);
 		for( var target in targets){
-			target.active = true;	
+			target.SetActive(true);
 		}
 	}
 }

@@ -22,6 +22,8 @@ function Reload(){
 	'SecondNote',
 	'LessonFirstBeat',
 	'LessonSecondBeat',
+	'LessonLastBeat',
+	'LessonEndOfTurn',
 	'CompanionMove',
 	'TooManyMistakes',
 	'HitObstacle',

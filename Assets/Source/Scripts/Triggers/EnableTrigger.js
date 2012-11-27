@@ -8,7 +8,7 @@ class EnableTrigger extends Trigger {
 	
 	function Pull(param : String){
 		for( var target : GameObject in targets){
-			target.active = enable;
+			target.SetActive(true);
 		}
 	}
 }

@@ -6,5 +6,6 @@ class Trigger extends MonoBehaviour {
 		Pull('');	
 	}
 	function Pull( param : String){
+		
 	}
 }
