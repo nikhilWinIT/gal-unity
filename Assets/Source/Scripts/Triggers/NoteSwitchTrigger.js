@@ -11,11 +11,10 @@ class NoteSwitchTrigger extends Trigger {
 		Pull('C');	
 	}
 	function Pull(param : String){
-		Debug.Log(param);
+		//Debug.Log(param);
 		if(param.length == 0) param = 'C';
 		for(var i = 0; i<notes.list.Count; i++){
 			if( notes.list[i] == param){
-				Debug.Log('pull');
 				if(triggers[i]){
 					triggers[i].Pull(param);
 				}

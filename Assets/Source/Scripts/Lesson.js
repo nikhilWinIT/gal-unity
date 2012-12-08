@@ -28,6 +28,7 @@ class Lesson extends MonoBehaviour {
 	private var missed : int;
 	private var started : boolean = false;
 	private var move : boolean = true;
+	var triggerSuccess : TriggerGroup;
 	function Start(){
 		lessonManager = GameObject.FindObjectOfType(LessonManager);	
 		Pause();
@@ -59,14 +60,16 @@ class Lesson extends MonoBehaviour {
 	function Repeat(){
 		mistakes = 0;
 		tries = 0;
-		index = inputIndex;
+		//index = inputIndex;
+		Debug.Log(index);
+		baseTime = Time.realtimeSinceStartup - (pattern.rhythm[index]*beatLength);
 		Play();
-		baseTime = Time.realtimeSinceStartup - pattern.rhythm[index];
 	}
 	function Stop(){
 		Pause();
 	}
 	function Play(){
+		Debug.Log('Play()');
 		paused = false;	
 		ended = false;
 	}
@@ -86,8 +89,10 @@ class Lesson extends MonoBehaviour {
 	}			
 	
 	function UpdateLesson(){
+		if(!paused){
 			CheckForNote();
 			CheckIdle();
+		}
 	}
 	function CheckForNote() {
 		if(!paused){
@@ -95,7 +100,7 @@ class Lesson extends MonoBehaviour {
 			if( elapsed > beatLength * signature){
 				//Restart();
 				if(!ended){
-					Debug.Log('end of turn');
+					//Debug.Log('end of turn');
 					ended = true;
 					triggers.EmitEvent('LessonEndOfTurn');
 				}
@@ -106,6 +111,7 @@ class Lesson extends MonoBehaviour {
 				}
 				else if( elapsed > beatLength * pattern.rhythm[index]){
 					if(!waiting){
+						Debug.Log(elapsed);
 						
 						triggers.EmitEvent('PlayLessonBeat', pattern.melody[index]);
 						idleTime = Time.time;
@@ -120,7 +126,7 @@ class Lesson extends MonoBehaviour {
 						}
 						if(index + 1 >= pattern.length){
 							triggers.EmitEvent('LessonLastBeat');	
-							Debug.Log('LessonLastBeat');
+							//Debug.Log('LessonLastBeat');
 						}
 					}
 					index += 1;
@@ -151,6 +157,7 @@ class Lesson extends MonoBehaviour {
 		}
 	}
 	function CorrectNote(pitch : String){
+	Debug.Log(inputIndex);
 		triggers.EmitEvent('CorrectNote', pitch);	
 		mistakes = 0;
 		inputIndex += 1;
@@ -189,6 +196,10 @@ class Lesson extends MonoBehaviour {
 		}
 	}
 	function Pass(){
+		Debug.Log('pass');
+		if(triggerSuccess){
+			triggerSuccess.Pull();
+		}
 			triggers.EmitEvent('PassedLesson');	
 	}
 	function Partial(){
@@ -200,7 +211,7 @@ class Lesson extends MonoBehaviour {
 			}
 	}
 	function Fail(){
-		Debug.Log('fail');
+		Debug.Log('fail:'+ inputIndex);
 			triggers.EmitEvent('FailedLesson');
 			index = inputIndex;
 	}	

@@ -17,15 +17,21 @@ var triggers : TriggerGroup[];
 var texture : Texture;
 var color : Color;
 var style : GUIStyle;
+var alphaIdle : float;
+var fadeSpeedFactor : float;
+var on : boolean;
 
 function Start(){
+	alphaIdle = 0;
+	pressed = false;
+	on = true;
 }
 function OnGUI(){
-/*
 	style = new GUIStyle(GUI.skin.button);
 	style.normal.background = texture;
+	style.onActive.background = texture;
 	if(Event.current.type.Equals(EventType.Repaint)){
-		//GUI.color = color;
+		GUI.color = color;
 		var screenPos = Camera.main.WorldToScreenPoint(transform.position);	
 		if(percent){
 			width = Screen.width*widthPercent;
@@ -33,7 +39,7 @@ function OnGUI(){
 		}
 		left = leftOffset + width*offset;
 		top = height*offsetTop;
-		if(GUI.Button( new Rect(left, top, width, height), '')) {
+		if(GUI.Button( new Rect(left, top, width, height), '', GUIStyle.none)) {
 			Debug.Log('pushed');
 			if(!pressed){
 				
@@ -42,17 +48,58 @@ function OnGUI(){
 		}
 
 	//	GUI.Box(Rect(left, top, width, height), name);	
-//		GUI.DrawTexture(Rect(left,top,width,height), texture, ScaleMode.ScaleToFit, true, width/height);
+		GUI.DrawTexture(Rect(left,top,width,height), texture, ScaleMode.ScaleToFit, true, width/height);
 
 	}
-	*/
-	GUI.Button(new Rect(0, 0, 200, 200), 'TEST');
 	
 }
 
 function Update(){
+	if(on){
+		if(Input.touches.Length > 0){
+			Debug.Log(Input.touches);
+			ProcessTouch();
+		}
+		else{
+			ProcessMouse();
+		}
+	}
+	UpdateColor();
+}	
 
-/*
+function UpdateColor(){
+	if(!pressed){
+		color.a = Mathf.Clamp(color.a - color.a/fadeSpeedFactor, alphaIdle, 1); 	
+	}
+}
+	
+function ProcessTouch(){
+	var released = true;
+	for (var touch : Touch in Input.touches) {
+		if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved) {
+			Debug.Log(touch.position)	;
+			// Construct a ray from the current touch coordinates
+			if(IsInBound(touch.position)){
+				Press();
+				released = false;
+			}
+		}
+		else {
+			released = false;
+		}
+		if (touch.phase == TouchPhase.Ended){
+			if(IsInBound(touch.position)){
+				//Release();
+				released = true;
+			}
+		}
+	}
+	if( released){
+		Release();
+	}
+}
+
+function ProcessMouse(){
 	if(Input.GetMouseButton(0)){
 		if(IsInBound(Input.mousePosition)){
 			Press();
@@ -64,26 +111,12 @@ function Update(){
 	else{
 		Release();	
 	}
-	
-	for (var touch : Touch in Input.touches) {
-			if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved) {
-				// Construct a ray from the current touch coordinates
-				if(IsInBound(touch.position)){
-					Press();
-				}
-				else{
-					pressed = false;	
-				}
-			}
-			if (touch.phase == TouchPhase.Ended){
-				if(IsInBound(touch.position)){
-					Release();
-				}
-			}
-			
-			*/
-		//}
-		
+}
+
+function Show(){
+ 	on = true;
+ 	color.a = 1;
+ 	alphaIdle = .2;
 }
 
 function IsInBound( position : Vector2){
@@ -107,6 +140,5 @@ function Press(){
 }
 
 function Release(){
-	//color.a = .2;
 	pressed = false;
 }

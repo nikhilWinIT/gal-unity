@@ -64,6 +64,7 @@
      <Compile Include="Assets\Source\Scripts\Track.js" />
      <Compile Include="Assets\Source\Scripts\Trail.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\AnimationTrigger.js" />
+     <Compile Include="Assets\Source\Scripts\Triggers\ButtonTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\DelayTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\DisableTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Triggers\EnableTrigger.js" />
@@ -93,6 +94,7 @@
      <Compile Include="Assets\Source\Scripts\Utility\InputTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Utility\KeyToNoteTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Utility\RangeListener.js" />
+     <Compile Include="Assets\Source\Scripts\Utility\Raycaster.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FirstPersonControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FollowTransform.js" />
