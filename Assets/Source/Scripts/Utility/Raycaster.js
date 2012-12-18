@@ -32,7 +32,7 @@ class Raycaster extends MonoBehaviour{
 	function CheckRay(){
 		var hit : RaycastHit; 
 		if(Physics.Raycast(Camera.main.ScreenPointToRay(screenPos), hit)){
-	        if(hit.collider.tag == target.tag) {
+	        if(hit.collider.GetInstanceID() == target.GetInstanceID()) {
 	        	if(touched){
 	        		Press();
 	        	}
@@ -53,7 +53,7 @@ class Raycaster extends MonoBehaviour{
 	function Release(){
 		if(pressed){
 			Debug.Log('released');	
-			onReleaseTrigger.Pull();
+			onReleaseTrigger.Pull('');
 			pressed = false;
 		}
 	}
