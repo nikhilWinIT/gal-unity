@@ -22,7 +22,7 @@ var fadeSpeedFactor : float;
 var on : boolean;
 
 function Start(){
-	alphaIdle = 0;
+	Show();
 	pressed = false;
 	on = true;
 }
