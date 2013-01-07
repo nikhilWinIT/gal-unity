@@ -131,12 +131,14 @@ function IsInBound( position : Vector2){
 
 function Press(){
 	color.a = 1;	
+	/*
 	if(!pressed){
 		for(trigger in triggers){
 			trigger.Pull(note);
 		}
 	}
 	pressed = true;
+	*/
 }
 
 function Release(){

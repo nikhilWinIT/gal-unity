@@ -47,6 +47,7 @@
      <Compile Include="Assets\ClickToMove.js" />
      <Compile Include="Assets\CollideTrigger.js" />
      <Compile Include="Assets\DrawCircle.js" />
+     <Compile Include="Assets\SoundNode.js" />
      <Compile Include="Assets\Source\Scripts\Companion.js" />
      <Compile Include="Assets\Source\Scripts\EventList.js" />
      <Compile Include="Assets\Source\Scripts\Global.js" />
@@ -98,6 +99,7 @@
      <Compile Include="Assets\Source\Scripts\Utility\InputTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Utility\KeyToNoteTrigger.js" />
      <Compile Include="Assets\Source\Scripts\Utility\RangeListener.js" />
+     <Compile Include="Assets\Source\Scripts\Utility\RayCollisionChecker.js" />
      <Compile Include="Assets\Source\Scripts\Utility\Raycaster.js" />
      <Compile Include="Assets\Spin.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />

@@ -63,6 +63,7 @@
      <Compile Include="Assets\Editor\RangeListenerEditor.js" />
      <Compile Include="Assets\Editor\ResetTriggerEditor.js" />
      <Compile Include="Assets\Editor\ScrollerEmitterEditor.js" />
+     <Compile Include="Assets\Editor\SoundNodeEditor.js" />
      <Compile Include="Assets\Editor\SoundTriggerEditor.js" />
      <Compile Include="Assets\Editor\SpawnTrailTriggerEditor.js" />
      <Compile Include="Assets\Editor\SpawnTriggerEditor.js" />
