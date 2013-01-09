@@ -1,7 +1,7 @@
 #pragma strict
 
 
-class SoundNode extends MonoBehaviour {
+class SoundNode extends ActiveNode {
 	var notes : String[] = ['C'];
 	var notesSize : int = 1;
 	var notesExpand : boolean;

@@ -44,9 +44,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ActiveNode.js" />
+     <Compile Include="Assets\ChallengeNode.js" />
      <Compile Include="Assets\ClickToMove.js" />
      <Compile Include="Assets\CollideTrigger.js" />
      <Compile Include="Assets\DrawCircle.js" />
+     <Compile Include="Assets\SoundGroupNode.js" />
      <Compile Include="Assets\SoundNode.js" />
      <Compile Include="Assets\Source\Scripts\Companion.js" />
      <Compile Include="Assets\Source\Scripts\EventList.js" />
@@ -114,6 +117,7 @@
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\SmoothFollow2D.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\ZoomCamera.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\tapcontrol.js" />
+     <Compile Include="Assets\TappableObject.js" />
      <Compile Include="Assets\Test.js" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />

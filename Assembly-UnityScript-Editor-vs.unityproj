@@ -44,7 +44,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\ActiveNodeEditor.js" />
      <Compile Include="Assets\Editor\AnimationTriggerEditor.js" />
+     <Compile Include="Assets\Editor\ChallengeNodeEditor.js" />
      <Compile Include="Assets\Editor\DelayTriggerEditor.js" />
      <Compile Include="Assets\Editor\EnableTriggerEditor.js" />
      <Compile Include="Assets\Editor\EventListEditor.js" />
@@ -63,10 +65,12 @@
      <Compile Include="Assets\Editor\RangeListenerEditor.js" />
      <Compile Include="Assets\Editor\ResetTriggerEditor.js" />
      <Compile Include="Assets\Editor\ScrollerEmitterEditor.js" />
+     <Compile Include="Assets\Editor\SoundGroupNodeEditor.js" />
      <Compile Include="Assets\Editor\SoundNodeEditor.js" />
      <Compile Include="Assets\Editor\SoundTriggerEditor.js" />
      <Compile Include="Assets\Editor\SpawnTrailTriggerEditor.js" />
      <Compile Include="Assets\Editor\SpawnTriggerEditor.js" />
+     <Compile Include="Assets\Editor\TappableObjectEditor.js" />
      <Compile Include="Assets\Editor\TriggerEditor.js" />
      <Compile Include="Assets\Editor\TriggerGroupEditor.js" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />

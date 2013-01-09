@@ -1,17 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SoundNode.js">
-    <Files>
-      <File FileName="Assets/ClickToMove.js" Line="20" Column="3" />
-      <File FileName="Assets/Source/Scripts/Utility/RayCollisionChecker.js" Line="1" Column="1" />
-      <File FileName="Assets/SoundNode.js" Line="42" Column="1" />
-      <File FileName="Assets/Source/Scripts/Sound.js" Line="1" Column="1" />
-      <File FileName="Assets/Source/Scripts/Pattern.js" Line="1" Column="1" />
-      <File FileName="Assets/Source/Scripts/Triggers/Trigger.js" Line="2" Column="20" />
-      <File FileName="Assets/Editor/TriggerEditor.js" Line="1" Column="1" />
-      <File FileName="Assets/Editor/SoundNodeEditor.js" Line="12" Column="48" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
