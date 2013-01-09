@@ -49,6 +49,7 @@
      <Compile Include="Assets\ClickToMove.js" />
      <Compile Include="Assets\CollideTrigger.js" />
      <Compile Include="Assets\DrawCircle.js" />
+     <Compile Include="Assets\InputState.js" />
      <Compile Include="Assets\SoundGroupNode.js" />
      <Compile Include="Assets\SoundNode.js" />
      <Compile Include="Assets\Source\Scripts\Companion.js" />

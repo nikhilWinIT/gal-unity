@@ -9,7 +9,7 @@ class TappableObject extends MonoBehaviour {
 	}	
 	
 	function Update(){
-		if(Input.GetMouseButtonUp(0)){
+		if(Input.GetMouseButtonDown(0)){
 			var hit = ray.CheckInput();	
 			if(hit.gameObject.GetInstanceID() == gameObject.GetInstanceID()){
 				Activate();

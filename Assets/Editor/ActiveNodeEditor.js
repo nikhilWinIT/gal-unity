@@ -1,7 +1,7 @@
 
 import System.Collections.Generic;
-
 @CustomEditor (ActiveNode)
+@CanEditMultipleObjects
 class ActiveNodeEditor extends Editor {
 	function Awake(){
 	}
