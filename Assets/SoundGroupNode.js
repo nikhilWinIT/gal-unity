@@ -2,8 +2,8 @@
 
 
 class SoundGroupNode extends ActiveNode {
-	var soundNodes : SoundNode[];
-	var soundsSize : int = 0;
+	var soundNodes : SoundNode[] = new SoundNode[1];
+	var soundsSize : int = 1;
 	var soundsExpand : boolean;
 	var tempo : float;	
 	private var startTime : float;

@@ -1,11 +1,12 @@
 class TappableObject extends MonoBehaviour {
 
-	var objects : ActiveNode;
+	var objects : Component[];
 	
 	private var ray : RayCollisionChecker;
 	
 	function Start(){
 		ray = new RayCollisionChecker();
+		objects = gameObject.GetComponentsInChildren(ActiveNode);
 	}	
 	
 	function Update(){
@@ -17,6 +18,8 @@ class TappableObject extends MonoBehaviour {
 		}
 	}
 	function Activate(){
-		objects.Activate();	
+		for(var object : ActiveNode in objects){
+			object.Activate();
+		}
 	}
 }

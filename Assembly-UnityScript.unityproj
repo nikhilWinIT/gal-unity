@@ -51,7 +51,11 @@
      <Compile Include="Assets\DrawCircle.js" />
      <Compile Include="Assets\InputState.js" />
      <Compile Include="Assets\SoundGroupNode.js" />
+     <Compile Include="Assets\SoundListener.js" />
+     <Compile Include="Assets\SoundLockNode.js" />
      <Compile Include="Assets\SoundNode.js" />
+     <Compile Include="Assets\SoundSphere.js" />
+     <Compile Include="Assets\SoundSphereBehaviour.js" />
      <Compile Include="Assets\Source\Scripts\Companion.js" />
      <Compile Include="Assets\Source\Scripts\EventList.js" />
      <Compile Include="Assets\Source\Scripts\Global.js" />

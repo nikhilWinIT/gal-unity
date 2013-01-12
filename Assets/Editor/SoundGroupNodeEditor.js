@@ -18,23 +18,23 @@ class SoundGroupNodeEditor extends Editor {
 		    if (GUILayout.Button('Remove'))
 		    	target.soundsSize -= 1;
 	        EditorGUILayout.EndHorizontal();
-		    	if(target.soundsSize > 0){
-				    	if(target.soundNodes.length != target.soundsSize) {
-						        var newTargets : SoundNode[] = new SoundNode[target.soundsSize];
-						        for(x = 0; x < target.soundsSize; x++) {
-						            if(target.soundNodes.length > x) {
-						                newTargets[x] = target.soundNodes[x];
-						            }
-						        }
-						        target.soundNodes = newTargets;
-					    }
-					}
+	    	if(target.soundNodes){
+			    	if(target.soundNodes.length != target.soundsSize) {
+					        var newTargets : SoundNode[] = new SoundNode[target.soundsSize];
+					        for(x = 0; x < target.soundsSize; x++) {
+					            if(target.soundNodes.length > x) {
+					                newTargets[x] = target.soundNodes[x];
+					            }
+					        }
+					        target.soundNodes = newTargets;
+				    }
 		   
-		    for(x = 0; x < target.soundNodes.length; x++) {
-		    	EditorGUILayout.BeginHorizontal ();
-		        EditorGUILayout.LabelField((x+1).ToString(), GUILayout.Width(10));
-		        target.soundNodes[x] = EditorGUILayout.ObjectField(target.soundNodes[x], SoundNode, true);
-		        EditorGUILayout.EndHorizontal();
+			    for(x = 0; x < target.soundNodes.length; x++) {
+			    	EditorGUILayout.BeginHorizontal ();
+			        EditorGUILayout.LabelField((x+1).ToString(), GUILayout.Width(10));
+			        target.soundNodes[x] = EditorGUILayout.ObjectField(target.soundNodes[x], SoundNode, true);
+			        EditorGUILayout.EndHorizontal();
+			    }
 		    }
 		}
 	   	

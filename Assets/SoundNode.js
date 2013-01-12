@@ -5,6 +5,8 @@ class SoundNode extends ActiveNode {
 	var notes : String[] = ['C'];
 	var notesSize : int = 1;
 	var notesExpand : boolean;
+	var spawnSphere : boolean;
+	var radius : float;
 	private var shiftFactor : float = 1.05946;
 	var frequencyTable : Hashtable;
 	var soundClip : AudioClip;
@@ -65,5 +67,8 @@ class SoundNode extends ActiveNode {
 	}
 	function Activate(){
 		PlayAll();	
+		if(spawnSphere){
+			var ss : SoundSphere = new SoundSphere(radius, soundClip, notes, transform.position);
+		}
 	}
 }

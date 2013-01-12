@@ -16,10 +16,10 @@ class ChallengeNode extends ActiveNode {
 	}
 	function OnTriggerEnter(){
 		if(!following){
-			Activate();	
+			Collect();	
 		}
 	}
-	function Activate(){
+	function Collect(){
 		var followers = GameObject.FindGameObjectsWithTag('Follower');
 		var rad= (followers.Length*incre*Mathf.PI)/180;
 		gameObject.AddComponent(Follow);
