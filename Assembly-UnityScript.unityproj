@@ -109,6 +109,7 @@
      <Compile Include="Assets\Source\Scripts\Utility\RangeListener.js" />
      <Compile Include="Assets\Source\Scripts\Utility\RayCollisionChecker.js" />
      <Compile Include="Assets\Source\Scripts\Utility\Raycaster.js" />
+     <Compile Include="Assets\Source\Scripts\Utility\Selector.js" />
      <Compile Include="Assets\Spin.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\CameraRelativeControl.js" />
      <Compile Include="Assets\Standard Assets (Mobile)\Scripts\FirstPersonControl.js" />

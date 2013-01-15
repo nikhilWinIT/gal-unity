@@ -33,7 +33,7 @@ class ChallengeNode extends ActiveNode {
 		}
 		*/
 			//rad += Mathf.PI/4 - followers.Length*(.1);
-			follow.target = target; 
+		follow.target = GameObject.FindGameObjectWithTag('Player'); 
 		follow.followX = true;
 		follow.followY = true;
 		follow.smoothTime = followSmoothTime;

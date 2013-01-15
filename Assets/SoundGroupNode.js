@@ -12,7 +12,6 @@ class SoundGroupNode extends ActiveNode {
 	
 	function Start(){
 		sequenceIndex = 0;
-		tempo = 1;
 	}
 	
 	function Update () {

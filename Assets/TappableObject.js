@@ -1,6 +1,7 @@
 class TappableObject extends MonoBehaviour {
 
 	var objects : Component[];
+	var aura : GameObject;
 	
 	private var ray : RayCollisionChecker;
 	
@@ -18,6 +19,7 @@ class TappableObject extends MonoBehaviour {
 		}
 	}
 	function Activate(){
+		Instantiate(aura, Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
 		for(var object : ActiveNode in objects){
 			object.Activate();
 		}

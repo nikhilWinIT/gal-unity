@@ -7,6 +7,7 @@ class SoundNode extends ActiveNode {
 	var notesExpand : boolean;
 	var spawnSphere : boolean;
 	var radius : float;
+	var aura : GameObject;
 	private var shiftFactor : float = 1.05946;
 	var frequencyTable : Hashtable;
 	var soundClip : AudioClip;
@@ -67,8 +68,12 @@ class SoundNode extends ActiveNode {
 	}
 	function Activate(){
 		PlayAll();	
-		if(spawnSphere){
+		var selector: Selector = GameObject.FindObjectOfType(Selector);
+		var listener : SoundListener = selector.selected;
+		listener.Register(notes, soundClip.name);
+		/*if(spawnSphere){
 			var ss : SoundSphere = new SoundSphere(radius, soundClip, notes, transform.position);
 		}
+		*/
 	}
 }

@@ -9,6 +9,7 @@ class SoundNodeEditor extends Editor {
     function OnInspectorGUI () {
     	target.spawnSphere = EditorGUILayout.Toggle(target.spawnSphere);
     	target.soundClip = EditorGUILayout.ObjectField(target.soundClip, AudioClip, true);
+    	target.radius = EditorGUILayout.FloatField(target.radius);
     	var x : int = 0;
     	if(GUILayout.Button('Play')) target.PlayAll();
 	   	target.notesExpand = EditorGUILayout.Foldout(target.notesExpand, "Targets");
