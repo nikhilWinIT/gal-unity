@@ -2,7 +2,9 @@
 class ChallengeNode extends ActiveNode {
 	var target : GameObject;
 	var followSmoothTime : float;
+	var attachTime : float;
 	var radius : float;	
+	var follow : Follow;
 	
 	
 	var incre : float;
@@ -12,7 +14,12 @@ class ChallengeNode extends ActiveNode {
 	}
 	
 	function Update () {
-	
+		if(following){
+			follow.smoothTime = Mathf.Clamp(follow.smoothTime - follow.smoothTime/20, followSmoothTime, attachTime);
+			if(follow.smoothTime == followSmoothTime){
+				Destroy(this);	
+				}	
+		}
 	}
 	function OnTriggerEnter(){
 		if(!following){
@@ -23,7 +30,7 @@ class ChallengeNode extends ActiveNode {
 		var followers = GameObject.FindGameObjectsWithTag('Follower');
 		var rad= (followers.Length*incre*Mathf.PI)/180;
 		gameObject.AddComponent(Follow);
-		var follow = gameObject.GetComponent(Follow);
+		follow = gameObject.GetComponent(Follow);
 		/*
 		if(followers.Length > 0){
 			follow.target = followers[followers.Length-1];	
@@ -36,7 +43,7 @@ class ChallengeNode extends ActiveNode {
 		follow.target = GameObject.FindGameObjectWithTag('Player'); 
 		follow.followX = true;
 		follow.followY = true;
-		follow.smoothTime = followSmoothTime;
+		follow.smoothTime = attachTime;
 		var x = radius * Mathf.Cos(rad);
 		var y = radius * Mathf.Sin(rad);
 		follow.offset[0] = x;

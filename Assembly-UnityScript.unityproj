@@ -50,6 +50,7 @@
      <Compile Include="Assets\CollideTrigger.js" />
      <Compile Include="Assets\DrawCircle.js" />
      <Compile Include="Assets\InputState.js" />
+     <Compile Include="Assets\ParticleController.js" />
      <Compile Include="Assets\SoundGroupNode.js" />
      <Compile Include="Assets\SoundListener.js" />
      <Compile Include="Assets\SoundLockNode.js" />
